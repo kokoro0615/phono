@@ -1,0 +1,49 @@
+{
+  "name": "phono",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node scripts/dev-preflight.mjs && next dev -p ${PORT:-3000}",
+    "dev:any": "next dev",
+    "dev:clean": "node scripts/dev-preflight.mjs --clean-turbo-cache && next dev -p ${PORT:-3000}",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "figma:assets:plan": "node scripts/sync-figma-assets.mjs --dry-run",
+    "figma:assets:sync": "node scripts/sync-figma-assets.mjs",
+    "figma:assets:sync:svg": "node scripts/sync-figma-assets.mjs --format svg",
+    "figma:assets:sync:png": "node scripts/sync-figma-assets.mjs --format png",
+    "figma:cc:preview": "figma connect preview",
+    "figma:cc:preview:json": "figma connect preview --output json",
+    "figma:cc:parse": "figma connect parse --outFile code-connect-output.json --exit-on-unreadable-files",
+    "figma:cc:dry-run": "figma connect publish --dry-run --exit-on-unreadable-files",
+    "figma:cc:publish": "figma connect publish --exit-on-unreadable-files"
+  },
+  "dependencies": {
+    "@radix-ui/react-slot": "^1.2.4",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.468.0",
+    "motion": "^12.0.0",
+    "next": "16.2.6",
+    "nodemailer": "^8.0.7",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "tailwind-merge": "^2.6.0",
+    "tw-animate-css": "^1.2.0"
+  },
+  "devDependencies": {
+    "@figma/code-connect": "^1.4.5",
+    "@tailwindcss/postcss": "4.2.1",
+    "@types/node": "^22.10.2",
+    "@types/nodemailer": "^6.4.17",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "16.2.6",
+    "playwright": "^1.60.0",
+    "tailwindcss": "4.2.1",
+    "typescript": "^5.7.2"
+  }
+}

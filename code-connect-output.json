@@ -1,0 +1,154 @@
+[
+  {
+    "figmaNode": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-177&m=dev",
+    "component": "ProjectCard",
+    "template": "const figma = require('figma');\nconst instance = figma.selectedInstance;\nvoid instance;\n// TODO: NEEDS_PROPERTY_REVIEW. Replace static text with Figma properties after\n// a published Figma component and Code Connect property context are available.\nconst projectCardCodeConnect = {\n    example: figma.code `\n    <ProjectCard\n      number=\"012\"\n      client=\"ハチマル水産\"\n      title=\"オンラインストアの構築と新商品の開発。\"\n      description=\"安心・安全の魚惣菜を全国へ。Shopify導入と補助金活用で販路拡大を支援。\"\n      href=\"/projects/hachimarusuisan-ec\"\n      tags={[\"事業開発\", \"資金調達サポート\"]}\n      palette=\"violet\"\n    />\n  `,\n    imports: ['import { ProjectCard } from \"@/components/phono/interactive\"'],\n    id: \"project-card\",\n    metadata: {\n        nestable: true\n    }\n};\nexport default projectCardCodeConnect;\n",
+    "templateData": {
+      "nestable": true,
+      "isParserless": true
+    },
+    "language": "tsx",
+    "label": "React",
+    "source": "components/phono/interactive.tsx",
+    "sourceLocation": {
+      "line": -1
+    },
+    "metadata": {
+      "cliVersion": "1.4.5"
+    },
+    "_codeConnectFilePath": "/home/kokoro/projects/clients/phono/website/components/phono/ProjectCard.figma.ts"
+  },
+  {
+    "figmaNode": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-197&m=dev",
+    "component": "PhonoTabs",
+    "template": "const figma = require('figma');\nconst instance = figma.selectedInstance;\nvoid instance;\n// TODO: NEEDS_PROPERTY_REVIEW. Confirm Figma variant/property names for active\n// tab and tab labels after a published Figma component and Code Connect\n// property context are available. This static example represents the project\n// category filter.\nconst phonoTabsCodeConnect = {\n    example: figma.code `\n    <PhonoTabs\n      tabs={[\n        { value: \"All\", label: \"All\" },\n        { value: \"事業開発\", label: \"事業開発\" },\n        { value: \"サービス開発\", label: \"サービス開発\" },\n        { value: \"ブランディング\", label: \"ブランディング\" },\n        { value: \"プロモーション・PR\", label: \"プロモーション・PR\" },\n        { value: \"資金調達サポート\", label: \"資金調達サポート\" }\n      ]}\n      activeTab=\"All\"\n      onChange={() => {}}\n      ariaLabel=\"実績カテゴリ\"\n      className=\"filter-row\"\n    />\n  `,\n    imports: ['import { PhonoTabs } from \"@/components/phono/interactive\"'],\n    id: \"phono-tabs\",\n    metadata: {\n        nestable: true\n    }\n};\nexport default phonoTabsCodeConnect;\n",
+    "templateData": {
+      "nestable": true,
+      "isParserless": true
+    },
+    "language": "tsx",
+    "label": "React",
+    "source": "components/phono/interactive.tsx",
+    "sourceLocation": {
+      "line": -1
+    },
+    "metadata": {
+      "cliVersion": "1.4.5"
+    },
+    "_codeConnectFilePath": "/home/kokoro/projects/clients/phono/website/components/phono/PhonoTabs.figma.ts"
+  },
+  {
+    "figmaNode": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2659&m=dev",
+    "component": "PhonoInput",
+    "template": "const figma = require('figma');\nconst instance = figma.selectedInstance;\nvoid instance;\n// TODO: NEEDS_PROPERTY_REVIEW. Map label, required, type, and placeholder from\n// Figma properties after a published Figma component and Code Connect property\n// context are available. Current snippet is static by design.\nconst phonoInputCodeConnect = {\n    example: figma.code `\n    <PhonoInput\n      name=\"company\"\n      label=\"会社名・店舗名・屋号＊\"\n      required\n    />\n  `,\n    imports: ['import { PhonoInput } from \"@/components/phono/interactive\"'],\n    id: \"phono-input\",\n    metadata: {\n        nestable: true\n    }\n};\nexport default phonoInputCodeConnect;\n",
+    "templateData": {
+      "nestable": true,
+      "isParserless": true
+    },
+    "language": "tsx",
+    "label": "React",
+    "source": "components/phono/interactive.tsx",
+    "sourceLocation": {
+      "line": -1
+    },
+    "metadata": {
+      "cliVersion": "1.4.5"
+    },
+    "_codeConnectFilePath": "/home/kokoro/projects/clients/phono/website/components/phono/PhonoInput.figma.ts"
+  },
+  {
+    "figmaNode": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2701&m=dev",
+    "component": "PhonoCheckbox",
+    "template": "const figma = require('figma');\nconst instance = figma.selectedInstance;\nvoid instance;\n// TODO: NEEDS_PROPERTY_REVIEW. Map option label and required state from Figma\n// properties after a published Figma component and Code Connect property\n// context are available.\nconst phonoCheckboxCodeConnect = {\n    example: figma.code `\n    <PhonoCheckbox name=\"category\" value=\"事業開発\">\n      事業開発\n    </PhonoCheckbox>\n  `,\n    imports: ['import { PhonoCheckbox } from \"@/components/phono/interactive\"'],\n    id: \"phono-checkbox\",\n    metadata: {\n        nestable: true\n    }\n};\nexport default phonoCheckboxCodeConnect;\n",
+    "templateData": {
+      "nestable": true,
+      "isParserless": true
+    },
+    "language": "tsx",
+    "label": "React",
+    "source": "components/phono/interactive.tsx",
+    "sourceLocation": {
+      "line": -1
+    },
+    "metadata": {
+      "cliVersion": "1.4.5"
+    },
+    "_codeConnectFilePath": "/home/kokoro/projects/clients/phono/website/components/phono/PhonoCheckbox.figma.ts"
+  },
+  {
+    "figmaNode": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2741&m=dev",
+    "component": "PhonoButton",
+    "template": "const figma = require('figma');\nconst instance = figma.selectedInstance;\nvoid instance;\n// TODO: NEEDS_PROPERTY_REVIEW. Replace the static label with Figma text\n// properties after a published Figma component and Code Connect property\n// context are available for this file and node.\nconst phonoButtonCodeConnect = {\n    example: figma.code `\n    <PhonoButton type=\"submit\">\n      入力内容を確認する\n    </PhonoButton>\n  `,\n    imports: ['import { PhonoButton } from \"@/components/phono/interactive\"'],\n    id: \"phono-button\",\n    metadata: {\n        nestable: true\n    }\n};\nexport default phonoButtonCodeConnect;\n",
+    "templateData": {
+      "nestable": true,
+      "isParserless": true
+    },
+    "language": "tsx",
+    "label": "React",
+    "source": "components/phono/interactive.tsx",
+    "sourceLocation": {
+      "line": -1
+    },
+    "metadata": {
+      "cliVersion": "1.4.5"
+    },
+    "_codeConnectFilePath": "/home/kokoro/projects/clients/phono/website/components/phono/PhonoButton.figma.ts"
+  },
+  {
+    "figmaNode": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-187&m=dev",
+    "component": "PhonoBadge",
+    "template": "const figma = require('figma');\nconst instance = figma.selectedInstance;\nvoid instance;\n// TODO: NEEDS_PROPERTY_REVIEW. Map badge text from Figma properties after a\n// published Figma component and Code Connect property context are available.\n// The current snippet keeps the known project-tag shape static.\nconst phonoBadgeCodeConnect = {\n    example: figma.code `\n    <PhonoBadge>事業開発</PhonoBadge>\n  `,\n    imports: ['import { PhonoBadge } from \"@/components/phono/interactive\"'],\n    id: \"phono-badge\",\n    metadata: {\n        nestable: true\n    }\n};\nexport default phonoBadgeCodeConnect;\n",
+    "templateData": {
+      "nestable": true,
+      "isParserless": true
+    },
+    "language": "tsx",
+    "label": "React",
+    "source": "components/phono/interactive.tsx",
+    "sourceLocation": {
+      "line": -1
+    },
+    "metadata": {
+      "cliVersion": "1.4.5"
+    },
+    "_codeConnectFilePath": "/home/kokoro/projects/clients/phono/website/components/phono/PhonoBadge.figma.ts"
+  },
+  {
+    "figmaNode": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2784&m=dev",
+    "component": "ContactCircle",
+    "template": "const figma = require('figma');\nconst instance = figma.selectedInstance;\nvoid instance;\n// TODO: NEEDS_PROPERTY_REVIEW. MCP metadata confirms this node is an ordinary\n// frame with text/vector children; Code Connect property names are not\n// available until a published Figma component and Developer seat are confirmed.\nconst contactCircleCodeConnect = {\n    example: figma.code `\n    <ContactCircle />\n  `,\n    imports: ['import { ContactCircle } from \"@/components/phono/shared\"'],\n    id: \"contact-circle\",\n    metadata: {\n        nestable: true\n    }\n};\nexport default contactCircleCodeConnect;\n",
+    "templateData": {
+      "nestable": true,
+      "isParserless": true
+    },
+    "language": "tsx",
+    "label": "React",
+    "source": "components/phono/shared.tsx",
+    "sourceLocation": {
+      "line": -1
+    },
+    "metadata": {
+      "cliVersion": "1.4.5"
+    },
+    "_codeConnectFilePath": "/home/kokoro/projects/clients/phono/website/components/phono/ContactCircle.figma.ts"
+  },
+  {
+    "figmaNode": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-119&m=dev",
+    "component": "ArrowLink",
+    "template": "const figma = require('figma');\nconst instance = figma.selectedInstance;\nvoid instance;\n// TODO: NEEDS_PROPERTY_REVIEW. MCP metadata confirms this node is an ordinary\n// frame with text/vector children; Code Connect property names are not\n// available until a published Figma component and Developer seat are confirmed.\nconst arrowLinkCodeConnect = {\n    example: figma.code `\n    <ArrowLink href=\"/projects\" label=\"View All\" sublabel=\"実績一覧を見る\" />\n  `,\n    imports: ['import { ArrowLink } from \"@/components/phono/shared\"'],\n    id: \"arrow-link\",\n    metadata: {\n        nestable: true\n    }\n};\nexport default arrowLinkCodeConnect;\n",
+    "templateData": {
+      "nestable": true,
+      "isParserless": true
+    },
+    "language": "tsx",
+    "label": "React",
+    "source": "components/phono/shared.tsx",
+    "sourceLocation": {
+      "line": -1
+    },
+    "metadata": {
+      "cliVersion": "1.4.5"
+    },
+    "_codeConnectFilePath": "/home/kokoro/projects/clients/phono/website/components/phono/ArrowLink.figma.ts"
+  }
+]

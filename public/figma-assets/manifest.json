@@ -1,0 +1,1039 @@
+{
+  "generatedAt": "2026-05-19T10:36:01.393Z",
+  "assets": [
+    {
+      "name": "About phono image 4",
+      "nodeId": "1:571",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-571&m=dev",
+      "format": "png",
+      "localPath": "/figma-assets/png/about-phono-image-4--1-571.png",
+      "usedIn": [
+        "app/about/page.tsx"
+      ],
+      "status": "downloaded",
+      "notes": "Downloaded from Figma MCP asset source; temporary source URL intentionally not stored.",
+      "updatedAt": "2026-05-19T10:22:00.071Z"
+    },
+    {
+      "name": "Member visual 01",
+      "nodeId": "1:44",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-44&m=dev",
+      "format": "png",
+      "localPath": "/figma-assets/png/member-visual-01--1-44.png",
+      "usedIn": [
+        "app/page.tsx"
+      ],
+      "status": "downloaded",
+      "notes": "Downloaded from Figma MCP asset source; temporary source URL intentionally not stored.",
+      "updatedAt": "2026-05-19T10:22:00.071Z"
+    },
+    {
+      "name": "Member visual 02",
+      "nodeId": "1:54",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-54&m=dev",
+      "format": "png",
+      "localPath": "/figma-assets/png/member-visual-02--1-54.png",
+      "usedIn": [
+        "app/page.tsx"
+      ],
+      "status": "downloaded",
+      "notes": "Downloaded from Figma MCP asset source; temporary source URL intentionally not stored.",
+      "updatedAt": "2026-05-19T10:22:00.071Z"
+    },
+    {
+      "name": "Member visual 03",
+      "nodeId": "1:64",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-64&m=dev",
+      "format": "png",
+      "localPath": "/figma-assets/png/member-visual-03--1-64.png",
+      "usedIn": [
+        "app/page.tsx"
+      ],
+      "status": "downloaded",
+      "notes": "Downloaded from Figma MCP asset source after retry; temporary source URL intentionally not stored.",
+      "updatedAt": "2026-05-19T10:22:00.071Z"
+    },
+    {
+      "name": "Member visual 04",
+      "nodeId": "1:34",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-34&m=dev",
+      "format": "png",
+      "localPath": "/figma-assets/png/member-visual-04--1-34.png",
+      "usedIn": [
+        "app/page.tsx"
+      ],
+      "status": "downloaded",
+      "notes": "Downloaded from Figma MCP asset source; temporary source URL intentionally not stored.",
+      "updatedAt": "2026-05-19T10:22:00.071Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-23&m=dev",
+      "format": "png",
+      "localPath": "/figma-assets/png/top-member-visual-group--1-23.png",
+      "name": "Top member visual group",
+      "nodeId": "1:23",
+      "slug": "top-member-visual-group",
+      "status": "downloaded",
+      "usedIn": [
+        "app/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:28:28.821Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-260&m=dev",
+      "format": "png",
+      "localPath": "/figma-assets/png/top-project-mask-visual-d2--1-260.png",
+      "name": "Top project mask visual D2",
+      "nodeId": "1:260",
+      "slug": "top-project-mask-visual-d2",
+      "status": "downloaded",
+      "usedIn": [
+        "app/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-257&m=dev",
+      "format": "png",
+      "localPath": "/figma-assets/png/top-project-mask-visual-d3--1-257.png",
+      "name": "Top project mask visual D3",
+      "nodeId": "1:257",
+      "slug": "top-project-mask-visual-d3",
+      "status": "downloaded",
+      "usedIn": [
+        "app/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "name": "Top project visual D1",
+      "nodeId": "1:253",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-253&m=dev",
+      "format": "png",
+      "localPath": "/figma-assets/png/top-project-visual-d1--1-253.png",
+      "usedIn": [
+        "app/page.tsx"
+      ],
+      "status": "downloaded",
+      "notes": "Downloaded from Figma MCP asset source and converted to PNG locally; temporary source URL intentionally not stored.",
+      "updatedAt": "2026-05-19T10:22:00.071Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-641&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/about-company-logo-art-frame--1-641.svg",
+      "name": "About company logo/art frame",
+      "nodeId": "1:641",
+      "slug": "about-company-logo-art-frame",
+      "status": "downloaded",
+      "usedIn": [
+        "app/about/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-555&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/about-decorative-wave-group--1-555.svg",
+      "name": "About decorative wave group",
+      "nodeId": "1:555",
+      "slug": "about-decorative-wave-group",
+      "status": "downloaded",
+      "usedIn": [
+        "app/about/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-517&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/about-hero-wave-group--1-517.svg",
+      "name": "About hero wave group",
+      "nodeId": "1:517",
+      "slug": "about-hero-wave-group",
+      "status": "downloaded",
+      "usedIn": [
+        "app/about/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-626&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/about-intro-vector-group--1-626.svg",
+      "name": "About intro vector group",
+      "nodeId": "1:626",
+      "slug": "about-intro-vector-group",
+      "status": "downloaded",
+      "usedIn": [
+        "app/about/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2652&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/contact-form-background-vector-group--1-2652.svg",
+      "name": "Contact form background vector group",
+      "nodeId": "1:2652",
+      "slug": "contact-form-background-vector-group",
+      "status": "downloaded",
+      "usedIn": [
+        "app/contact/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2641&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/contact-hero-wave-group--1-2641.svg",
+      "name": "Contact hero wave group",
+      "nodeId": "1:2641",
+      "slug": "contact-hero-wave-group",
+      "status": "downloaded",
+      "usedIn": [
+        "app/contact/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-97&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/header-phono-logo-vector-group--1-97.svg",
+      "name": "Header phono logo vector group",
+      "nodeId": "1:97",
+      "slug": "header-phono-logo-vector-group",
+      "status": "downloaded",
+      "usedIn": [
+        "components/phono/shared.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "name": "Hero gradient wave vector",
+      "nodeId": "1:252",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-252&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/hero-gradient-wave-vector--1-252.svg",
+      "usedIn": [
+        "app/page.tsx"
+      ],
+      "status": "downloaded",
+      "notes": "Downloaded from Figma MCP asset source; temporary source URL intentionally not stored.",
+      "updatedAt": "2026-05-19T10:22:00.071Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2398&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/project-detail-hero-wave-group--1-2398.svg",
+      "name": "Project detail hero wave group",
+      "nodeId": "1:2398",
+      "slug": "project-detail-hero-wave-group",
+      "status": "downloaded",
+      "usedIn": [
+        "app/projects/[slug]/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2436&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/project-detail-visual-vector-group--1-2436.svg",
+      "name": "Project detail visual vector group",
+      "nodeId": "1:2436",
+      "slug": "project-detail-visual-vector-group",
+      "status": "downloaded",
+      "usedIn": [
+        "app/projects/[slug]/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1750&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/projects-list-hero-wave-group--1-1750.svg",
+      "name": "Projects list hero wave group",
+      "nodeId": "1:1750",
+      "slug": "projects-list-hero-wave-group",
+      "status": "downloaded",
+      "usedIn": [
+        "app/projects/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1947&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/projects-list-thumbnail-visual-01--1-1947.svg",
+      "name": "Projects list thumbnail visual 01",
+      "nodeId": "1:1947",
+      "slug": "projects-list-thumbnail-visual-01",
+      "status": "downloaded",
+      "usedIn": [
+        "app/projects/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1975&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/projects-list-thumbnail-visual-02--1-1975.svg",
+      "name": "Projects list thumbnail visual 02",
+      "nodeId": "1:1975",
+      "slug": "projects-list-thumbnail-visual-02",
+      "status": "downloaded",
+      "usedIn": [
+        "app/projects/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2004&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/projects-list-thumbnail-visual-03--1-2004.svg",
+      "name": "Projects list thumbnail visual 03",
+      "nodeId": "1:2004",
+      "slug": "projects-list-thumbnail-visual-03",
+      "status": "downloaded",
+      "usedIn": [
+        "app/projects/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2149&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/projects-list-thumbnail-visual-04--1-2149.svg",
+      "name": "Projects list thumbnail visual 04",
+      "nodeId": "1:2149",
+      "slug": "projects-list-thumbnail-visual-04",
+      "status": "downloaded",
+      "usedIn": [
+        "app/projects/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2178&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/projects-list-thumbnail-visual-05--1-2178.svg",
+      "name": "Projects list thumbnail visual 05",
+      "nodeId": "1:2178",
+      "slug": "projects-list-thumbnail-visual-05",
+      "status": "downloaded",
+      "usedIn": [
+        "app/projects/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2208&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/projects-list-thumbnail-visual-06--1-2208.svg",
+      "name": "Projects list thumbnail visual 06",
+      "nodeId": "1:2208",
+      "slug": "projects-list-thumbnail-visual-06",
+      "status": "downloaded",
+      "usedIn": [
+        "app/projects/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2237&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/projects-list-thumbnail-visual-07--1-2237.svg",
+      "name": "Projects list thumbnail visual 07",
+      "nodeId": "1:2237",
+      "slug": "projects-list-thumbnail-visual-07",
+      "status": "downloaded",
+      "usedIn": [
+        "app/projects/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2266&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/projects-list-thumbnail-visual-08--1-2266.svg",
+      "name": "Projects list thumbnail visual 08",
+      "nodeId": "1:2266",
+      "slug": "projects-list-thumbnail-visual-08",
+      "status": "downloaded",
+      "usedIn": [
+        "app/projects/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2295&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/projects-list-thumbnail-visual-09--1-2295.svg",
+      "name": "Projects list thumbnail visual 09",
+      "nodeId": "1:2295",
+      "slug": "projects-list-thumbnail-visual-09",
+      "status": "downloaded",
+      "usedIn": [
+        "app/projects/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2323&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/projects-list-thumbnail-visual-10--1-2323.svg",
+      "name": "Projects list thumbnail visual 10",
+      "nodeId": "1:2323",
+      "slug": "projects-list-thumbnail-visual-10",
+      "status": "downloaded",
+      "usedIn": [
+        "app/projects/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2352&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/projects-list-thumbnail-visual-11--1-2352.svg",
+      "name": "Projects list thumbnail visual 11",
+      "nodeId": "1:2352",
+      "slug": "projects-list-thumbnail-visual-11",
+      "status": "downloaded",
+      "usedIn": [
+        "app/projects/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-3480&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/recruitment-benefit-visual-3480--1-3480.svg",
+      "name": "Recruitment benefit visual 3480",
+      "nodeId": "1:3480",
+      "slug": "recruitment-benefit-visual-3480",
+      "status": "downloaded",
+      "usedIn": [
+        "app/recruitment/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-3483&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/recruitment-benefit-visual-3483--1-3483.svg",
+      "name": "Recruitment benefit visual 3483",
+      "nodeId": "1:3483",
+      "slug": "recruitment-benefit-visual-3483",
+      "status": "downloaded",
+      "usedIn": [
+        "app/recruitment/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-3568&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/recruitment-footer-wave-3568--1-3568.svg",
+      "name": "Recruitment footer wave 3568",
+      "nodeId": "1:3568",
+      "slug": "recruitment-footer-wave-3568",
+      "status": "downloaded",
+      "usedIn": [
+        "app/recruitment/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2873&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/recruitment-hero-wave-group--1-2873.svg",
+      "name": "Recruitment hero wave group",
+      "nodeId": "1:2873",
+      "slug": "recruitment-hero-wave-group",
+      "status": "downloaded",
+      "usedIn": [
+        "app/recruitment/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-3558&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/recruitment-lower-wave-3558--1-3558.svg",
+      "name": "Recruitment lower wave 3558",
+      "nodeId": "1:3558",
+      "slug": "recruitment-lower-wave-3558",
+      "status": "downloaded",
+      "usedIn": [
+        "app/recruitment/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-3563&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/recruitment-lower-wave-3563--1-3563.svg",
+      "name": "Recruitment lower wave 3563",
+      "nodeId": "1:3563",
+      "slug": "recruitment-lower-wave-3563",
+      "status": "downloaded",
+      "usedIn": [
+        "app/recruitment/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-3032&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/recruitment-schedule-timeline-diagram--1-3032.svg",
+      "name": "Recruitment schedule/timeline diagram",
+      "nodeId": "1:3032",
+      "slug": "recruitment-schedule-timeline-diagram",
+      "status": "downloaded",
+      "usedIn": [
+        "app/recruitment/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-2882&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/recruitment-stance-illustration--1-2882.svg",
+      "name": "Recruitment stance illustration",
+      "nodeId": "1:2882",
+      "slug": "recruitment-stance-illustration",
+      "status": "downloaded",
+      "usedIn": [
+        "app/recruitment/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-957&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/services-contract-visual--1-957.svg",
+      "name": "Services contract visual",
+      "nodeId": "1:957",
+      "slug": "services-contract-visual",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-893&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/services-footer-wave-group--1-893.svg",
+      "name": "Services footer wave group",
+      "nodeId": "1:893",
+      "slug": "services-footer-wave-group",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-911&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/services-hero-decorative-group--1-911.svg",
+      "name": "Services hero decorative group",
+      "nodeId": "1:911",
+      "slug": "services-hero-decorative-group",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1120&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/services-lower-media-vector--1-1120.svg",
+      "name": "Services lower media vector",
+      "nodeId": "1:1120",
+      "slug": "services-lower-media-vector",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1062&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/services-main-diagram--1-1062.svg",
+      "name": "Services main diagram",
+      "nodeId": "1:1062",
+      "slug": "services-main-diagram",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "name": "Services media vector",
+      "nodeId": "1:936",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-936&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/services-media-vector--1-936.svg",
+      "usedIn": [
+        "app/services/page.tsx"
+      ],
+      "status": "downloaded",
+      "notes": "REST export returned no URL; downloaded from Figma MCP asset source. Temporary source URL intentionally not stored.",
+      "updatedAt": "2026-05-19T10:36:01.393Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1097&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/services-overlapping-circle-visual--1-1097.svg",
+      "name": "Services overlapping circle visual",
+      "nodeId": "1:1097",
+      "slug": "services-overlapping-circle-visual",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1004&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/services-process-diagram-01--1-1004.svg",
+      "name": "Services process diagram 01",
+      "nodeId": "1:1004",
+      "slug": "services-process-diagram-01",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1008&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/services-process-diagram-02--1-1008.svg",
+      "name": "Services process diagram 02",
+      "nodeId": "1:1008",
+      "slug": "services-process-diagram-02",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1012&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/services-process-diagram-03--1-1012.svg",
+      "name": "Services process diagram 03",
+      "nodeId": "1:1012",
+      "slug": "services-process-diagram-03",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1027&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/services-process-diagram-04--1-1027.svg",
+      "name": "Services process diagram 04",
+      "nodeId": "1:1027",
+      "slug": "services-process-diagram-04",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1037&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/services-process-diagram-05--1-1037.svg",
+      "name": "Services process diagram 05",
+      "nodeId": "1:1037",
+      "slug": "services-process-diagram-05",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1374&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/subsidy-circle-diagram-1374--1-1374.svg",
+      "name": "Subsidy circle diagram 1374",
+      "nodeId": "1:1374",
+      "slug": "subsidy-circle-diagram-1374",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/subsidy/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1401&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/subsidy-circle-diagram-1401--1-1401.svg",
+      "name": "Subsidy circle diagram 1401",
+      "nodeId": "1:1401",
+      "slug": "subsidy-circle-diagram-1401",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/subsidy/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1419&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/subsidy-circle-diagram-1419--1-1419.svg",
+      "name": "Subsidy circle diagram 1419",
+      "nodeId": "1:1419",
+      "slug": "subsidy-circle-diagram-1419",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/subsidy/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1429&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/subsidy-circle-diagram-1429--1-1429.svg",
+      "name": "Subsidy circle diagram 1429",
+      "nodeId": "1:1429",
+      "slug": "subsidy-circle-diagram-1429",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/subsidy/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1439&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/subsidy-circle-diagram-1439--1-1439.svg",
+      "name": "Subsidy circle diagram 1439",
+      "nodeId": "1:1439",
+      "slug": "subsidy-circle-diagram-1439",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/subsidy/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1450&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/subsidy-circle-diagram-1450--1-1450.svg",
+      "name": "Subsidy circle diagram 1450",
+      "nodeId": "1:1450",
+      "slug": "subsidy-circle-diagram-1450",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/subsidy/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1324&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/subsidy-decorative-vector-1324--1-1324.svg",
+      "name": "Subsidy decorative vector 1324",
+      "nodeId": "1:1324",
+      "slug": "subsidy-decorative-vector-1324",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/subsidy/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1474&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/subsidy-decorative-vector-1474--1-1474.svg",
+      "name": "Subsidy decorative vector 1474",
+      "nodeId": "1:1474",
+      "slug": "subsidy-decorative-vector-1474",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/subsidy/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1479&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/subsidy-decorative-vector-1479--1-1479.svg",
+      "name": "Subsidy decorative vector 1479",
+      "nodeId": "1:1479",
+      "slug": "subsidy-decorative-vector-1479",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/subsidy/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1545&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/subsidy-decorative-vector-1545--1-1545.svg",
+      "name": "Subsidy decorative vector 1545",
+      "nodeId": "1:1545",
+      "slug": "subsidy-decorative-vector-1545",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/subsidy/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1579&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/subsidy-decorative-vector-1579--1-1579.svg",
+      "name": "Subsidy decorative vector 1579",
+      "nodeId": "1:1579",
+      "slug": "subsidy-decorative-vector-1579",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/subsidy/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.901Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1292&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/subsidy-finance-diagram--1-1292.svg",
+      "name": "Subsidy finance diagram",
+      "nodeId": "1:1292",
+      "slug": "subsidy-finance-diagram",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/subsidy/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-1264&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/subsidy-hero-wave-vector--1-1264.svg",
+      "name": "Subsidy hero wave vector",
+      "nodeId": "1:1264",
+      "slug": "subsidy-hero-wave-vector",
+      "status": "downloaded",
+      "usedIn": [
+        "app/services/subsidy/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-3&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/top-background-wave-vector-a--1-3.svg",
+      "name": "Top background wave vector A",
+      "nodeId": "1:3",
+      "slug": "top-background-wave-vector-a",
+      "status": "downloaded",
+      "usedIn": [
+        "app/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:28:28.820Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-4&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/top-background-wave-vector-b--1-4.svg",
+      "name": "Top background wave vector B",
+      "nodeId": "1:4",
+      "slug": "top-background-wave-vector-b",
+      "status": "downloaded",
+      "usedIn": [
+        "app/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:28:28.821Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-5&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/top-clip-path-decorative-group--1-5.svg",
+      "name": "Top clip path decorative group",
+      "nodeId": "1:5",
+      "slug": "top-clip-path-decorative-group",
+      "status": "downloaded",
+      "usedIn": [
+        "app/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:28:28.821Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-68&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/top-decorative-vector-cluster--1-68.svg",
+      "name": "Top decorative vector cluster",
+      "nodeId": "1:68",
+      "slug": "top-decorative-vector-cluster",
+      "status": "downloaded",
+      "usedIn": [
+        "app/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:28:28.821Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-79&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/top-lower-wave-group--1-79.svg",
+      "name": "Top lower wave group",
+      "nodeId": "1:79",
+      "slug": "top-lower-wave-group",
+      "status": "downloaded",
+      "usedIn": [
+        "app/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:34:40.900Z"
+    },
+    {
+      "fileKey": "q7mwQdy7vKDfYUfro9ghD0",
+      "figmaUrl": "https://www.figma.com/design/q7mwQdy7vKDfYUfro9ghD0/%E3%82%B3%E3%83%94%E3%83%BC_phono?node-id=1-78&m=dev",
+      "format": "svg",
+      "localPath": "/figma-assets/svg/top-lower-wave-vector--1-78.svg",
+      "name": "Top lower wave vector",
+      "nodeId": "1:78",
+      "slug": "top-lower-wave-vector",
+      "status": "downloaded",
+      "usedIn": [
+        "app/page.tsx"
+      ],
+      "notes": "",
+      "updatedAt": "2026-05-19T10:28:28.821Z"
+    }
+  ]
+}

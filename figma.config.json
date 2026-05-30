@@ -1,0 +1,32 @@
+{
+  "codeConnect": {
+    "parser": "react",
+    "include": [
+      "src/**/*.figma.ts",
+      "components/**/*.figma.ts"
+    ],
+    "exclude": [
+      "**/*.test.*",
+      "**/*.spec.*",
+      "**/__tests__/**",
+      "**/node_modules/**",
+      "**/.next/**",
+      "**/dist/**",
+      "**/build/**"
+    ],
+    "label": "React",
+    "language": "tsx",
+    "defaultBranch": "main",
+    "paths": {
+      "@/*": [
+        "./*"
+      ]
+    },
+    "importPaths": {
+      "app/*": "@/app/*",
+      "components/*": "@/components/*",
+      "data/*": "@/data/*",
+      "lib/*": "@/lib/*"
+    }
+  }
+}
