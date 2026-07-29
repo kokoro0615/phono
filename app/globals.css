@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 
 @theme {
-  --font-sans: "Zen Kaku Gothic New", "Noto Sans JP", "Hiragino Kaku Gothic ProN", system-ui, sans-serif;
+  --font-sans: var(--font-zen-kaku-gothic), "Zen Kaku Gothic New", "Noto Sans JP", "Hiragino Kaku Gothic ProN", system-ui, sans-serif;
 }
 
 :root {
@@ -1587,6 +1587,15 @@ time,
   object-position: center top;
 }
 
+.subsidy-page {
+  position: relative;
+  overflow: clip;
+}
+
+.subsidy-page-ribbon {
+  display: none;
+}
+
 /* Section headings — Figma uses an 80px display with offset color shadow. */
 .subsidy-page .section-heading h1,
 .subsidy-page .section-heading h2 {
@@ -1622,6 +1631,38 @@ time,
   margin-bottom: 40px;
 }
 
+.subsidy-money-mark {
+  position: relative;
+  width: 114.34px;
+  height: 147.57px;
+  margin-bottom: 40px;
+}
+
+.subsidy-money-mark-layer {
+  position: absolute;
+  mix-blend-mode: multiply;
+}
+
+.subsidy-money-mark-layer .figma-asset-image {
+  object-fit: fill;
+}
+
+.subsidy-money-mark-layer-1 {
+  inset: 28.67% 28.24% 0 1.76%;
+}
+
+.subsidy-money-mark-layer-2 {
+  inset: 27.41% 27.41% 4.15% 5.43%;
+}
+
+.subsidy-money-mark-layer-3 {
+  inset: 29.07% 33.44% 3.12% 0;
+}
+
+.subsidy-money-mark-layer-4 {
+  inset: 29.48% 30.64% 2.71% 2.8%;
+}
+
 .subsidy-statement {
   margin: 0 0 36px;
   font-size: clamp(30px, 3.4vw, 42px);
@@ -1635,7 +1676,7 @@ time,
 }
 
 .subsidy-intro-body p {
-  margin: 0 0 18px;
+  margin: 0;
   color: var(--phono-black);
   font-size: 16px;
   line-height: 2;
@@ -1702,21 +1743,7 @@ time,
   isolation: isolate;
   overflow: clip;
   padding: 90px 0 140px;
-  background: linear-gradient(180deg, white, var(--phono-lavender) 60%, white);
-}
-
-.subsidy-feature-wave-asset {
-  position: absolute;
-  inset: 0 0 auto;
-  z-index: -1;
-  height: 120%;
-  opacity: 0.4;
-  pointer-events: none;
-}
-
-.subsidy-feature-wave-asset .figma-asset-image {
-  object-fit: cover;
-  object-position: center top;
+  background: white;
 }
 
 .subsidy-feature .section-heading {
@@ -1735,20 +1762,67 @@ time,
 .subsidy-feature-card {
   display: grid;
   justify-items: center;
-  gap: 28px;
+  align-content: start;
+  gap: 0;
   text-align: center;
 }
 
 .subsidy-feature-mark {
+  position: relative;
   display: grid;
   place-items: center;
-  width: 132px;
-  aspect-ratio: 1;
-  border-radius: 50% 50% 50% 8%;
-  background: linear-gradient(150deg, var(--phono-pink), var(--phono-purple));
+  width: 132.97px;
+  height: 136.28px;
+  isolation: isolate;
+}
+
+.subsidy-feature-mark-2 {
+  width: 141.35px;
+  height: 131.93px;
+}
+
+.subsidy-feature-mark-3 {
+  width: 133.49px;
+  height: 130.01px;
+}
+
+.subsidy-feature-mark-layer {
+  position: absolute;
+  z-index: 0;
+  mix-blend-mode: multiply;
+}
+
+.subsidy-feature-mark-layer .figma-asset-image {
+  object-fit: fill;
+}
+
+.subsidy-feature-mark-1 .subsidy-feature-mark-layer-a {
+  inset: 0 5.91% 4.6% 0;
+}
+
+.subsidy-feature-mark-1 .subsidy-feature-mark-layer-b {
+  inset: 3.19% 0 0 3.89%;
+}
+
+.subsidy-feature-mark-2 .subsidy-feature-mark-layer-a {
+  inset: 0 0.01% 0 9.59%;
+}
+
+.subsidy-feature-mark-2 .subsidy-feature-mark-layer-b {
+  inset: 0 9.57% 5.13% 0;
+}
+
+.subsidy-feature-mark-3 .subsidy-feature-mark-layer-a {
+  inset: 0 0 0 6.28%;
+}
+
+.subsidy-feature-mark-3 .subsidy-feature-mark-layer-b {
+  inset: 3.35% 4.25% 0.38% 0;
 }
 
 .subsidy-feature-number {
+  position: relative;
+  z-index: 1;
   font-size: 55px;
   font-weight: 950;
   line-height: 1;
@@ -1756,11 +1830,21 @@ time,
 }
 
 .subsidy-feature-heading {
-  margin: 0;
+  margin: 18px 0 0;
   font-size: clamp(26px, 2.6vw, 32px);
   font-weight: 500;
   line-height: 1.5;
   color: var(--phono-black);
+}
+
+.subsidy-feature-card:nth-child(2) .subsidy-feature-heading {
+  margin-top: 22px;
+}
+
+.subsidy-feature-card:nth-child(3) .subsidy-feature-heading {
+  width: 440px;
+  max-width: none;
+  margin-top: 24px;
 }
 
 .subsidy-feature-heading span {
@@ -1768,8 +1852,9 @@ time,
 }
 
 .subsidy-feature-body {
-  margin: 0;
-  max-width: 42ch;
+  width: 369px;
+  max-width: none;
+  margin: 47px 0 0;
   color: var(--phono-black);
   font-size: 16px;
   line-height: 2;
@@ -1777,16 +1862,39 @@ time,
 }
 
 /* --- Detail — Figma 1:1493 (補助金) + 1:1502 (助成金) --- */
+.subsidy-detail-scene {
+  position: relative;
+  isolation: isolate;
+}
+
+.subsidy-detail-scene-asset {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.subsidy-detail-scene-asset .figma-asset-image {
+  object-fit: fill;
+}
+
 .subsidy-detail {
+  position: relative;
+  z-index: 1;
   padding: 120px 0 140px;
 }
 
+.subsidy-detail-blobs {
+  display: none;
+}
+
 .subsidy-detail-pink {
-  background: linear-gradient(180deg, white, rgb(255 155 208 / 0.32) 38%, white);
+  background: transparent;
 }
 
 .subsidy-detail-lavender {
-  background: linear-gradient(180deg, white, var(--phono-lavender) 38%, white);
+  background: transparent;
 }
 
 .subsidy-detail-title {
@@ -3089,7 +3197,7 @@ body:has(.home-top) .site-header {
 }
 
 .figma-projects {
-  height: 2210px;
+  height: 2197px;
   color: #0a0a0a;
   isolation: isolate;
 }
@@ -3625,26 +3733,27 @@ body:has(.home-top) .site-header {
   display: grid;
   min-height: 520px;
   place-items: center;
-  border-radius: 49% 51% 48% 52%;
-  background:
-    radial-gradient(closest-side at 66% 58%, rgb(255 155 208 / 0.75), transparent 62%),
-    radial-gradient(closest-side at 42% 38%, rgb(140 81 238 / 0.58), transparent 66%);
+  isolation: isolate;
+  background: transparent;
   color: var(--phono-black);
   font-size: 24px;
   line-height: 2;
   text-align: center;
 }
 
-.about-question .about-intro-asset {
+.about-question::before,
+.about-question::after {
+  content: "";
   position: absolute;
-  inset: 0;
-  z-index: 0;
-  width: 100%;
-  height: 100%;
+  inset: 4%;
+  z-index: -1;
+  border: 14px solid var(--phono-blue);
+  border-radius: 50%;
 }
 
-.about-question .about-intro-asset .figma-asset-image {
-  object-fit: contain;
+.about-question::after {
+  inset: 2% 0 0 7%;
+  border-color: var(--phono-pink);
 }
 
 .about-question > span {
@@ -4045,6 +4154,11 @@ body:has(.home-top) .site-header {
   padding-left: 1.2em;
 }
 
+.figma-detail-copy ol {
+  margin: 34px 0 0;
+  padding-left: 1.2em;
+}
+
 .detail-solution-grid {
   display: grid;
   grid-template-columns: 170px 1fr;
@@ -4053,6 +4167,3368 @@ body:has(.home-top) .site-header {
 
 .detail-solution-grid strong {
   line-height: 2;
+}
+
+@media (min-width: 1025px) {
+  body:has(.figma-subpage) .site-header-bar,
+  body:has(.projects-list-page) .site-header-bar,
+  body:has(.recruitment-page) .site-header-bar {
+    width: min(1341px, calc(100vw - 99px));
+    margin: 27px 30px 0 69px;
+  }
+
+  body:has(.figma-subpage) .site-header-bar .logo-mark,
+  body:has(.projects-list-page) .site-header-bar .logo-mark,
+  body:has(.recruitment-page) .site-header-bar .logo-mark {
+    font-size: 32.83px;
+  }
+
+  body:has(.figma-subpage) .site-header-bar .logo-mark-muted,
+  body:has(.projects-list-page) .site-header-bar .logo-mark-muted,
+  body:has(.recruitment-page) .site-header-bar .logo-mark-muted {
+    opacity: 1;
+  }
+
+  body:has(.figma-subpage) .menu-button,
+  body:has(.projects-list-page) .menu-button,
+  body:has(.recruitment-page) .menu-button {
+    width: 21px;
+    height: 21px;
+    border: 0;
+    background: transparent;
+    backdrop-filter: none;
+  }
+
+  body:has(.subsidy-page) .dot-menu,
+  body:has(.contact-figma) .dot-menu,
+  body:has(.projects-list-page) .dot-menu {
+    grid-template-columns: repeat(3, 2px);
+    gap: 3px;
+    transform: translateY(-10.5px);
+  }
+
+  body:has(.subsidy-page) .dot-menu::before,
+  body:has(.contact-figma) .dot-menu::before,
+  body:has(.projects-list-page) .dot-menu::before {
+    width: 2px;
+    height: 2px;
+    box-shadow:
+      5px 0 0 currentColor,
+      10px 0 0 currentColor,
+      0 5px 0 currentColor,
+      5px 5px 0 currentColor,
+      10px 5px 0 currentColor,
+      0 10px 0 currentColor,
+      5px 10px 0 currentColor,
+      10px 10px 0 currentColor;
+  }
+
+  .projects-list-page {
+    position: relative;
+    width: 1440px;
+    max-width: 100%;
+    margin-inline: auto;
+    overflow: clip;
+  }
+
+  .projects-list-page .page-hero {
+    position: relative;
+    min-height: 816px;
+    height: 816px;
+    padding-top: 0;
+    overflow: visible;
+  }
+
+  .projects-list-page .page-hero .wave-field {
+    inset: 0 0 auto;
+    height: 816px;
+  }
+
+  .projects-list-page .projects-list-hero-asset {
+    position: absolute;
+    top: 0;
+    left: -5px;
+    width: 1450px;
+    height: 816px;
+  }
+
+  .projects-list-page .projects-list-hero-asset .figma-asset-image {
+    object-fit: fill;
+  }
+
+  .projects-list-page .page-hero-inner {
+    position: static;
+    width: 100%;
+  }
+
+  .projects-list-page .page-hero .section-heading {
+    position: absolute;
+    top: 340px;
+    left: 607px;
+    width: 227px;
+    height: 136px;
+  }
+
+  .projects-list-page .page-hero .section-heading h1 {
+    width: 227px;
+    height: 82px;
+    margin: 0;
+    font-size: 64px;
+    line-height: 82px;
+    letter-spacing: 0;
+  }
+
+  .projects-list-page .page-hero .section-heading p {
+    width: 128px;
+    height: 46px;
+    margin: 8px 0 0 49px;
+    font-size: 32px;
+    line-height: 46px;
+  }
+
+  .projects-list-page > .site-shell {
+    position: relative;
+    width: 1440px;
+    height: 3047px;
+    margin: 0;
+  }
+
+  .projects-list-page .project-browser {
+    position: relative;
+    width: 1440px;
+    height: 3047px;
+    padding: 0;
+  }
+
+  .projects-list-page .filter-row {
+    position: absolute;
+    top: 68px;
+    left: 181px;
+    display: block;
+    width: 1078.37px;
+    height: 46px;
+    margin: 0;
+  }
+
+  .projects-list-page .filter-row button {
+    position: absolute;
+    top: 0;
+    flex: 0 0 auto;
+    min-height: 46px;
+    height: 46px;
+    padding: 0 14px 0 32px;
+    font-size: 20px;
+    line-height: 29px;
+    font-weight: 400;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .projects-list-page .filter-row button::before {
+    content: "→";
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    width: 14px;
+    height: 29px;
+    line-height: 29px;
+  }
+
+  .projects-list-page .filter-row button:nth-child(1) {
+    left: 0;
+    width: 75.87px;
+  }
+
+  .projects-list-page .filter-row button:nth-child(2) {
+    left: 86px;
+    width: 131.87px;
+  }
+
+  .projects-list-page .filter-row button:nth-child(3) {
+    left: 228px;
+    width: 173.87px;
+  }
+
+  .projects-list-page .filter-row button:nth-child(4) {
+    left: 413px;
+    width: 189.87px;
+  }
+
+  .projects-list-page .filter-row button:nth-child(5) {
+    left: 614px;
+    width: 236.87px;
+  }
+
+  .projects-list-page .filter-row button:nth-child(6) {
+    left: 863px;
+    width: 215.37px;
+  }
+
+  .projects-list-page .project-grid {
+    position: absolute;
+    top: 251px;
+    left: 174px;
+    display: block;
+    width: 1128px;
+    height: 2543px;
+  }
+
+  .projects-list-page .project-list-card-figma {
+    position: absolute;
+    width: 304px;
+    height: 467px;
+    margin: 0;
+  }
+
+  .projects-list-page .project-list-card-figma:nth-child(3n + 1) {
+    left: 0;
+  }
+
+  .projects-list-page .project-list-card-figma:nth-child(3n + 2) {
+    left: 397px;
+    width: 336px;
+  }
+
+  .projects-list-page .project-list-card-figma:nth-child(3n) {
+    left: 792px;
+  }
+
+  .projects-list-page .project-list-card-figma:nth-child(-n + 3) {
+    top: 0;
+  }
+
+  .projects-list-page .project-list-card-figma:nth-child(n + 4):nth-child(-n + 6) {
+    top: 519px;
+  }
+
+  .projects-list-page .project-list-card-figma:nth-child(n + 7):nth-child(-n + 9) {
+    top: 1038px;
+  }
+
+  .projects-list-page .project-list-card-figma:nth-child(n + 10):nth-child(-n + 12) {
+    top: 1557px;
+  }
+
+  .projects-list-page .project-list-card-figma:nth-child(n + 13) {
+    top: 2076px;
+  }
+
+  .projects-list-page .project-card-asset-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 265px;
+    height: 265px;
+  }
+
+  .projects-list-page .project-card-asset {
+    width: 265px;
+    height: 265px;
+    aspect-ratio: auto;
+  }
+
+  .projects-list-page .project-list-card-figma .tag-row {
+    position: absolute;
+    top: 274px;
+    left: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px;
+    height: 35px;
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .projects-list-page .project-list-card-figma .tag-row small {
+    display: inline-flex;
+    height: 35px;
+    align-items: center;
+    clip-path: polygon(0 0, calc(100% - 9px) 0, 100% 50%, calc(100% - 9px) 100%, 0 100%);
+    background: var(--phono-violet);
+    padding: 0 15px 0 7px;
+    color: white;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .projects-list-page .project-list-card-figma .project-list-card-body {
+    position: absolute;
+    top: 336px;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 131px;
+    margin: 0;
+  }
+
+  .projects-list-page .project-list-card-figma .project-list-card-client {
+    margin: 0;
+    font-size: 20px;
+    line-height: 29px;
+    font-weight: 500;
+  }
+
+  .projects-list-page .project-list-card-figma .project-list-card-body span {
+    width: 100%;
+    max-width: none;
+    height: 64px;
+    margin: 4px 0 0;
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .projects-list-page .project-list-card-figma .project-list-card-body a {
+    margin: 0 0 0 0;
+    color: var(--phono-pink-deep);
+    font-size: 20px;
+    line-height: 29px;
+    font-weight: 400;
+  }
+
+  .projects-list-page .pagination {
+    position: absolute;
+    top: 2890px;
+    left: 166px;
+    display: flex;
+    width: 1076.012px;
+    height: 30.035px;
+    justify-content: space-between;
+    margin: 0;
+  }
+
+  .projects-list-page .pagination > button,
+  .projects-list-page .pagination-pages {
+    font-size: 20px;
+    line-height: 29px;
+    font-weight: 500;
+  }
+
+  .projects-list-page .pagination > button {
+    width: 61px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  .projects-list-page .pagination > button:last-child {
+    width: 55px;
+  }
+
+  .projects-list-page .pagination-pages {
+    position: absolute;
+    top: 0;
+    left: 384px;
+    width: 308px;
+    height: 29px;
+    justify-content: center;
+  }
+
+  .projects-list-page .pagination-pages button {
+    width: 20px;
+    min-width: 20px;
+    padding: 0;
+  }
+
+  .projects-list-page .pagination-pages li {
+    display: flex;
+    flex: 0 0 auto;
+  }
+
+  .projects-list-page .pagination-pages li:not(:last-child)::after {
+    content: "・";
+    display: block;
+    width: 20px;
+    height: 29px;
+  }
+
+  .projects-list-page .pagination-pages li:nth-last-child(2)::after,
+  .projects-list-page .pagination-pages .pagination-ellipsis::after {
+    content: none;
+  }
+
+  .projects-list-page .pagination-pages .pagination-ellipsis {
+    width: 48px;
+    letter-spacing: -4px;
+  }
+
+  .projects-list-page .site-footer {
+    height: 755px;
+    min-height: 755px;
+    padding-top: 60px;
+    overflow: hidden;
+  }
+
+  .projects-list-page .footer-grid {
+    width: 1141.57px;
+    margin-right: 0;
+    margin-left: 152px;
+  }
+
+  .projects-list-page .footer-brand > * {
+    position: relative;
+    left: 6px;
+  }
+
+  .contact-figma {
+    position: relative;
+    width: 1440px;
+    max-width: 100%;
+    margin-inline: auto;
+    overflow: clip;
+  }
+
+  .contact-figma .page-hero {
+    position: relative;
+    min-height: 800px;
+    height: 800px;
+    padding-top: 0;
+    overflow: visible;
+  }
+
+  .contact-figma .page-hero .wave-field {
+    inset: 0 0 auto;
+    height: 406px;
+    overflow: visible;
+  }
+
+  .contact-figma .page-hero .contact-hero-asset {
+    position: absolute;
+    top: -620px;
+    left: -913px;
+    width: 3026px;
+    height: 1026px;
+    overflow: visible;
+  }
+
+  .contact-figma .page-hero .contact-hero-asset .figma-asset-image {
+    object-fit: fill;
+  }
+
+  .contact-figma .page-hero-inner {
+    position: static;
+    width: 100%;
+  }
+
+  .contact-figma .page-hero .section-heading {
+    position: absolute;
+    top: 344px;
+    left: 50%;
+    width: 279px;
+    transform: translateX(-50%);
+  }
+
+  .contact-figma .page-hero .section-heading h1 {
+    margin: 0;
+    font-size: 64px;
+    line-height: 82px;
+    letter-spacing: 0;
+  }
+
+  .contact-figma .page-hero .section-heading p {
+    margin: 8px 0 0;
+    font-size: 32px;
+    line-height: 46px;
+  }
+
+  .contact-figma .page-hero-copy {
+    position: absolute;
+    top: 568px;
+    left: 50%;
+    width: 608px;
+    max-width: none;
+    margin: 0;
+    transform: translateX(-50%);
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .contact-hero-copy-lines {
+    margin: 0;
+  }
+
+  .contact-hero-copy-lines span {
+    display: block;
+    white-space: nowrap;
+  }
+
+  .contact-figma .contact-section {
+    position: relative;
+    height: 1782px;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .contact-figma .contact-shell {
+    position: relative;
+    width: 1440px;
+    height: 100%;
+    margin: 0;
+  }
+
+  .contact-figma .contact-form-background-asset {
+    top: 6px;
+    left: 260px;
+    width: 1402px;
+    height: 1570px;
+    transform: none;
+  }
+
+  .contact-figma .contact-form {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1440px;
+    height: 1446px;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .contact-figma .contact-tabs {
+    position: absolute;
+    top: 139px;
+    left: 471px;
+    display: block;
+    width: 700px;
+    height: 69px;
+    margin: 0;
+  }
+
+  .contact-figma .contact-tabs button {
+    position: absolute;
+    top: 0;
+    width: auto;
+    height: 69px;
+    padding: 0;
+    font-size: 48px;
+    line-height: 69px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .contact-figma .contact-tabs button:first-child {
+    left: 0;
+  }
+
+  .contact-figma .contact-tabs button:last-child {
+    left: 406px;
+  }
+
+  .contact-figma .form-grid {
+    position: absolute;
+    top: 338px;
+    left: 471px;
+    display: block;
+    width: 516px;
+    height: 409px;
+    margin: 0;
+  }
+
+  .contact-figma .form-grid > label {
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 516px;
+    height: 29px;
+    margin: 0;
+  }
+
+  .contact-figma .form-grid > label:nth-child(1) {
+    top: 0;
+  }
+
+  .contact-figma .form-grid > label:nth-child(2) {
+    top: 63px;
+  }
+
+  .contact-figma .form-grid > label:nth-child(3) {
+    top: 126px;
+  }
+
+  .contact-figma .form-grid > label:nth-child(4) {
+    top: 189px;
+  }
+
+  .contact-figma .form-grid > label:nth-child(5) {
+    top: 252px;
+  }
+
+  .contact-figma .form-grid > label:nth-child(6) {
+    top: 315px;
+    left: -3px;
+    width: 519px;
+  }
+
+  .contact-figma .form-grid > label:nth-child(7) {
+    top: 354px;
+  }
+
+  .contact-figma .form-grid > label > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    line-height: 29px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .contact-figma .form-grid > label:nth-child(7) > span {
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .contact-figma .form-grid > label > input {
+    position: absolute;
+    top: 2px;
+    left: 216px;
+    width: 300px;
+    min-height: 0;
+    height: 26px;
+    padding: 0 9px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .contact-figma .form-grid > label:nth-child(6) > input {
+    left: 219px;
+  }
+
+  .contact-figma .form-grid > label:nth-child(7) > input {
+    top: 0;
+    left: 216px;
+  }
+
+  .contact-figma .form-grid > label:nth-child(7) > small {
+    position: absolute;
+    top: 26px;
+    left: 219px;
+    width: 300px;
+    color: white;
+    font-size: 16px;
+    line-height: 23px;
+    white-space: nowrap;
+  }
+
+  .contact-figma .contact-form > fieldset {
+    position: absolute;
+    top: 782px;
+    left: 468px;
+    display: block;
+    width: 957px;
+    height: 143px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .contact-figma .contact-form > fieldset legend {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 957px;
+    height: 143px;
+    font-size: 20px;
+    line-height: 29px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .contact-figma .contact-form > fieldset legend small {
+    position: absolute;
+    top: 120px;
+    left: 219px;
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: 400;
+  }
+
+  .contact-figma .checkbox-grid {
+    position: absolute;
+    top: 0;
+    left: 215px;
+    display: block;
+    width: 742px;
+    height: 109px;
+    margin: 0;
+  }
+
+  .contact-figma .checkbox-grid .check-row {
+    position: absolute;
+    display: flex;
+    height: 29px;
+    gap: 12px;
+    margin: 0;
+    color: white;
+    font-size: 20px;
+    line-height: 29px;
+    white-space: nowrap;
+  }
+
+  .contact-figma .checkbox-grid .check-row:nth-child(1) {
+    top: 0;
+    left: 0;
+  }
+
+  .contact-figma .checkbox-grid .check-row:nth-child(2) {
+    top: 0;
+    left: 145px;
+  }
+
+  .contact-figma .checkbox-grid .check-row:nth-child(3) {
+    top: 0;
+    left: 327px;
+  }
+
+  .contact-figma .checkbox-grid .check-row:nth-child(4) {
+    top: 40px;
+    left: 0;
+    letter-spacing: -0.4px;
+  }
+
+  .contact-figma .checkbox-grid .check-row:nth-child(5) {
+    top: 80px;
+    left: 0;
+  }
+
+  .contact-figma .checkbox-grid .check-row:nth-child(6) {
+    top: 80px;
+    left: 273px;
+  }
+
+  .contact-figma .checkbox-grid .check-row:nth-child(7) {
+    top: 80px;
+    left: 512px;
+  }
+
+  .contact-figma .checkbox-grid .check-row input {
+    appearance: none;
+    position: relative;
+    top: 4px;
+    flex: 0 0 22px;
+    width: 22px;
+    min-height: 0;
+    height: 22px;
+    margin: 0;
+    border: 0;
+    border-radius: 50%;
+    background: white;
+    padding: 0;
+  }
+
+  .contact-figma .checkbox-grid .check-row input:checked {
+    background:
+      radial-gradient(circle, var(--phono-purple) 0 4px, transparent 4.5px),
+      white;
+  }
+
+  .contact-figma .checkbox-grid .check-row span {
+    font-size: 20px;
+    line-height: 29px;
+    font-weight: 400;
+  }
+
+  .contact-figma .contact-form > label:not(.wide-field) {
+    position: absolute;
+    top: 971px;
+    left: 468px;
+    display: block;
+    width: 519px;
+    height: 29px;
+    margin: 0;
+  }
+
+  .contact-figma .contact-form > label:not(.wide-field) > span,
+  .contact-figma .wide-field > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    line-height: 29px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .contact-figma .contact-form > label:not(.wide-field) > input {
+    position: absolute;
+    top: 2px;
+    left: 219px;
+    width: 300px;
+    min-height: 0;
+    height: 26px;
+    padding: 0 9px;
+  }
+
+  .contact-figma .contact-form > .wide-field {
+    position: absolute;
+    top: 1037px;
+    left: 468px;
+    display: block;
+    width: 760px;
+    height: 279px;
+    margin: 0;
+  }
+
+  .contact-figma .wide-field > textarea {
+    position: absolute;
+    top: 0;
+    left: 220px;
+    width: 540px;
+    min-height: 279px;
+    height: 279px;
+    padding: 12px;
+    resize: none;
+  }
+
+  .contact-figma .submit-button {
+    position: absolute;
+    top: 1402px;
+    left: 689px;
+    justify-content: flex-start;
+    width: 238px;
+    height: 44px;
+    margin: 0;
+    border: 0;
+    padding: 0 0 0 45px;
+  }
+
+  .contact-figma .submit-button::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 204px;
+    border: 2px solid var(--phono-black);
+    pointer-events: none;
+  }
+
+  .contact-figma .submit-button svg {
+    position: absolute;
+    top: 11px;
+    left: 25px;
+    width: 13px;
+    height: 22px;
+    color: var(--phono-black);
+  }
+
+  .contact-figma .form-complete {
+    position: absolute;
+    top: 1466px;
+    left: 468px;
+    width: 760px;
+    margin: 0;
+    color: white;
+    text-align: center;
+  }
+
+  .contact-figma .site-footer {
+    height: 746px;
+    min-height: 746px;
+    padding-top: 60px;
+    overflow: hidden;
+  }
+
+  .contact-figma .footer-grid {
+    width: 1136px;
+  }
+
+  .contact-figma .footer-brand > * {
+    position: relative;
+    left: 8px;
+  }
+
+  .subsidy-page .page-hero {
+    min-height: 498px;
+    height: 498px;
+    padding-top: 0;
+    overflow: visible;
+  }
+
+  .subsidy-page .page-hero .wave-field {
+    inset: -57px 0 auto;
+    height: 615px;
+    overflow: visible;
+  }
+
+  .subsidy-page .page-hero .section-heading {
+    position: absolute;
+    top: 93px;
+    left: 50%;
+    width: 535px;
+    transform: translateX(-50%);
+  }
+
+  .subsidy-page .page-hero .section-heading h1 {
+    font-size: 64px;
+    line-height: 82px;
+    letter-spacing: 0;
+  }
+
+  .subsidy-page .page-hero .section-heading p {
+    margin-top: 8px;
+    font-size: 32px;
+    line-height: 46px;
+  }
+
+  .subsidy-page .page-hero-copy {
+    position: absolute;
+    top: 282px;
+    left: 50%;
+    width: 535px;
+    max-width: none;
+    margin: 0;
+    transform: translateX(-50%);
+  }
+
+  .subsidy-hero-lead {
+    margin: 0;
+    font-size: 32px;
+    line-height: 32px;
+  }
+
+  .subsidy-page-ribbon {
+    position: absolute;
+    z-index: 0;
+    top: -644px;
+    left: calc(50% + 291px);
+    display: block;
+    width: 974px;
+    height: 3208px;
+    pointer-events: none;
+  }
+
+  .subsidy-page-ribbon .figma-asset-image {
+    object-fit: fill;
+  }
+
+  .subsidy-page > section:not(.page-hero) .site-shell,
+  .subsidy-detail-scene .site-shell {
+    width: min(1302px, calc(100vw - 48px));
+  }
+
+  .subsidy-intro {
+    z-index: 1;
+    height: 1976px;
+    padding: 0;
+  }
+
+  .subsidy-intro-grid {
+    position: relative;
+    display: block;
+    height: 100%;
+  }
+
+  .subsidy-intro-copy .section-heading {
+    position: absolute;
+    top: 57px;
+    left: 0;
+    margin: 0;
+  }
+
+  .subsidy-intro-copy .section-heading h2 {
+    font-size: 80px;
+    line-height: 103px;
+    letter-spacing: 0.05em;
+  }
+
+  .subsidy-intro-copy .section-heading p {
+    margin-top: 10px;
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .subsidy-money-mark {
+    position: absolute;
+    top: 178px;
+    left: 38px;
+    margin: 0;
+  }
+
+  .subsidy-statement {
+    position: absolute;
+    top: 442px;
+    left: 38px;
+    width: 588px;
+    margin: 0;
+    font-size: 42px;
+    line-height: 80px;
+    letter-spacing: 0;
+  }
+
+  .subsidy-intro-body {
+    position: absolute;
+    top: 590px;
+    left: 38px;
+    width: 581px;
+    max-width: none;
+  }
+
+  .subsidy-intro-body p {
+    height: 32px;
+    line-height: 32px;
+    white-space: nowrap;
+  }
+
+  .subsidy-intro-diagram {
+    position: absolute;
+    top: 967px;
+    left: 201px;
+    width: 900px;
+    height: 853px;
+  }
+
+  .subsidy-financing {
+    position: relative;
+    z-index: 1;
+    margin-top: 0;
+    padding-top: 0;
+    padding-bottom: 78px;
+  }
+
+  .subsidy-financing .section-heading {
+    margin-bottom: 52px;
+  }
+
+  .subsidy-finance-list {
+    gap: 29px;
+  }
+
+  .subsidy-finance-row {
+    position: relative;
+    display: block;
+    height: 522px;
+  }
+
+  .subsidy-finance-teardrop,
+  .subsidy-finance-circle {
+    position: absolute;
+  }
+
+  .subsidy-finance-teardrop {
+    left: 148px;
+    width: 370.5px;
+    height: 307px;
+  }
+
+  .subsidy-finance-row:nth-child(1) .subsidy-finance-teardrop {
+    top: 107px;
+  }
+
+  .subsidy-finance-row:nth-child(2) .subsidy-finance-teardrop {
+    top: 108px;
+  }
+
+  .subsidy-finance-row:nth-child(3) {
+    margin-top: 19px;
+  }
+
+  .subsidy-finance-row:nth-child(3) .subsidy-finance-teardrop {
+    top: 109px;
+  }
+
+  .subsidy-finance-row:nth-child(1) .subsidy-finance-circle {
+    top: 0;
+    left: 575px;
+    width: 521.3px;
+    height: 521.3px;
+  }
+
+  .subsidy-finance-row:nth-child(2) .subsidy-finance-circle {
+    top: 0;
+    left: 574px;
+    width: 522px;
+    height: 522px;
+  }
+
+  .subsidy-finance-row:nth-child(3) .subsidy-finance-circle {
+    top: 0;
+    left: 573px;
+    width: 524px;
+    height: 524px;
+  }
+
+  .subsidy-finance-note {
+    width: 708px;
+    margin: 96px auto 0;
+    white-space: nowrap;
+  }
+
+  .subsidy-feature {
+    height: 838px;
+    padding: 90px 0 0;
+  }
+
+  .subsidy-feature .section-heading {
+    margin-bottom: 120px;
+  }
+
+  .subsidy-feature-grid {
+    grid-template-columns: repeat(3, 369px);
+    column-gap: 49px;
+    margin-left: 18px;
+  }
+
+  .subsidy-feature-card:nth-child(1) .subsidy-feature-mark {
+    transform: translateX(1px);
+  }
+
+  .subsidy-feature-card:nth-child(2) .subsidy-feature-mark {
+    transform: translateX(-1.83px);
+  }
+
+  .subsidy-feature-card:nth-child(3) .subsidy-feature-mark {
+    transform: translateX(-0.25px);
+  }
+
+  .subsidy-feature-card:nth-child(1) .subsidy-feature-heading {
+    width: 268px;
+    transform: translateX(0.5px);
+  }
+
+  .subsidy-feature-card:nth-child(2) .subsidy-feature-heading {
+    width: 335px;
+    transform: translateX(-2px);
+  }
+
+  .subsidy-feature-card:nth-child(3) {
+    margin-left: -7px;
+  }
+
+  .subsidy-feature-card:nth-child(3) .subsidy-feature-heading {
+    width: 436px;
+    transform: translateX(2px);
+  }
+
+  .subsidy-feature-card:nth-child(3) .subsidy-feature-mark {
+    transform: translateX(1.75px);
+  }
+
+  .subsidy-detail-scene {
+    height: 3252px;
+  }
+
+  .subsidy-detail-blobs {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    display: block;
+    pointer-events: none;
+  }
+
+  .subsidy-detail-blob {
+    position: absolute;
+    mix-blend-mode: multiply;
+    overflow: visible;
+  }
+
+  .subsidy-detail-blob .figma-asset-image {
+    object-fit: fill;
+  }
+
+  .subsidy-detail-blob-pink-left {
+    top: 572px;
+    left: -230px;
+    width: 789px;
+    height: 899px;
+  }
+
+  .subsidy-detail-blob-lavender-center {
+    top: 594px;
+    left: 439px;
+    width: 737px;
+    height: 870px;
+    transform: rotate(173.81deg);
+  }
+
+  .subsidy-detail-blob-pink-right {
+    top: 572px;
+    left: 1091px;
+    width: 789px;
+    height: 899px;
+  }
+
+  .subsidy-detail-blob-lavender-left {
+    top: 1675px;
+    left: -159px;
+    width: 737px;
+    height: 813px;
+    transform: rotate(173.81deg);
+  }
+
+  .subsidy-detail-blob-pink-center {
+    top: 1654px;
+    left: 408px;
+    width: 709px;
+    height: 844px;
+  }
+
+  .subsidy-detail-blob-lavender-right {
+    top: 1655px;
+    left: 1043px;
+    width: 737px;
+    height: 836px;
+    transform: rotate(173.81deg);
+  }
+
+  .subsidy-detail {
+    position: absolute;
+    left: 0;
+    width: 100%;
+  }
+
+  .subsidy-detail-pink {
+    top: 352px;
+  }
+
+  .subsidy-detail-lavender {
+    top: 1417px;
+  }
+
+  .subsidy-detail-pink .subsidy-detail-title {
+    margin-bottom: 127px;
+  }
+
+  .subsidy-detail-lavender .subsidy-detail-title {
+    margin-bottom: 145px;
+  }
+
+  .subsidy-detail::before,
+  .subsidy-detail::after {
+    position: absolute;
+    top: 112px;
+    color: var(--phono-black);
+    font-size: 38px;
+    font-weight: 400;
+    line-height: 1;
+  }
+
+  .subsidy-detail::before {
+    left: 0;
+    content: "←";
+  }
+
+  .subsidy-detail::after {
+    right: 0;
+    content: "→";
+  }
+
+  .subsidy-detail-title {
+    color: white;
+    font-size: 32px;
+    line-height: 48px;
+  }
+
+  .subsidy-detail-grid {
+    position: relative;
+    display: block;
+    height: 729px;
+  }
+
+  .subsidy-detail-card {
+    position: absolute;
+    top: 0;
+    display: block;
+    height: 729px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    color: white;
+  }
+
+  .subsidy-detail-pink .subsidy-detail-card-1-1 {
+    left: -1px;
+    width: 446px;
+  }
+
+  .subsidy-detail-pink .subsidy-detail-card-1-2 {
+    left: 524px;
+    width: 446px;
+  }
+
+  .subsidy-detail-pink .subsidy-detail-card-1-3 {
+    top: -1px;
+    left: 1210px;
+    width: 672px;
+  }
+
+  .subsidy-detail-lavender .subsidy-detail-card-2-1 {
+    left: -27px;
+    width: 460px;
+  }
+
+  .subsidy-detail-lavender .subsidy-detail-card-2-2 {
+    left: 515px;
+    width: 442px;
+  }
+
+  .subsidy-detail-lavender .subsidy-detail-card-2-3 {
+    left: 1206px;
+    width: 457px;
+  }
+
+  .subsidy-detail-card-title {
+    margin: 0;
+    color: white;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    line-height: 48px;
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  .subsidy-detail-rows {
+    position: absolute;
+    top: 95px;
+    left: 0;
+    display: block;
+    width: 446px;
+    height: 581px;
+    margin: 0;
+  }
+
+  .subsidy-detail-field {
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 446px;
+  }
+
+  .subsidy-detail-pink .subsidy-detail-field:nth-child(1) {
+    top: 0;
+  }
+
+  .subsidy-detail-pink .subsidy-detail-field:nth-child(2) {
+    top: 143px;
+  }
+
+  .subsidy-detail-pink .subsidy-detail-field:nth-child(3) {
+    top: 426px;
+  }
+
+  .subsidy-detail-pink .subsidy-detail-field:nth-child(4) {
+    top: 517px;
+  }
+
+  .subsidy-detail-lavender .subsidy-detail-field:nth-child(1) {
+    top: 0;
+  }
+
+  .subsidy-detail-lavender .subsidy-detail-field:nth-child(2) {
+    top: 133px;
+  }
+
+  .subsidy-detail-lavender .subsidy-detail-field:nth-child(3) {
+    top: 228px;
+  }
+
+  .subsidy-detail-lavender .subsidy-detail-field:nth-child(4) {
+    top: 469px;
+  }
+
+  .subsidy-detail-field dt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110px;
+    color: white;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    line-height: 32px;
+  }
+
+  .subsidy-detail-field dd {
+    position: absolute;
+    top: 0;
+    left: 136px;
+    display: block;
+    width: 310px;
+    margin: 0;
+    color: white;
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .subsidy-detail-field dd span {
+    display: block;
+  }
+
+  .subsidy-detail-link {
+    position: absolute;
+    top: 689px;
+    left: 0;
+    display: block;
+    width: 114px;
+    height: 40px;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  .subsidy-detail-lavender .subsidy-detail-link {
+    top: 661px;
+  }
+
+  .subsidy-detail-link .arrow-line {
+    position: absolute;
+    top: 13px;
+    left: 0;
+    width: 113px;
+    height: 1px;
+    background: var(--phono-black);
+  }
+
+  .subsidy-detail-link > span:nth-child(2) {
+    position: absolute;
+    top: 17px;
+    left: 5px;
+  }
+
+  .subsidy-detail-link strong {
+    color: var(--phono-black);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23px;
+    white-space: nowrap;
+  }
+
+  .subsidy-detail-link svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 13px;
+    height: 26px;
+    color: var(--phono-black);
+  }
+
+  .subsidy-page .site-footer {
+    min-height: 862px;
+  }
+
+  /* /services — exact desktop repair for Figma root 1:892.
+     The upper sections remain flow-based; Contract and Media use their
+     recovered node coordinates so the lower half retains the 9002px canvas. */
+  .services-page {
+    width: 1440px;
+    max-width: 100%;
+    margin-inline: auto;
+    overflow: clip;
+  }
+
+  .services-page .services-hero {
+    overflow: visible;
+  }
+
+  .services-page .services-hero > .wave-field {
+    top: -958px;
+    right: auto;
+    bottom: auto;
+    left: -361px;
+    width: 654px;
+    max-width: none;
+    height: 3339px;
+    overflow: visible;
+    contain: none;
+  }
+
+  .services-page .services-hero-asset .figma-asset-image {
+    object-fit: contain;
+    object-position: left top;
+  }
+
+  .services-page .services-contract {
+    position: relative;
+    height: 1621px;
+    margin-top: -384.234px;
+    padding: 0;
+    overflow: visible;
+    background: white;
+  }
+
+  .services-page .services-contract > .site-shell {
+    position: relative;
+    width: 1440px;
+    max-width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .services-page .services-contract .section-heading {
+    position: absolute;
+    top: 120px;
+    left: 71px;
+    margin: 0;
+  }
+
+  .services-page .services-contract .section-heading h2 {
+    font-size: 80px;
+    line-height: 1;
+  }
+
+  .services-page .services-contract .section-heading p {
+    margin-top: 14px;
+    font-size: 18px;
+  }
+
+  .services-page .services-contract-intro {
+    position: absolute;
+    top: 319px;
+    left: 50%;
+    width: 1120px;
+    max-width: none;
+    margin: 0;
+    font-size: 16px;
+    line-height: 32px;
+    transform: translateX(-50%);
+  }
+
+  .services-page .services-contract-circles {
+    position: absolute;
+    top: 374px;
+    left: 0;
+    display: block;
+    width: 1440px;
+    height: 1035px;
+  }
+
+  .services-page .services-contract-asset {
+    top: 0;
+    right: auto;
+    bottom: auto;
+    left: -208px;
+    z-index: -1;
+    width: 1698px;
+    height: 947px;
+  }
+
+  .services-page .services-contract-card {
+    position: absolute;
+    top: 258px;
+    display: block;
+    width: 424px;
+    min-height: 0;
+    padding: 0;
+  }
+
+  .services-page .services-contract-card-left {
+    left: 107px;
+  }
+
+  .services-page .services-contract-card-right {
+    right: 106px;
+  }
+
+  .services-page .services-contract-card h3 {
+    margin: 0;
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .services-page .services-contract-lead {
+    margin-top: 59px;
+    font-size: 22px;
+    line-height: 29px;
+  }
+
+  .services-page .services-contract-body {
+    width: 418px;
+    max-width: none;
+    margin-top: 50px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .services-page .services-contract-examples-title {
+    margin-top: 67px;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .services-page .services-contract-examples {
+    width: 424px;
+    max-width: none;
+    margin-top: 23px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+
+  .services-page .services-contact-link {
+    position: absolute;
+    top: 1409px;
+    left: 1070px;
+    width: 313px;
+    margin: 0;
+  }
+
+  .services-page .services-contact-link strong {
+    font-size: 48px;
+  }
+
+  .services-page .services-contact-link small {
+    font-size: 16px;
+  }
+
+  .services-page .services-media {
+    position: relative;
+    height: 2046px;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .services-page .services-media > .site-shell:first-child {
+    position: absolute;
+    top: 60px;
+    left: 109px;
+    width: auto;
+    margin: 0;
+  }
+
+  .services-page .services-media .services-eyebrow {
+    width: 208px;
+    height: 51px;
+    margin: 0;
+    font-size: 32px;
+    line-height: 51px;
+  }
+
+  .services-page .services-media .services-statement {
+    margin: 10px 0 0;
+    font-size: 42px;
+    line-height: 80px;
+  }
+
+  .services-page .services-media-copy {
+    margin-top: 96px;
+    max-width: none;
+  }
+
+  .services-page .services-media-copy p {
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .services-page .services-media .wave-field {
+    top: 686px;
+    right: auto;
+    bottom: auto;
+    left: 0;
+    z-index: -1;
+    width: 1441px;
+    max-width: none;
+    height: 1267px;
+    margin: 0;
+    overflow: visible;
+  }
+
+  .services-page .services-media-feature-wrap {
+    position: absolute;
+    top: 635px;
+    left: 0;
+    width: 1440px;
+    max-width: 100%;
+    height: 700px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .services-page .services-coming-soon {
+    position: absolute;
+    top: 0;
+    left: 71px;
+    margin: 0;
+    font-size: 80px;
+    line-height: 1;
+  }
+
+  .services-page .services-coming-soon::after {
+    content: "［　契約形態　］";
+    position: absolute;
+    top: 114px;
+    left: 0;
+    font-family: var(--font-zen, inherit);
+    font-size: 18px;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0;
+    text-shadow: none;
+    white-space: nowrap;
+  }
+
+  .services-page .services-media-feature {
+    position: absolute;
+    top: 327px;
+    left: 109px;
+    display: block;
+    width: 1222px;
+    height: 321px;
+  }
+
+  .services-page .services-media-thumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 606px;
+    height: 321px;
+  }
+
+  .services-page .services-media-feature-copy {
+    position: absolute;
+    top: 64px;
+    left: 714px;
+    width: 520px;
+  }
+
+  .services-page .services-media-feature-copy h3 {
+    margin: 0 0 36px;
+    font-size: 22px;
+    line-height: 32px;
+  }
+
+  .services-page .services-media-feature-copy p {
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .services-page .site-footer {
+    height: 1033px;
+    min-height: 1033px;
+    padding-top: 60px;
+    overflow: hidden;
+  }
+
+  .services-page .footer-grid {
+    width: 1141.57px;
+    margin-right: 0;
+    margin-left: 155px;
+  }
+
+  .services-page .footer-grid .contact-circle {
+    transform: translateY(-60px);
+  }
+
+  .services-page .footer-brand > * {
+    position: relative;
+    left: 6px;
+  }
+
+  .services-page .footer-brand {
+    padding-bottom: 55px;
+  }
+
+  /* /about — exact desktop section geometry for Figma root 1:516. */
+  .about-figma {
+    width: 1440px;
+    max-width: 100%;
+    margin-inline: auto;
+    overflow: clip;
+  }
+
+  .about-figma .about-hero {
+    display: block;
+  }
+
+  .about-figma .about-hero > .wave-field {
+    top: -105px;
+    right: auto;
+    bottom: auto;
+    left: -269px;
+    width: 1978px;
+    max-width: none;
+    height: 980px;
+    contain: none;
+  }
+
+  .about-figma .about-hero-wave-asset .figma-asset-image {
+    object-fit: contain;
+    object-position: left top;
+  }
+
+  .about-figma .figma-page-title {
+    position: absolute;
+    top: 671px;
+    left: 0;
+    width: 100%;
+  }
+
+  .about-figma .figma-page-title h1 {
+    margin-top: 0;
+  }
+
+  .about-figma .figma-section-title h2 {
+    text-shadow:
+      3px 3px 0 rgb(255 155 208 / 0.68),
+      6px 5px 0 rgb(140 81 238 / 0.35);
+  }
+
+  .about-figma .about-introduction {
+    position: relative;
+    width: 1440px;
+    max-width: 100%;
+    height: 1179px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .about-figma .about-introduction > .figma-section-title {
+    position: absolute;
+    top: 127px;
+    left: 69px;
+  }
+
+  .about-figma .about-introduction-grid {
+    position: absolute;
+    inset: 0;
+    display: block;
+    margin: 0;
+  }
+
+  .about-figma .about-question {
+    position: absolute;
+    top: 358px;
+    left: 109px;
+    width: 657px;
+    min-height: 633px;
+    height: 633px;
+    background: transparent;
+    font-size: 40px;
+    line-height: 64px;
+  }
+
+  .about-figma .about-question::before {
+    inset: 27px 33px 15px 7px;
+    border-width: 17px;
+    border-color: var(--phono-blue);
+  }
+
+  .about-figma .about-question::after {
+    inset: 23px 3px 2px 39px;
+    border-width: 17px;
+    border-color: var(--phono-pink);
+  }
+
+  .about-figma .about-introduction-grid > div:last-child {
+    position: absolute;
+    top: 323px;
+    left: 822px;
+    width: 567px;
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .about-figma .about-introduction-grid > div:last-child p {
+    margin: 0 0 32px;
+  }
+
+  .about-figma .about-statement-figma {
+    position: relative;
+    height: 1268px;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .about-figma .about-statement-figma::before {
+    content: "";
+    position: absolute;
+    top: 176px;
+    left: 533px;
+    z-index: 0;
+    width: 1050px;
+    height: 1050px;
+    border-radius: 50%;
+    background: var(--phono-purple);
+    box-shadow:
+      -44px 12px 0 #d578dc,
+      -90px 0 0 var(--phono-pink),
+      18px 14px 0 var(--phono-blue);
+  }
+
+  .about-figma .about-statement-grid {
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 1440px;
+    max-width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .about-figma .about-statement-grid .figma-section-title {
+    position: absolute;
+    top: 120px;
+    left: 69px;
+    color: var(--phono-black);
+  }
+
+  .about-figma .about-statement-lead {
+    position: absolute;
+    top: 643px;
+    left: 107px;
+    margin: 0;
+    font-size: 32px;
+    line-height: normal;
+  }
+
+  .about-figma .about-statement-copy {
+    position: absolute;
+    top: 356px;
+    left: 822px;
+    width: 548px;
+    height: auto;
+    margin: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+    font-size: 16px;
+    line-height: 32px;
+    color: white;
+  }
+
+  .about-figma .about-statement-copy p {
+    margin: 0 0 32px;
+  }
+
+  .about-figma .about-statement-figma > .wave-field {
+    top: 2058px;
+    right: auto;
+    bottom: auto;
+    left: -125px;
+    z-index: -1;
+    width: 1567px;
+    max-width: none;
+    height: 717px;
+    overflow: visible;
+    contain: none;
+  }
+
+  .about-figma .about-phono {
+    position: relative;
+    width: 1440px;
+    max-width: 100%;
+    height: 1342px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .about-figma .about-phono > .figma-section-title {
+    position: absolute;
+    top: 150px;
+    left: 69px;
+  }
+
+  .about-figma .about-phono-grid {
+    position: absolute;
+    top: 380px;
+    left: 92px;
+    display: block;
+    width: 1348px;
+    height: 720px;
+    margin: 0;
+  }
+
+  .about-figma .about-phono-grid article {
+    position: absolute;
+    top: 0;
+  }
+
+  .about-figma .about-phono-grid article:first-child {
+    left: 0;
+    width: 353px;
+  }
+
+  .about-figma .about-phono-grid article:nth-child(2) {
+    left: 510px;
+    width: 382px;
+  }
+
+  .about-figma .about-phono-grid article:nth-child(3) {
+    left: 977px;
+    width: 371px;
+  }
+
+  .about-figma .about-phono-grid article:first-child h3 {
+    display: none;
+  }
+
+  .about-figma .about-phono-grid article > span {
+    font-size: 35px;
+    line-height: normal;
+  }
+
+  .about-figma .about-phono-grid h3 {
+    min-height: 128px;
+    margin: 29px 0 32px;
+    font-size: 40px;
+    line-height: 64px;
+  }
+
+  .about-figma .about-phono-grid article > p {
+    margin: 30px 0 0;
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .about-figma .about-phono-grid article:first-child > p {
+    margin-top: 43px;
+  }
+
+  .about-figma .phono-equalizer {
+    width: 353px;
+    margin-top: 17px;
+    padding: 0 0 18px;
+  }
+
+  .about-figma .phono-equalizer-asset {
+    width: 353px;
+    height: 125px;
+    margin: 0 0 -112px;
+  }
+
+  .about-figma .phono-equalizer strong {
+    position: relative;
+    margin: 0 0 10px;
+    font-size: 16px;
+    line-height: 31px;
+  }
+
+  .about-figma .phono-equalizer p {
+    position: relative;
+    margin-top: 0;
+    line-height: 32px;
+  }
+
+  .about-figma .about-hip {
+    position: relative;
+    height: 1105px;
+    padding: 0;
+  }
+
+  .about-figma .about-hip > .site-shell {
+    position: relative;
+    width: 1440px;
+    max-width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .about-figma .about-hip-label {
+    position: absolute;
+    top: 160px;
+    left: 92px;
+    font-size: 35px;
+    line-height: normal;
+  }
+
+  .about-figma .about-hip h2 {
+    position: absolute;
+    top: 228px;
+    left: 63px;
+    margin: 0;
+    font-size: 42px;
+    line-height: normal;
+  }
+
+  .about-figma .about-hip-grid {
+    position: absolute;
+    top: 424px;
+    left: 90px;
+    display: block;
+    width: 1260px;
+    height: 360px;
+  }
+
+  .about-figma .about-hip article {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 133px 1fr;
+    gap: 59px;
+    width: 565px;
+    min-height: 137px;
+  }
+
+  .about-figma .about-hip article:nth-child(1) {
+    top: 0;
+    left: 0;
+  }
+
+  .about-figma .about-hip article:nth-child(2) {
+    top: 3px;
+    left: 657px;
+    gap: 48px;
+    width: 603px;
+  }
+
+  .about-figma .about-hip article:nth-child(3) {
+    top: 218px;
+    left: 0;
+  }
+
+  .about-figma .about-hip article:nth-child(4) {
+    top: 215px;
+    left: 657px;
+    gap: 56px;
+    width: 603px;
+  }
+
+  .about-figma .about-hip article > span {
+    width: 133px;
+    height: 136px;
+    font-size: 55px;
+  }
+
+  .about-figma .about-hip h3 {
+    margin: 21px 0 9px;
+    font-size: 32px;
+    line-height: 48px;
+  }
+
+  .about-figma .about-hip article p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .about-figma .about-company {
+    position: relative;
+    display: block;
+    width: 1440px;
+    max-width: 100%;
+    height: 945px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .about-figma .about-company-logo-art {
+    position: absolute;
+    top: 133px;
+    left: 169px;
+    width: 428px;
+    min-height: 0;
+    height: 253px;
+  }
+
+  .about-figma .about-company > div {
+    display: contents;
+  }
+
+  .about-figma .about-company .figma-section-title h2 {
+    position: absolute;
+    top: 120px;
+    left: 794px;
+    font-size: 40px;
+    line-height: normal;
+  }
+
+  .about-figma .about-company .figma-section-title p {
+    position: absolute;
+    top: 133px;
+    left: 663px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .about-figma .about-company dl {
+    position: absolute;
+    top: 210px;
+    left: 630px;
+    width: 760px;
+    margin: 0;
+  }
+
+  .about-figma .about-company dl div {
+    position: relative;
+    display: grid;
+    grid-template-columns: 145px 1fr;
+    gap: 19px;
+    min-height: 45px;
+    padding: 0;
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .about-figma .about-company dl div::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 116px;
+    width: 29px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--phono-blue);
+    box-shadow: 4px 0 0 rgb(255 155 208 / 0.38);
+  }
+
+  .about-figma .about-company dt {
+    color: #a99cff;
+    text-align: right;
+  }
+
+  .about-figma .about-company dd {
+    white-space: pre-line;
+  }
+
+  .about-figma .about-company dl div:nth-child(3) {
+    min-height: 118px;
+  }
+
+  .about-figma .site-footer {
+    height: 746px;
+    min-height: 746px;
+    padding-top: 60px;
+    overflow: hidden;
+  }
+
+  .about-figma .footer-grid {
+    width: 1141.57px;
+    margin-right: 0;
+    margin-left: 145px;
+  }
+
+  .about-figma .footer-grid .contact-circle {
+    transform: translate(-1.4px, -60px);
+  }
+
+  .about-figma .footer-brand > * {
+    position: relative;
+    left: 6px;
+  }
+
+  /* /projects/hachimarusuisan-ec — Figma detail root 1:2392, 1440×4834. */
+  .project-detail-figma {
+    width: 1440px;
+    max-width: 100%;
+    margin-inline: auto;
+    overflow: clip;
+  }
+
+  .project-detail-figma .page-hero {
+    min-height: 800px;
+    height: 800px;
+    padding-top: 334px;
+    overflow: visible;
+  }
+
+  .project-detail-figma .page-hero .wave-field {
+    top: -14px;
+    right: auto;
+    bottom: auto;
+    left: -4px;
+    width: 1450px;
+    max-width: none;
+    height: 816px;
+  }
+
+  .project-detail-figma .page-hero .section-heading h1 {
+    font-size: 64px;
+    line-height: 1;
+  }
+
+  .project-detail-figma .page-hero .section-heading p {
+    margin-top: 26px;
+    font-size: 32px;
+    line-height: normal;
+  }
+
+  .project-detail-figma .project-detail {
+    position: relative;
+    width: 1440px;
+    max-width: 100%;
+    height: 3289px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .project-detail-figma .detail-visual {
+    position: absolute;
+    top: 201px;
+    left: 246px;
+    width: 948px;
+    min-height: 0;
+    height: 856px;
+    margin: 0;
+    overflow: visible;
+  }
+
+  .project-detail-figma .detail-visual::before,
+  .project-detail-figma .detail-visual::after {
+    position: absolute;
+    top: 294px;
+    color: var(--phono-black);
+    font-size: 42px;
+    font-weight: 300;
+    line-height: 1;
+  }
+
+  .project-detail-figma .detail-visual::before {
+    content: "⟵";
+    left: -177px;
+  }
+
+  .project-detail-figma .detail-visual::after {
+    content: "⟶";
+    right: -177px;
+  }
+
+  .project-detail-figma .project-meta {
+    position: absolute;
+    top: 1094px;
+    left: 246px;
+    display: block;
+    width: 948px;
+    height: 290px;
+    margin: 0;
+  }
+
+  .project-detail-figma .project-meta h2 {
+    margin: 0;
+    font-size: 32px;
+    line-height: 46px;
+  }
+
+  .project-detail-figma .project-meta h3 {
+    margin: 12px 0 0;
+    max-width: none;
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .project-detail-figma .project-meta h3 span {
+    display: block;
+  }
+
+  .project-detail-figma .project-detail-meta {
+    position: absolute;
+    top: 173px;
+    left: 0;
+    display: block;
+    width: 948px;
+    margin: 0;
+  }
+
+  .project-detail-figma .project-detail-meta div {
+    display: grid;
+    grid-template-columns: 77px 1fr;
+    gap: 0;
+    min-height: 40px;
+    padding: 0;
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .project-detail-figma .project-detail-meta dt {
+    color: var(--phono-black);
+  }
+
+  .project-detail-figma .project-detail-meta .tag-row {
+    display: flex;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .project-detail-figma .project-detail-badge {
+    min-height: 35px;
+    padding: 6px 18px;
+    border: 0;
+    border-radius: 0;
+    background: linear-gradient(90deg, var(--phono-purple), var(--phono-pink));
+    color: white;
+    font-size: 14px;
+    line-height: 23px;
+  }
+
+  .project-detail-figma .figma-detail-block {
+    position: absolute;
+    left: 0;
+    display: block;
+    width: 1440px;
+    height: auto;
+    margin: 0;
+  }
+
+  .project-detail-figma .figma-detail-block:nth-of-type(1) {
+    top: 1522px;
+  }
+
+  .project-detail-figma .figma-detail-block:nth-of-type(2) {
+    top: 1741px;
+  }
+
+  .project-detail-figma .figma-detail-block:nth-of-type(3) {
+    top: 2251px;
+  }
+
+  .project-detail-figma .figma-detail-block:nth-of-type(4) {
+    top: 2786px;
+  }
+
+  .project-detail-figma .figma-detail-block > .figma-section-title {
+    position: absolute;
+    top: 0;
+    left: 69px;
+  }
+
+  .project-detail-figma .figma-detail-block > .figma-section-title h2 {
+    font-size: 80px;
+    line-height: 1;
+  }
+
+  .project-detail-figma .figma-detail-block > .figma-section-title p {
+    margin-top: 14px;
+    font-size: 18px;
+    line-height: normal;
+  }
+
+  .project-detail-figma .figma-detail-copy {
+    position: absolute;
+    top: 48px;
+    left: 527px;
+    width: 843px;
+    padding-top: 0;
+  }
+
+  .project-detail-figma .figma-detail-copy h3 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 400;
+    line-height: 32px;
+    white-space: nowrap;
+  }
+
+  .project-detail-figma .figma-detail-copy > p {
+    width: 843px;
+    max-width: none;
+    margin: 31px 0 0;
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .project-detail-figma .figma-detail-block:nth-of-type(2) .figma-detail-copy {
+    top: 55px;
+    left: 529px;
+    width: 841px;
+  }
+
+  .project-detail-figma .figma-detail-block:nth-of-type(2) .figma-detail-copy ol {
+    margin: 0;
+    padding: 0;
+    line-height: 32px;
+    list-style-position: inside;
+  }
+
+  .project-detail-figma .figma-detail-block:nth-of-type(2) .figma-detail-copy::after {
+    content: "";
+    position: absolute;
+    top: 143px;
+    left: 0;
+    width: 698px;
+    height: 238px;
+    background:
+      linear-gradient(90deg, var(--phono-pink) 0 344px, white 344px 354px, var(--phono-pink) 354px);
+    opacity: 0.72;
+  }
+
+  .project-detail-figma .figma-detail-block:nth-of-type(3) .figma-detail-copy {
+    top: 50px;
+  }
+
+  .project-detail-figma .detail-solution-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: 170px 1fr;
+    gap: 28px;
+    margin-top: 29px;
+  }
+
+  .project-detail-figma .detail-solution-grid strong,
+  .project-detail-figma .detail-solution-grid p {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 32px;
+  }
+
+  .project-detail-figma .detail-solution-grid::after {
+    content: "";
+    position: absolute;
+    top: 142px;
+    left: 0;
+    width: 344px;
+    height: 238px;
+    background: var(--phono-pink);
+    opacity: 0.72;
+  }
+
+  .project-detail-figma .figma-detail-block:nth-of-type(4) .figma-detail-copy {
+    top: 56px;
+    left: 529px;
+  }
+
+  .project-detail-figma .figma-detail-block:nth-of-type(4) .figma-detail-copy h3 {
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .project-detail-figma .result-list {
+    width: 700px;
+    margin: 23px 0 0;
+  }
+
+  .project-detail-figma .result-list div {
+    grid-template-columns: 198px 1fr;
+    gap: 0;
+    min-height: 32px;
+    padding: 0;
+  }
+
+  .project-detail-figma .result-list dt {
+    color: var(--phono-black);
+  }
+
+  .project-detail-figma .detail-nav {
+    position: absolute;
+    top: 3138px;
+    left: 182px;
+    display: flex;
+    width: 1076px;
+    height: 30px;
+    margin: 0;
+  }
+
+  .project-detail-figma .detail-nav a {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  .project-detail-figma .detail-nav a:nth-child(2) {
+    position: absolute;
+    left: 488px;
+  }
+
+  .project-detail-figma .site-footer {
+    height: 745px;
+    min-height: 745px;
+    padding-top: 60px;
+    overflow: hidden;
+  }
+
+  .project-detail-figma .footer-grid {
+    width: 1141.57px;
+    margin-right: 0;
+    margin-left: 135px;
+  }
+
+  .project-detail-figma .footer-grid .contact-circle {
+    transform: translateY(-60px);
+  }
+
+  .project-detail-figma .footer-brand > * {
+    position: relative;
+    left: 6px;
+  }
+
+  /* /recruitment — recovered 1440×15086 desktop canvas, Figma root 1:2872. */
+  .recruitment-page {
+    width: 1440px;
+    max-width: 100%;
+    margin-inline: auto;
+    overflow: clip;
+  }
+
+  .recruitment-page .page-hero {
+    min-height: 900px;
+    height: 900px;
+    padding-top: 300px;
+    overflow: visible;
+  }
+
+  .recruitment-page .page-hero .wave-field {
+    top: -150px;
+    right: auto;
+    bottom: auto;
+    left: -662px;
+    width: 3509px;
+    max-width: none;
+    height: 1190px;
+  }
+
+  .recruitment-page .page-hero .section-heading,
+  .recruitment-page .page-hero-copy {
+    position: relative;
+    z-index: 1;
+    color: white;
+    text-align: center;
+  }
+
+  .recruitment-page .page-hero .section-heading h1 {
+    font-size: 64px;
+    line-height: 1;
+  }
+
+  .recruitment-page .page-hero .section-heading p {
+    margin-top: 18px;
+    font-size: 32px;
+  }
+
+  .recruitment-page .page-hero-copy {
+    margin-top: 82px;
+  }
+
+  .recruitment-page .recruit-stance,
+  .recruitment-page .value-grid-section,
+  .recruitment-page .schedule-section,
+  .recruitment-page .flow-section,
+  .recruitment-page .eligibility-section,
+  .recruitment-page .recruit-details,
+  .recruitment-page .hospitality-section,
+  .recruitment-page .style-section,
+  .recruitment-page .benefits-section,
+  .recruitment-page .support-section,
+  .recruitment-page .faq-section,
+  .recruitment-page .career-section {
+    position: relative;
+    width: 1440px;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .recruitment-page .recruit-stance {
+    height: 1220px;
+  }
+
+  .recruitment-page .value-grid-section {
+    height: 1428px;
+  }
+
+  .recruitment-page .schedule-section {
+    height: 674px;
+  }
+
+  .recruitment-page .flow-section {
+    height: 597px;
+  }
+
+  .recruitment-page .eligibility-section {
+    height: 1227px;
+  }
+
+  .recruitment-page .recruit-details {
+    display: block;
+    height: 1300px;
+    overflow: visible;
+  }
+
+  .recruitment-page .hospitality-section {
+    height: 919px;
+  }
+
+  .recruitment-page .style-section {
+    height: 1376px;
+  }
+
+  .recruitment-page .benefits-section {
+    height: 1015px;
+  }
+
+  .recruitment-page .support-section {
+    height: 1114px;
+  }
+
+  .recruitment-page .faq-section {
+    height: 1051px;
+  }
+
+  .recruitment-page .career-section {
+    height: 988px;
+  }
+
+  .recruitment-page .recruit-stance > .site-shell,
+  .recruitment-page .entry-inner {
+    position: relative;
+    display: block;
+    width: 1440px;
+    max-width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .recruitment-page .recruit-stance .section-heading,
+  .recruitment-page .value-grid-section > .section-heading,
+  .recruitment-page .schedule-section > .section-heading,
+  .recruitment-page .flow-section > .section-heading,
+  .recruitment-page .eligibility-section > .section-heading,
+  .recruitment-page .recruit-details .section-heading,
+  .recruitment-page .hospitality-section > .section-heading,
+  .recruitment-page .style-section > .section-heading,
+  .recruitment-page .benefits-section > .section-heading,
+  .recruitment-page .support-section > .section-heading,
+  .recruitment-page .faq-section > .section-heading,
+  .recruitment-page .career-section > .section-heading {
+    position: absolute;
+    top: 130px;
+    left: 90px;
+    margin: 0;
+  }
+
+  .recruitment-page .recruit-stance .section-heading {
+    top: 131px;
+  }
+
+  .recruitment-page .recruit-details .section-heading {
+    left: 91px;
+  }
+
+  .recruitment-page .support-section > .section-heading,
+  .recruitment-page .faq-section > .section-heading,
+  .recruitment-page .career-section > .section-heading {
+    left: 92px;
+  }
+
+  .recruitment-page .section-heading h2 {
+    font-size: 80px;
+    line-height: 103px;
+  }
+
+  .recruitment-page .section-heading p {
+    margin-top: 0;
+    font-size: 18px;
+    line-height: 31px;
+  }
+
+  .recruitment-page .recruit-stance .large-copy {
+    display: contents;
+  }
+
+  .recruitment-page .recruit-stance-asset {
+    position: absolute;
+    top: 392px;
+    left: 110px;
+    width: 657px;
+    height: 633px;
+    margin: 0;
+  }
+
+  .recruitment-page .recruit-stance .large-copy h2 {
+    position: absolute;
+    top: 648px;
+    left: 210px;
+    width: 471px;
+    margin: 0;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 58px;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .recruitment-page .recruit-stance .large-copy > p {
+    position: absolute;
+    top: 305px;
+    left: 833px;
+    width: 567px;
+    height: 864px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .recruitment-page .value-grid {
+    position: absolute;
+    top: 368px;
+    left: 277px;
+    display: block;
+    width: 912px;
+    height: 1024px;
+  }
+
+  .recruitment-page .value-card {
+    position: absolute;
+    width: 369px;
+    height: 485px;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    padding: 0;
+  }
+
+  .recruitment-page .value-card:nth-child(1) {
+    top: 0;
+    left: 0;
+  }
+
+  .recruitment-page .value-card:nth-child(2) {
+    top: 2px;
+    left: 527px;
+  }
+
+  .recruitment-page .value-card:nth-child(3) {
+    top: 539px;
+    left: 0;
+  }
+
+  .recruitment-page .value-card:nth-child(4) {
+    top: 539px;
+    left: 527px;
+  }
+
+  .recruitment-page .value-card .value-card-asset {
+    display: none;
+  }
+
+  .recruitment-page .value-card > span {
+    position: absolute;
+    top: 0;
+    left: 111px;
+    display: grid;
+    width: 133px;
+    height: 136px;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--phono-pink), var(--phono-purple));
+    color: white;
+    font-size: 55px;
+    font-weight: 950;
+  }
+
+  .recruitment-page .value-card:nth-child(even) > span {
+    left: 110px;
+    width: 141px;
+    height: 132px;
+  }
+
+  .recruitment-page .value-card h2 {
+    position: absolute;
+    top: 154px;
+    left: 27px;
+    width: 342px;
+    margin: 0;
+    font-size: 40px;
+    line-height: 48px;
+    text-align: center;
+  }
+
+  .recruitment-page .value-card > p {
+    position: absolute;
+    top: 297px;
+    left: 2px;
+    width: 369px;
+    margin: 0;
+    color: var(--phono-black);
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .recruitment-page .schedule-timeline-scroll {
+    position: absolute;
+    top: 321px;
+    left: 67px;
+    width: 1356px;
+    height: 385px;
+    padding: 0;
+    overflow: visible;
+  }
+
+  .recruitment-page .flow-diagram-asset {
+    width: 1356px;
+    height: 385px;
+  }
+
+  .recruitment-page .flow-row {
+    position: absolute;
+    top: 321px;
+    left: 71px;
+    display: grid;
+    grid-template-columns: repeat(7, 185.66px);
+    gap: 0;
+    width: 1339px;
+    height: 202px;
+    margin: 0;
+  }
+
+  .recruitment-page .flow-row article {
+    width: 226px;
+    min-height: 202px;
+    height: 202px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--phono-lavender) 82%, white);
+  }
+
+  .recruitment-page .flow-row span {
+    font-size: 55px;
+  }
+
+  .recruitment-page .flow-row p {
+    margin: -48px 0 0;
+    font-size: 24px;
+  }
+
+  .recruitment-page .eligibility-list {
+    position: absolute;
+    top: 343px;
+    left: 78px;
+    display: block;
+    width: 1267px;
+    height: 747px;
+  }
+
+  .recruitment-page .eligibility-list article {
+    position: absolute;
+    left: 0;
+    display: grid;
+    grid-template-columns: 133px 1fr;
+    gap: 59px;
+    width: 1267px;
+    min-height: 137px;
+  }
+
+  .recruitment-page .eligibility-list article:nth-child(1) {
+    top: 0;
+  }
+
+  .recruitment-page .eligibility-list article:nth-child(2) {
+    top: 203px;
+  }
+
+  .recruitment-page .eligibility-list article:nth-child(3) {
+    top: 401px;
+  }
+
+  .recruitment-page .eligibility-list article:nth-child(4) {
+    top: 604px;
+  }
+
+  .recruitment-page .eligibility-list span {
+    width: 133px;
+    height: 136px;
+    font-size: 55px;
+  }
+
+  .recruitment-page .eligibility-list h3 {
+    margin: 21px 0 0;
+    font-size: 40px;
+    line-height: 80px;
+  }
+
+  .recruitment-page .eligibility-list p {
+    margin: 0;
+    color: var(--phono-black);
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .recruitment-page .recruit-lower-wave-asset {
+    position: absolute;
+    top: 499px;
+    left: -277px;
+    z-index: -1;
+    width: 1938px;
+    height: 887px;
+    opacity: 1;
+    transform: none;
+  }
+
+  .recruitment-page .recruit-details > div {
+    display: contents;
+  }
+
+  .recruitment-page .occupation-list {
+    position: absolute;
+    top: 362px;
+    left: 119px;
+    display: grid;
+    grid-template-columns: 560px 560px;
+    grid-auto-rows: 85px;
+    gap: 23px 78px;
+    width: 1198px;
+    height: 518px;
+    margin: 0;
+  }
+
+  .recruitment-page .occupation-list li {
+    min-height: 85px;
+    height: 85px;
+    border-radius: 0;
+    padding: 22px 28px 22px 80px;
+    font-size: 16px;
+  }
+
+  .recruitment-page .hospitality-list {
+    position: absolute;
+    top: 329px;
+    left: 267px;
+    display: block;
+    width: 934px;
+    height: 594px;
+    margin: 0;
+  }
+
+  .recruitment-page .hospitality-list div {
+    position: relative;
+    display: grid;
+    grid-template-columns: 181px 1fr;
+    gap: 0;
+    min-height: 45px;
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .recruitment-page .hospitality-list div:nth-child(6),
+  .recruitment-page .hospitality-list div:nth-child(12) {
+    min-height: 77px;
+  }
+
+  .recruitment-page .hospitality-list dt,
+  .recruitment-page .hospitality-list dd {
+    color: var(--phono-black);
+    font-weight: 400;
+    line-height: 32px;
+  }
+
+  .recruitment-page .hospitality-list dt {
+    text-align: right;
+    padding-right: 69px;
+  }
+
+  .recruitment-page .hospitality-list div::after,
+  .recruitment-page .benefits-list div::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 133px;
+    width: 29px;
+    height: 26px;
+    border-radius: 50%;
+    background: var(--phono-blue);
+    box-shadow: 4px 0 0 rgb(255 155 208 / 0.38);
+  }
+
+  .recruitment-page .style-grid {
+    position: absolute;
+    top: 288px;
+    left: 161px;
+    display: grid;
+    grid-template-columns: 537px 521px;
+    gap: 49px;
+    width: 1107px;
+    margin: 0;
+  }
+
+  .recruitment-page .style-grid article {
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  .recruitment-page .style-grid .gradient-orbit {
+    width: 100%;
+    height: 535px;
+    border-radius: 50%;
+    font-size: 35px;
+    text-align: center;
+  }
+
+  .recruitment-page .style-grid .gradient-orbit strong {
+    margin-top: 30px;
+    font-size: 39px;
+  }
+
+  .recruitment-page .style-grid h3 {
+    width: 499px;
+    margin: 41px 0 0 40px;
+    font-size: 32px;
+    line-height: 44px;
+  }
+
+  .recruitment-page .style-grid article > p {
+    width: 503px;
+    margin: 45px 0 0 19px;
+    color: var(--phono-black);
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .recruitment-page .benefits-list {
+    position: absolute;
+    top: 325px;
+    left: 48px;
+    display: block;
+    width: 1342px;
+    height: 626px;
+    margin: 0;
+  }
+
+  .recruitment-page .benefits-list div {
+    position: relative;
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 0;
+    min-height: 45px;
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .recruitment-page .benefits-list div:nth-child(10),
+  .recruitment-page .benefits-list div:nth-child(11),
+  .recruitment-page .benefits-list div:nth-child(12) {
+    min-height: 77px;
+  }
+
+  .recruitment-page .benefits-list dt,
+  .recruitment-page .benefits-list dd {
+    color: var(--phono-black);
+    font-weight: 400;
+    line-height: 32px;
+  }
+
+  .recruitment-page .benefits-list dt {
+    text-align: right;
+    padding-right: 69px;
+  }
+
+  .recruitment-page .benefits-list div::after {
+    left: 352px;
+  }
+
+  .recruitment-page .support-grid {
+    position: absolute;
+    top: 356px;
+    left: 323px;
+    display: grid;
+    grid-template-columns: 351px 351px;
+    gap: 70px 102px;
+    width: 804px;
+    margin: 0;
+  }
+
+  .recruitment-page .support-grid article {
+    position: relative;
+    display: block;
+    width: 351px;
+    min-height: 359px;
+  }
+
+  .recruitment-page .support-grid .gradient-orbit {
+    width: 253px;
+    height: 257px;
+    margin-inline: auto;
+    font-size: 32px;
+  }
+
+  .recruitment-page .support-grid article > p {
+    width: 351px;
+    margin: 25px 0 0;
+    color: var(--phono-black);
+    font-size: 16px;
+    line-height: 32px;
+    text-align: left;
+  }
+
+  .recruitment-page .faq-list {
+    position: absolute;
+    top: 307px;
+    left: 378px;
+    display: block;
+    width: 615px;
+    height: 658px;
+    margin: 0;
+  }
+
+  .recruitment-page .faq-list details {
+    position: relative;
+    height: 72px;
+    border: 0;
+    border-radius: 0;
+    padding: 0 0 0 103px;
+  }
+
+  .recruitment-page .faq-list details::before {
+    content: "Q";
+    position: absolute;
+    top: 8px;
+    left: 26px;
+    z-index: 1;
+    font-size: 35px;
+    font-weight: 700;
+  }
+
+  .recruitment-page .faq-list details::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 78px;
+    z-index: 0;
+    width: 78px;
+    height: 87px;
+    border-radius: 50%;
+    background: rgb(255 155 208 / 0.35);
+    transform: translateX(-50%);
+  }
+
+  .recruitment-page .faq-list summary {
+    position: relative;
+    z-index: 1;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 32px;
+  }
+
+  .recruitment-page .faq-list details > p {
+    display: none;
+  }
+
+  .recruitment-page .career-copy {
+    position: absolute;
+    top: 320px;
+    left: 208px;
+    width: 861px;
+    margin: 0;
+  }
+
+  .recruitment-page .career-copy h2 {
+    width: 537px;
+    margin: 0;
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  .recruitment-page .career-copy p {
+    width: 861px;
+    margin: 59px 0 0;
+    color: var(--phono-black);
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .recruitment-page .career-grid {
+    position: absolute;
+    top: 619px;
+    left: 80px;
+    display: grid;
+    grid-template-columns: 300px 296px 292px 295px;
+    gap: 31px;
+    width: 1290px;
+    margin: 0;
+  }
+
+  .recruitment-page .career-grid article {
+    position: relative;
+    min-height: 300px;
+    height: 300px;
+    border: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgb(255 155 208 / 0.68), rgb(140 81 238 / 0.78));
+    padding: 0;
+  }
+
+  .recruitment-page .career-grid .benefit-asset {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+  }
+
+  .recruitment-page .career-grid h3 {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    place-items: center;
+    padding: 40px;
+    font-size: 32px;
+    line-height: 46px;
+  }
+
+  .recruitment-page .entry-section {
+    position: relative;
+    height: 532px;
+    padding: 0;
+    overflow: visible;
+    background: white;
+    color: var(--phono-black);
+  }
+
+  .recruitment-page .entry-inner > .section-heading,
+  .recruitment-page .entry-inner > p,
+  .recruitment-page .entry-inner > a:last-child {
+    display: none;
+  }
+
+  .recruitment-page .entry-inner .arrow-link {
+    position: absolute;
+    top: 130px;
+    left: 547px;
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 346px;
+    height: 64px;
+    margin: 0;
+    border: 2px solid var(--phono-black);
+    padding: 0;
+    place-items: center;
+    color: var(--phono-black);
+    text-shadow: none;
+  }
+
+  .recruitment-page .entry-inner .arrow-link .arrow-line,
+  .recruitment-page .entry-inner .arrow-link strong,
+  .recruitment-page .entry-inner .arrow-link svg {
+    display: none;
+  }
+
+  .recruitment-page .entry-inner .arrow-link small {
+    margin: 0;
+    color: var(--phono-black);
+    font-size: 16px;
+    line-height: 32px;
+  }
+
+  .recruitment-page .site-footer {
+    position: relative;
+    z-index: 1;
+    height: 745px;
+    min-height: 745px;
+    padding-top: 60px;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .recruitment-page .recruit-footer-wrap {
+    position: relative;
+    height: 745px;
+    overflow: hidden;
+    background: white;
+  }
+
+  .recruitment-page .recruit-footer-background-asset {
+    position: absolute;
+    top: 380px;
+    left: -800px;
+    z-index: 0;
+    width: 1800px;
+    height: 610px;
+  }
+
+  .recruitment-page .footer-grid {
+    width: 1141.57px;
+    margin-right: 0;
+    margin-left: 154px;
+  }
+
+  .recruitment-page .footer-grid .contact-circle {
+    transform: translateY(-60px);
+  }
+
+  .recruitment-page .footer-brand > * {
+    position: relative;
+    left: 6px;
+  }
 }
 
 @media (max-width: 1024px) {
@@ -4359,6 +7835,12 @@ body:has(.home-top) .site-header {
     gap: 56px;
     max-width: 560px;
     margin-inline: auto;
+  }
+
+  .subsidy-feature-card:nth-child(3) .subsidy-feature-heading,
+  .subsidy-feature-body {
+    width: auto;
+    max-width: 100%;
   }
 
   .subsidy-feature-body {
@@ -4983,3 +8465,18 @@ body:has(.home-top) .site-header {
   }
 }
 
+@media (min-width: 721px) and (max-width: 1024px) {
+  .projects-list-page .project-list-card:nth-child(n + 7) {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .projects-list-page .project-list-card:nth-child(n + 4) {
+    display: none;
+  }
+
+  .projects-list-page .pagination-pages li:nth-child(n + 4):not(.pagination-ellipsis) {
+    display: none;
+  }
+}

@@ -6,11 +6,11 @@ export default function ContactPage() {
   return (
     <main id="main-content" className="figma-subpage contact-figma">
       <PageHero title="CONTACT" label="お問い合わせ" assetSrc={figmaAssets.contact.heroWave} assetClassName="contact-hero-asset">
-        <p>
-          phonoへのお問い合わせは、メールにて承っております。
-          ご希望のお問い合わせ方法からお問い合わせください。
-          2～3営業日以内に、担当者よりメールにて返信させていただきます。
-          ご提供いただきましたお客様の個人情報は、お問い合わせの目的のみで利用します。
+        <p className="contact-hero-copy-lines">
+          <span>phonoへのお問い合わせは、メールにて承っております。</span>
+          <span>ご希望のお問い合わせ方法からお問い合わせください。</span>
+          <span>2～3営業日以内に、担当者よりメールにて返信させていただきます。</span>
+          <span>ご提供いただきましたお客様の個人情報は、お問い合わせの目的のみで利用します。</span>
         </p>
       </PageHero>
       <section className="contact-section">

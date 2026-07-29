@@ -1,4 +1,4 @@
-import { FigmaAsset, LogoMark, SiteFooter, WaveField } from "@/components/phono/shared";
+import { FigmaAsset, SiteFooter, WaveField } from "@/components/phono/shared";
 import { figmaAssets, statementCopy } from "@/data/site";
 
 const introductionCopy = [
@@ -63,7 +63,6 @@ export default function AboutPage() {
     <main id="main-content" className="figma-subpage about-figma">
       <section className="figma-subpage-hero about-hero" aria-labelledby="about-title">
         <WaveField variant="hero" assetSrc={figmaAssets.about.heroWave} assetClassName="about-hero-wave-asset" />
-        <LogoMark muted priority />
         <div className="figma-page-title">
           <h1 id="about-title">About</h1>
           <p>phonoとは？</p>
@@ -74,7 +73,6 @@ export default function AboutPage() {
         <AboutSectionTitle title="Introduction" label="ご挨拶" />
         <div className="about-introduction-grid">
           <div className="about-question">
-            <FigmaAsset src={figmaAssets.about.introVector} alt="" className="about-intro-asset" sizes="(max-width: 720px) 90vw, 52vw" />
             <span>何のため？<br />誰のため？</span>
           </div>
           <div>
@@ -119,7 +117,6 @@ export default function AboutPage() {
       </section>
 
       <section className="about-hip">
-        <WaveField variant="section" />
         <div className="site-shell">
           <p className="about-hip-label">What is Hip?</p>
           <h2>「ありのまま」が、最もイケてる。</h2>

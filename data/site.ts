@@ -60,6 +60,26 @@ export const figmaAssets = {
     ]
   },
   subsidy: {
+    moneyMarkLayers: [
+      "/figma-assets/svg/subsidy-money-mark-layer-01--1-1320.svg",
+      "/figma-assets/svg/subsidy-money-mark-layer-02--1-1321.svg",
+      "/figma-assets/svg/subsidy-money-mark-layer-03--1-1322.svg",
+      "/figma-assets/svg/subsidy-money-mark-layer-04--1-1323.svg"
+    ],
+    featureMarks: [
+      [
+        "/figma-assets/svg/subsidy-feature-mark-01-layer-a--1-1369.svg",
+        "/figma-assets/svg/subsidy-feature-mark-01-layer-b--1-1370.svg"
+      ],
+      [
+        "/figma-assets/svg/subsidy-feature-mark-02-layer-a--1-1361.svg",
+        "/figma-assets/svg/subsidy-feature-mark-02-layer-b--1-1362.svg"
+      ],
+      [
+        "/figma-assets/svg/subsidy-feature-mark-03-layer-a--1-1353.svg",
+        "/figma-assets/svg/subsidy-feature-mark-03-layer-b--1-1354.svg"
+      ]
+    ],
     circleDiagrams: [
       "/figma-assets/svg/subsidy-circle-diagram-1374--1-1374.svg",
       "/figma-assets/svg/subsidy-circle-diagram-1401--1-1401.svg",
@@ -75,6 +95,10 @@ export const figmaAssets = {
       "/figma-assets/svg/subsidy-decorative-vector-1545--1-1545.svg",
       "/figma-assets/svg/subsidy-decorative-vector-1579--1-1579.svg"
     ],
+    detailBlobs: {
+      pink: "/figma-assets/svg/subsidy-detail-blob-pink--1-1490.svg",
+      pinkCenter: "/figma-assets/svg/subsidy-detail-blob-pink-center--1-1491.svg"
+    },
     financeDiagram: "/figma-assets/svg/subsidy-finance-diagram--1-1292.svg",
     heroWave: "/figma-assets/svg/subsidy-hero-wave-vector--1-1264.svg"
   },
@@ -395,10 +419,13 @@ export const subsidyIntro = {
   body: [
     "事業やブランドの成長には、戦略的なクリエイティブ投資が欠かせません。",
     "しかし、多くの企業が、資金不足で踏み切れないという課題を抱えています。",
-    "phonoは、補助金・助成金・融資を活用し、資金調達から事業戦略までを包括的にサポート。",
-    "単なる資金確保ではなく、本来の価値を最大限に引き出すための投資戦略として機能させます。",
+    "phonoは、補助金・助成金・融資を活用し、",
+    "資金調達から事業戦略までを包括的にサポート。",
+    "単なる資金確保ではなく、",
+    "本来の価値を 最大限に引き出すための投資戦略として機能させます。",
     "事業計画の設計から申請、金融機関との交渉まで、資金調達のプロセスを伴走。",
-    "適切なクリエイティブ投資を実現することで、事業のポテンシャルを引き出し、長期的な価値へと転換させます。"
+    "適切なクリエイティブ投資を実現することで、",
+    "事業のポテンシャルを引き出し、長期的な価値へと転換させます。"
   ]
 };
 

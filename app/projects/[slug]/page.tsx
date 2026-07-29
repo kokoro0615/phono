@@ -36,7 +36,10 @@ export default async function ProjectDetailPage({
         <FigmaAsset src={figmaAssets.projects.detailVisual} alt="" className="detail-visual" sizes="(max-width: 720px) 100vw, 948px" />
         <div className="project-meta">
           <h2>{project.client}</h2>
-          <h3>{project.title}</h3>
+          <h3>
+            <span>{project.title}</span>
+            {project.slug === "hachimarusuisan-ec" ? <span>安心・安全の魚惣菜を全国へ。</span> : null}
+          </h3>
           <dl className="project-detail-meta">
             <div>
               <dt>Client</dt>
@@ -46,7 +49,7 @@ export default async function ProjectDetailPage({
               <dt>Service</dt>
               <dd className="tag-row">
                 {project.tags.map((tag) => (
-                  <PhonoBadge key={tag}>{tag}</PhonoBadge>
+                  <PhonoBadge key={tag} className="project-detail-badge">{tag}</PhonoBadge>
                 ))}
               </dd>
             </div>
@@ -58,21 +61,23 @@ export default async function ProjectDetailPage({
         </div>
 
         <DetailBlock title="Outline" label="概要">
-          <h3>対面販売の限界を越え、オンラインで全国へ届ける。</h3>
-          <p>{project.summary}</p>
+          <h3>見出しやキャッチコピー等のテキストがが入ります。</h3>
+          <p>
+            ショッピングモールでの対面販売に限界を感じており、オンラインでの販路拡大が急務でした。
+            特に、健康志向の高い主婦層からの要望が増えていたため、オンライン販売の必要性が高まっていました。
+          </p>
         </DetailBlock>
 
         <DetailBlock title="Issue" label="課題">
-          <p>ショッピングモールでの対面販売に限界を感じており、オンラインでの販路拡大が急務でした。特に、健康志向の高い主婦層からの要望が増えていたため、オンライン販売の必要性が高まっていました。</p>
-          <ul>
+          <ol>
             <li>対面販売に依存し販路が限定的</li>
             <li>オンラインでの販売チャネルが未整備</li>
             <li>魚惣菜に対するネガティブな印象</li>
-          </ul>
+          </ol>
         </DetailBlock>
 
         <DetailBlock title="Solution" label="解決策">
-          <h3>補助金を活用し、ECとブランドを一体で設計。</h3>
+          <h3>見出しやキャッチコピー等のテキストがが入ります。</h3>
           <div className="detail-solution-grid">
             <strong>shopifyの導入<br />ターゲット設定<br />商品開発</strong>
             <p>補助金を活用してShopifyを導入し、オンライン販売のためのECサイトを構築。EC市場の魚惣菜の調査・分析を行い、ターゲット設定から商品開発まで一体で設計しました。</p>

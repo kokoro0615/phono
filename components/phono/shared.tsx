@@ -33,6 +33,7 @@ export function FigmaAsset({
         alt={alt}
         fill
         priority={priority}
+        unoptimized={src.toLowerCase().endsWith(".svg")}
         sizes={sizes}
         className={cn("figma-asset-image", imageClassName)}
       />
@@ -72,6 +73,7 @@ export function LogoMark({ muted = false, priority = false }: { muted?: boolean;
         width={420}
         height={131}
         priority={priority}
+        unoptimized
         className="logo-mark-asset"
       />
     </Link>

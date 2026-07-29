@@ -228,7 +228,7 @@ export function ProjectCard({
         <div className="project-list-card-body">
           {client ? <p className="project-list-card-client">{client}</p> : null}
           <span>{description}</span>
-          <Link href={href}>more ↗</Link>
+          <Link href={href}>→ more</Link>
         </div>
       </article>
     );
@@ -349,19 +349,27 @@ const contactCategories = [
   "事業開発",
   "サービス開発",
   "商品開発",
-  "ブランディング（ロゴ、名刺、パンフレット、Webサイト、店舗・内装設計など）",
+  "ブランディング（ロゴ、名刺、パンフレット、Webサイト、店舗·内装設計など）",
   "プロモーション（動画）",
-  "補助金・助成金の活用",
+  "補助金·助成金の活用",
   "その他"
 ] as const;
-const pageSize = 3;
+const projectsPageSize = 15;
+const projectsPageCount = 7;
 
 export function ProjectBrowser() {
   const [category, setCategory] = useState<(typeof categories)[number]>("All");
   const [page, setPage] = useState(0);
   const filtered = category === "All" ? projects : projects.filter((project) => project.tags.includes(category) || project.category === category);
-  const pageCount = Math.max(1, Math.ceil(filtered.length / pageSize));
-  const pageProjects = filtered.slice(page * pageSize, page * pageSize + pageSize);
+  const figmaAllPattern = [projects[0], projects[1], projects[0]];
+  const pageProjects = Array.from({ length: projectsPageSize }, (_, slotIndex) => {
+    if (category === "All") {
+      return figmaAllPattern[slotIndex % figmaAllPattern.length];
+    }
+
+    const filteredIndex = (page * projectsPageSize + slotIndex) % filtered.length;
+    return filtered[filteredIndex];
+  });
 
   function selectCategory(nextCategory: (typeof categories)[number]) {
     setCategory(nextCategory);
@@ -378,13 +386,12 @@ export function ProjectBrowser() {
         className="filter-row"
       />
       <div className="project-grid">
-        {pageProjects.map((project: Project) => {
-          const projectIndex = projects.findIndex((item) => item.slug === project.slug);
-          const thumbnailIndex = projectIndex >= 0 ? projectIndex % figmaAssets.projects.thumbnails.length : 0;
+        {pageProjects.map((project: Project, slotIndex) => {
+          const thumbnailIndex = (page * projectsPageSize + slotIndex) % figmaAssets.projects.thumbnails.length;
 
           return (
             <ProjectCard
-              key={project.slug}
+              key={`${project.slug}-${page}-${slotIndex}`}
               variant="list"
               title={project.title}
               description={project.summary}
@@ -411,8 +418,8 @@ export function ProjectBrowser() {
         <button type="button" disabled={page === 0} onClick={() => setPage((value) => Math.max(0, value - 1))}>
           prev
         </button>
-        <ol className="pagination-pages" aria-label={`${pageCount}ページ中${page + 1}ページ目`}>
-          {Array.from({ length: pageCount }, (_, index) => (
+        <ol className="pagination-pages" aria-label={`${projectsPageCount}ページ中${page + 1}ページ目`}>
+          {Array.from({ length: projectsPageCount }, (_, index) => (
             <li key={index}>
               <button
                 type="button"
@@ -420,12 +427,13 @@ export function ProjectBrowser() {
                 className={index === page ? "pagination-page-active" : undefined}
                 onClick={() => setPage(index)}
               >
-                {index + 1}
+                {index === 0 ? "1" : String.fromCharCode(0xff11 + index)}
               </button>
             </li>
           ))}
+          <li className="pagination-ellipsis" aria-hidden>・・・</li>
         </ol>
-        <button type="button" disabled={page >= pageCount - 1} onClick={() => setPage((value) => Math.min(pageCount - 1, value + 1))}>
+        <button type="button" disabled={page >= projectsPageCount - 1} onClick={() => setPage((value) => Math.min(projectsPageCount - 1, value + 1))}>
           next
         </button>
       </nav>

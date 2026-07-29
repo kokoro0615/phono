@@ -1,4 +1,4 @@
-import { ArrowLink, FigmaAsset, PageHero, SectionHeading, SiteFooter, WaveField } from "@/components/phono/shared";
+import { ArrowLink, FigmaAsset, PageHero, SectionHeading, SiteFooter } from "@/components/phono/shared";
 import {
   figmaAssets,
   financeRows,
@@ -20,11 +20,30 @@ export default function SubsidyPage() {
         <p className="subsidy-hero-lead">phonoの補助金・助成金活用サポート</p>
       </PageHero>
 
-      {/* Intro — Figma 1:1325 (Services heading) + 1:1313 (statement + body) + 1:1292 (circle diagram) */}
+      {/* Figma 1:1474 — the tall right-side ribbon crosses Hero, Intro, and Financing. */}
+      <FigmaAsset
+        src={figmaAssets.subsidy.decorativeVectors[1]}
+        alt=""
+        className="subsidy-page-ribbon"
+        priority
+        sizes="974px"
+      />
+
+      {/* Intro — Figma 1:1325 heading + 1:1316 icon + 1:1313 copy + 1:1292 diagram */}
       <section className="subsidy-intro">
         <div className="site-shell subsidy-intro-grid">
           <div className="subsidy-intro-copy">
             <SectionHeading title="Services" label="［　資金調達サポートについて　］" />
+            <div className="subsidy-money-mark" aria-hidden>
+              {figmaAssets.subsidy.moneyMarkLayers.map((src, index) => (
+                <FigmaAsset
+                  key={src}
+                  src={src}
+                  className={`subsidy-money-mark-layer subsidy-money-mark-layer-${index + 1}`}
+                  sizes="84px"
+                />
+              ))}
+            </div>
             <h2 className="subsidy-statement">{subsidyIntro.statement}</h2>
             <div className="subsidy-intro-body">
               {subsidyIntro.body.map((line) => (
@@ -36,6 +55,7 @@ export default function SubsidyPage() {
             src={figmaAssets.subsidy.financeDiagram}
             alt="助成金・補助金・融資をクリエイティブに接続する関係図"
             className="subsidy-intro-diagram"
+            priority
             sizes="(max-width: 1024px) 80vw, 480px"
           />
         </div>
@@ -73,17 +93,24 @@ export default function SubsidyPage() {
 
       {/* Feature — Figma 1:1335 heading + 3 numbered teardrops (1:1341) */}
       <section className="subsidy-feature">
-        <WaveField
-          variant="section"
-          assetSrc={figmaAssets.subsidy.decorativeVectors[2]}
-          assetClassName="subsidy-feature-wave-asset"
-        />
         <div className="site-shell">
           <SectionHeading title="Feature" label="［　phonoのサポートの特徴　］" />
           <ol className="subsidy-feature-grid">
-            {subsidyFeatures.map((feature) => (
+            {subsidyFeatures.map((feature, index) => (
               <li key={feature.number} className="subsidy-feature-card">
-                <div className="subsidy-feature-mark">
+                <div className={`subsidy-feature-mark subsidy-feature-mark-${feature.number}`}>
+                  <FigmaAsset
+                    src={figmaAssets.subsidy.featureMarks[index][0]}
+                    alt=""
+                    className="subsidy-feature-mark-layer subsidy-feature-mark-layer-a"
+                    sizes="142px"
+                  />
+                  <FigmaAsset
+                    src={figmaAssets.subsidy.featureMarks[index][1]}
+                    alt=""
+                    className="subsidy-feature-mark-layer subsidy-feature-mark-layer-b"
+                    sizes="142px"
+                  />
                   <span className="subsidy-feature-number tabular-nums" aria-hidden>
                     {feature.number}
                   </span>
@@ -100,39 +127,85 @@ export default function SubsidyPage() {
         </div>
       </section>
 
-      {/* Detail — Figma 1:1493 (補助金) + 1:1502 (助成金), dark cards */}
-      {subsidyDetailGroups.map((group) => (
-        <section key={group.title} className={`subsidy-detail subsidy-detail-${group.palette}`}>
-          <div className="site-shell">
-            <h2 className="subsidy-detail-title">{group.title}</h2>
-            <div className="subsidy-detail-grid">
-              {group.cards.map((card) => (
-                <article key={card.title} className="subsidy-detail-card">
-                  <h3 className="subsidy-detail-card-title">{card.title}</h3>
-                  <dl className="subsidy-detail-rows">
-                    {card.rows.map((field) => (
-                      <div key={field.label} className="subsidy-detail-field">
-                        <dt>{field.label}</dt>
-                        <dd>
-                          {field.lines.map((line) => (
-                            <span key={line}>{line}</span>
-                          ))}
-                        </dd>
-                      </div>
-                    ))}
-                  </dl>
-                  <ArrowLink
-                    className="subsidy-detail-link"
-                    href="/contact"
-                    label="詳細はこちら"
-                    sublabel=""
-                  />
-                </article>
-              ))}
+      {/* Detail — Figma 1:1479 scene + 1:1493 (補助金) + 1:1502 (助成金). */}
+      <div className="subsidy-detail-scene">
+        <FigmaAsset
+          src={figmaAssets.subsidy.decorativeVectors[2]}
+          alt=""
+          className="subsidy-detail-scene-asset"
+          sizes="100vw"
+        />
+        <div className="subsidy-detail-blobs" aria-hidden>
+          <FigmaAsset
+            src={figmaAssets.subsidy.detailBlobs.pink}
+            className="subsidy-detail-blob subsidy-detail-blob-pink-left"
+            sizes="789px"
+          />
+          <FigmaAsset
+            src={figmaAssets.subsidy.decorativeVectors[0]}
+            className="subsidy-detail-blob subsidy-detail-blob-lavender-center"
+            sizes="737px"
+          />
+          <FigmaAsset
+            src={figmaAssets.subsidy.detailBlobs.pink}
+            className="subsidy-detail-blob subsidy-detail-blob-pink-right"
+            sizes="789px"
+          />
+          <FigmaAsset
+            src={figmaAssets.subsidy.decorativeVectors[3]}
+            className="subsidy-detail-blob subsidy-detail-blob-lavender-left"
+            sizes="737px"
+          />
+          <FigmaAsset
+            src={figmaAssets.subsidy.detailBlobs.pinkCenter}
+            className="subsidy-detail-blob subsidy-detail-blob-pink-center"
+            sizes="709px"
+          />
+          <FigmaAsset
+            src={figmaAssets.subsidy.decorativeVectors[4]}
+            className="subsidy-detail-blob subsidy-detail-blob-lavender-right"
+            sizes="737px"
+          />
+        </div>
+        {subsidyDetailGroups.map((group, groupIndex) => (
+          <section key={group.title} className={`subsidy-detail subsidy-detail-${group.palette}`}>
+            <div className="site-shell">
+              <h2 className="subsidy-detail-title">{group.title}</h2>
+              <div className="subsidy-detail-grid">
+                {(group.palette === "lavender"
+                  ? [group.cards[0], group.cards[2], group.cards[1]]
+                  : group.cards
+                ).map((card, cardIndex) => (
+                  <article
+                    key={card.title}
+                    className={`subsidy-detail-card subsidy-detail-card-${groupIndex + 1}-${cardIndex + 1}`}
+                  >
+                    <h3 className="subsidy-detail-card-title">{card.title}</h3>
+                    <dl className="subsidy-detail-rows">
+                      {card.rows.map((field) => (
+                        <div key={field.label} className="subsidy-detail-field">
+                          <dt>{field.label}</dt>
+                          <dd>
+                            {field.lines.map((line) => (
+                              <span key={line}>{line}</span>
+                            ))}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                    <ArrowLink
+                      className="subsidy-detail-link"
+                      href="/contact"
+                      label="詳細はこちら"
+                      sublabel=""
+                    />
+                  </article>
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
-      ))}
+          </section>
+        ))}
+      </div>
 
       <SiteFooter />
     </main>
