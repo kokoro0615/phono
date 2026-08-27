@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import type {
   ButtonHTMLAttributes,
   InputHTMLAttributes,
@@ -8,14 +8,7 @@ import type {
   TextareaHTMLAttributes
 } from "react";
 import Link from "next/link";
-import {
-  ArrowLeft,
-  ArrowRight,
-  Check,
-  Facebook,
-  Instagram,
-  X
-} from "lucide-react";
+import { Check } from "lucide-react";
 import { figmaAssets, members, navItems, projects } from "@/data/site";
 import type { Project } from "@/data/site";
 import { cn } from "@/lib/cn";
@@ -249,47 +242,162 @@ export function ProjectCard({
   );
 }
 
+/* The Figma TOP frame (1:2) is captured with the menu *open* — 1:308 is the
+   nav "modal" and 1:252 is the gradient wave it rides on. The shipped default
+   is therefore the closed state: only the 21x21 dot glyph (1:87) sits at
+   (1389, 26), and pressing it flows the wave curtain down before the columns
+   settle underneath it. */
+
+function MenuGlyph() {
+  return (
+    <>
+      {/* Closed — Figma 1:87: nine 3px squares on a 9px pitch, 21x21 total. */}
+      {/* 1:87 — the nine 3px squares on a 9px pitch, as exported. */}
+      <span className="menu-glyph menu-glyph-dots" aria-hidden>
+        <FigmaAsset src={figmaAssets.menuDots} className="menu-dots-asset" sizes="21px" />
+      </span>
+      {/* Open — the white cross inside a hairline ring, concentric with the
+          dot grid at (1399.5, 36.5). */}
+      <span className="menu-glyph menu-glyph-close" aria-hidden>
+        <svg viewBox="0 0 32 32" fill="none" focusable="false">
+          <circle cx="16" cy="16" r="15.1" stroke="currentColor" strokeWidth="1.4" />
+          <path d="M11.4 11.4 20.6 20.6M20.6 11.4 11.4 20.6" stroke="currentColor" strokeWidth="2.4" />
+        </svg>
+      </span>
+    </>
+  );
+}
+
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const navigationId = "site-navigation";
+  const panelRef = useRef<HTMLDivElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    if (!open) {
+      return;
+    }
+
+    // Captured for the cleanup: both nodes outlive the open state.
+    const panel = panelRef.current;
+    const toggle = toggleRef.current;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab" || !panel) {
+        return;
+      }
+
+      // The panel covers the page while it is open, so keep Tab inside it.
+      const focusable = Array.from(
+        panel.querySelectorAll<HTMLElement>("a[href], button:not([disabled]):not([tabindex='-1'])")
+      );
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (!first || !last) {
+        return;
+      }
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    panel?.querySelector<HTMLElement>("a[href]")?.focus();
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener("keydown", handleKeyDown);
+      toggle?.focus();
+    };
+  }, [open]);
+
+  const close = () => setOpen(false);
 
   return (
     <header className={cn("site-header", open && "site-header-open")}>
       <div className="site-header-bar">
         <LogoMark muted={!open} />
         <button
+          ref={toggleRef}
           type="button"
           className="menu-button"
           aria-label={open ? "メニューを閉じる" : "メニューを開く"}
           aria-expanded={open}
+          aria-controls={navigationId}
           onClick={() => setOpen((value) => !value)}
         >
-          {open ? <X size={26} /> : <span className="dot-menu" aria-hidden />}
+          <MenuGlyph />
         </button>
       </div>
-      {open ? (
-        <div className="nav-overlay">
-          <nav className="nav-grid" aria-label="グローバルナビゲーション">
-            {navItems.slice(0, 6).map((item) => (
-              <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>
+
+      {/* Redundant click-away target. Escape and the close mark are the real
+          affordances, so this stays out of the tab order and the a11y tree. */}
+      <div aria-hidden className="nav-scrim" onClick={close} />
+
+      <div id={navigationId} ref={panelRef} className="nav-overlay" inert={!open}>
+        {/* Figma 1:252 is a single 1440x615 wave. Three offset copies of it give
+            the crest something to break against as it drops, so the reveal
+            reads as water rather than a sliding panel. */}
+        <div className="nav-curtain" aria-hidden>
+          <span className="nav-curtain-layer nav-curtain-layer-a">
+            <span className="nav-curtain-wave" />
+          </span>
+          <span className="nav-curtain-layer nav-curtain-layer-b">
+            <span className="nav-curtain-wave" />
+          </span>
+          <span className="nav-curtain-layer nav-curtain-layer-c">
+            <span className="nav-curtain-wave" />
+          </span>
+        </div>
+
+        <nav className="figma-top-nav" aria-label="グローバルナビゲーション">
+          {navItems.slice(0, 6).map((item) => (
+            /* The child labels are real destinations (Figma draws them as text,
+               but `/services/subsidy` is only reachable through one of them), so
+               the item can no longer be a single anchor wrapping them. */
+            <div key={item.href} className="figma-nav-item">
+              <Link href={item.href} className="figma-nav-item-head" onClick={close}>
                 <strong>{item.label}</strong>
                 <span>{item.sublabel}</span>
-                {item.children ? (
-                  <small>{item.children.slice(0, 4).map((child) => `- ${child}`).join("  ")}</small>
-                ) : null}
               </Link>
-            ))}
-            <ContactCircle />
-          </nav>
-          <div className="overlay-social">
-            <Link href="https://www.instagram.com/" aria-label="Instagram">
-              <Instagram />
-            </Link>
-            <Link href="https://www.facebook.com/" aria-label="Facebook">
-              <Facebook />
-            </Link>
+              {item.children ? (
+                <small>
+                  {item.children.map((child) => (
+                    <Link key={child.label} href={child.href} className="figma-nav-child" onClick={close}>
+                      {child.label}
+                    </Link>
+                  ))}
+                </small>
+              ) : null}
+            </div>
+          ))}
+          <ContactCircle className="figma-nav-contact" />
+          {/* Figma 1:315 — the two social marks under the Contact circle. */}
+          {/* 1:315 — one 103.88x40 export; each link shows its half of it. */}
+          <div className="figma-social">
+            <Link href="https://www.instagram.com/" aria-label="Instagram" onClick={close} />
+            <Link href="https://www.facebook.com/" aria-label="Facebook" onClick={close} />
           </div>
-        </div>
-      ) : null}
+          {/* Figma 1:363 — privacy link under the social marks. */}
+          <Link href="/contact" className="figma-nav-privacy" onClick={close}>
+            プライバシーポリシー
+          </Link>
+        </nav>
+      </div>
     </header>
   );
 }
@@ -305,10 +413,10 @@ export function MemberCarousel() {
     <div className="member-carousel">
       <div className="carousel-controls">
         <button type="button" aria-label="前のメンバー" onClick={() => setStart((value) => (value - 1 + members.length) % members.length)}>
-          <ArrowLeft />
+          <FigmaAsset src={figmaAssets.pagerChevron} className="pager-chevron pager-chevron-prev" sizes="18px" />
         </button>
         <button type="button" aria-label="次のメンバー" onClick={() => setStart((value) => (value + 1) % members.length)}>
-          <ArrowRight />
+          <FigmaAsset src={figmaAssets.pagerChevron} className="pager-chevron" sizes="18px" />
         </button>
       </div>
       <div className="member-track">
@@ -478,7 +586,8 @@ export function ContactForm() {
       <PhonoInput name="site" type="url" label="サイトURL" />
       <PhonoInput required multiline name="message" rows={8} label="お問い合わせ詳細＊" className="wide-field" />
       <PhonoButton type="submit">
-        入力内容を確認する <ArrowRight size={22} />
+        入力内容を確認する
+        <FigmaAsset src={figmaAssets.submitChevron} className="submit-chevron" sizes="9px" />
       </PhonoButton>
       {submitted ? (
         <p className="form-complete" role="status">
@@ -486,5 +595,43 @@ export function ContactForm() {
         </p>
       ) : null}
     </form>
+  );
+}
+
+/**
+ * Figma 1:1494 / 1:1503 draw a prev/next pair beside each "ご提案できる…" title
+ * and cut the third card off at the frame edge. On a live page that card has to
+ * be reachable, so the arrows page the row instead of decorating it.
+ */
+export function SubsidyDetailCarousel({
+  label,
+  children,
+  className
+}: {
+  label: string;
+  children: ReactNode;
+  className?: string;
+}) {
+  const [page, setPage] = useState(0);
+  const lastPage = 1;
+
+  return (
+    <div className={cn("subsidy-carousel", className)} data-page={page}>
+      <button
+        type="button"
+        className="subsidy-detail-arrow subsidy-detail-arrow-prev"
+        onClick={() => setPage((value) => Math.max(0, value - 1))}
+        disabled={page === 0}
+        aria-label={`${label}を前に戻す`}
+      />
+      <button
+        type="button"
+        className="subsidy-detail-arrow subsidy-detail-arrow-next"
+        onClick={() => setPage((value) => Math.min(lastPage, value + 1))}
+        disabled={page === lastPage}
+        aria-label={`${label}を次に送る`}
+      />
+      {children}
+    </div>
   );
 }

@@ -1,4 +1,5 @@
 import { ArrowLink, FigmaAsset, PageHero, SectionHeading, SiteFooter } from "@/components/phono/shared";
+import { SubsidyDetailCarousel } from "@/components/phono/interactive";
 import {
   figmaAssets,
   financeRows,
@@ -171,7 +172,8 @@ export default function SubsidyPage() {
           <section key={group.title} className={`subsidy-detail subsidy-detail-${group.palette}`}>
             <div className="site-shell">
               <h2 className="subsidy-detail-title">{group.title}</h2>
-              <div className="subsidy-detail-grid">
+              <SubsidyDetailCarousel label={group.title}>
+                <div className="subsidy-detail-grid">
                 {(group.palette === "lavender"
                   ? [group.cards[0], group.cards[2], group.cards[1]]
                   : group.cards
@@ -201,7 +203,8 @@ export default function SubsidyPage() {
                     />
                   </article>
                 ))}
-              </div>
+                </div>
+              </SubsidyDetailCarousel>
             </div>
           </section>
         ))}

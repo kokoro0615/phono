@@ -106,7 +106,11 @@ export default function ServicesPage() {
                   </h3>
                 </div>
                 <div className="services-approach-detail">
-                  <p className="services-approach-body">{step.body}</p>
+                  <p className="services-approach-body">
+                    {step.body.map((line) => (
+                      <span key={line}>{line}</span>
+                    ))}
+                  </p>
                   <div className="services-approach-columns">
                     {step.columns.map((column, columnIndex) => (
                       <ul key={columnIndex}>
@@ -204,6 +208,9 @@ export default function ServicesPage() {
         />
         <div className="site-shell services-media-feature-wrap">
           <p className="services-coming-soon">{media.comingSoon}</p>
+          {/* 1:941 — the design labels this band ［　契約形態　］; it is reproduced
+              as drawn rather than corrected. */}
+          <p className="services-coming-soon-label">［　契約形態　］</p>
           <div className="services-media-feature">
             <FigmaAsset
               src={figmaAssets.services.lowerMedia}

@@ -1,0 +1,19 @@
+{
+  "route": "/",
+  "items": [
+    { "node": "1:414", "name": "Top label",     "sel": ".site-footer .footer-column:nth-child(1) strong", "x": 148.23, "y": 7141.4, "w": 48, "h": 38 },
+    { "node": "1:415", "name": "トップ",          "sel": ".site-footer .footer-column:nth-child(1) span",   "x": 146.2, "y": 7185.77, "w": 42, "h": 17 },
+    { "node": "1:408", "name": "About label",   "sel": ".site-footer .footer-column:nth-child(2) strong", "x": 227.58, "y": 7141.4, "w": 83, "h": 38 },
+    { "node": "1:512", "name": "About children","sel": ".site-footer .footer-column:nth-child(2) ul",     "x": 245.36, "y": 7243, "w": 116, "h": 105 },
+    { "node": "1:411", "name": "Services label","sel": ".site-footer .footer-column:nth-child(3) strong", "x": 385, "y": 7141.4, "w": 113, "h": 38 },
+    { "node": "1:471", "name": "Projects label","sel": ".site-footer .footer-column:nth-child(4) strong", "x": 594, "y": 7142, "w": 107, "h": 35 },
+    { "node": "1:480", "name": "Member label",  "sel": ".site-footer .footer-column:nth-child(5) strong", "x": 759.5, "y": 7142, "w": 119, "h": 29 },
+    { "node": "1:405", "name": "Recruit label", "sel": ".site-footer .footer-column:nth-child(6) strong", "x": 911.07, "y": 7141.4, "w": 162, "h": 38 },
+    { "node": "1:416", "name": "contact circle","sel": ".site-footer .contact-circle",                    "x": 1106.39, "y": 7080.71, "w": 181.38, "h": 181.38 },
+    { "node": "1:380", "name": "brand wave",    "sel": ".site-footer .footer-wave",                       "x": 558.06, "y": 7456.85, "w": 323.88, "h": 109.81 },
+    { "node": "1:386", "name": "wordmark",      "sel": ".site-footer .footer-logo",                       "x": 647.58, "y": 7582.28, "w": 144.84, "h": 44.95 },
+    { "node": "1:396", "name": "social",        "sel": ".site-footer .social-row",                        "x": 668.19, "y": 7700.6, "w": 103.62, "h": 40 },
+    { "node": "1:427", "name": "privacy",       "sel": ".site-footer .footer-bottom a",                   "x": 1064.46, "y": 7777.16, "w": 160, "h": 23 },
+    { "node": "1:428", "name": "copyright",     "sel": ".site-footer .footer-bottom span",                "x": 1226.02, "y": 7776.6, "w": 156, "h": 23 }
+  ]
+}

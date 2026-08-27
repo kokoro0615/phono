@@ -1,46 +1,15 @@
 import Link from "next/link";
-import { Facebook, Instagram } from "lucide-react";
 import { PhonoTabs, ProjectCard } from "@/components/phono/interactive";
-import { ArrowLink, ContactCircle, FigmaAsset, LogoMark, SiteFooter } from "@/components/phono/shared";
-import { figmaAssets, members, navItems, projects, serviceCircles, statementCopy } from "@/data/site";
+import { ArrowLink, FigmaAsset, LogoMark, SiteFooter, StatementParagraphs } from "@/components/phono/shared";
+import { figmaAssets, members, projects, serviceCircles } from "@/data/site";
 
 const projectCategories = ["All", "事業開発", "サービス開発", "ブランディング", "プロモーション・PR", "資金調達サポート"];
 const featuredProjects = projects.slice(0, 5);
 const featuredMembers = members.slice(0, 4);
 
-function TopNav() {
-  return (
-    <nav className="figma-top-nav" aria-label="TOPグローバルナビゲーション">
-      {navItems.slice(0, 6).map((item) => (
-        <Link key={item.href} href={item.href} className="figma-nav-item">
-          <strong>{item.label}</strong>
-          <span>{item.sublabel}</span>
-          {item.children ? (
-            <small>
-              {item.children.slice(0, 5).map((child) => (
-                <em key={child}>- {child}</em>
-              ))}
-            </small>
-          ) : null}
-        </Link>
-      ))}
-      <ContactCircle className="figma-nav-contact" />
-      <div className="figma-social">
-        <Link href="https://www.instagram.com/" aria-label="Instagram">
-          <Instagram size={19} strokeWidth={1.7} />
-        </Link>
-        <Link href="https://www.facebook.com/" aria-label="Facebook">
-          <Facebook size={19} strokeWidth={1.7} />
-        </Link>
-      </div>
-    </nav>
-  );
-}
-
 function ProjectFeature() {
   return (
     <section className="figma-projects" aria-labelledby="home-projects-title">
-      <FigmaAsset src={figmaAssets.top.decorativeCluster} className="figma-project-wave" />
       <div className="figma-project-heading">
         <span>実績紹介</span>
         <h2 id="home-projects-title">Projects</h2>
@@ -86,7 +55,9 @@ function MemberStrip() {
         <h2 id="home-member-title">Member</h2>
         <span>phonoの人</span>
       </div>
-      <span className="figma-member-wave" aria-hidden />
+      {/* Figma 1:14 — the two carousel arrows flanking the member row. The row
+          itself is static here, so they are decorative. */}
+      <FigmaAsset src={figmaAssets.top.memberArrows} className="figma-member-arrows" sizes="1305px" />
       <div className="figma-member-track">
         {featuredMembers.map((member, index) => {
           const [firstName, lastName] = member.name.split(" ");
@@ -117,7 +88,6 @@ function MemberStrip() {
 function RecruitmentCta() {
   return (
     <section className="figma-recruitment" aria-labelledby="home-recruitment-title">
-      <span className="figma-recruitment-wave" aria-hidden />
       <div className="figma-recruitment-title">
         <h2 id="home-recruitment-title">Recruitment</h2>
         <span>採用情報</span>
@@ -125,9 +95,9 @@ function RecruitmentCta() {
       <ArrowLink href="/recruitment" label="View More" sublabel="詳細を見る" className="figma-arrow-link" />
       <div className="figma-recruitment-copy">
         <h3>phonoは一緒に働く<br />仲間を探しています。</h3>
+        {/* Figma 1:236 — six authored lines on a 32px baseline. */}
         <p>
-          このテキストエリアにはボディコピーや本文、説明文や詳細記事などが入ってきます。
-          ここには簡単な説明や、補足情報などの文章が記載される予定です。
+          {"このテキストエリアにはボディコピーや本文、\n説明文や詳細記事などが入ってきます。\nここには簡単な説明や、補足情報などの\n文章が記載される予定です。\n現状でここに入っている文字は\n全てダミーテキストです。"}
         </p>
       </div>
     </section>
@@ -137,22 +107,45 @@ function RecruitmentCta() {
 export default function Home() {
   return (
     <main id="main-content" className="home-top">
+      {/* Page-level Figma artwork. These vectors span section boundaries in the
+          design, so they live in one 1440px canvas layer positioned by their
+          Figma page coordinates rather than inside a single section. */}
+      <div className="figma-canvas" aria-hidden>
+        {/* Figma 1:79 — the 1068x3150 wave running down the right edge from
+            y=-679 — and 1:68, the Projects blob. */}
+        <FigmaAsset src={figmaAssets.top.lowerWaveGroup} className="figma-bg figma-bg-hero-side" priority sizes="1068px" />
+        <FigmaAsset src={figmaAssets.top.decorativeCluster} className="figma-bg figma-bg-projects-blob" sizes="1636px" />
+
+        {/* Figma 1:5 is a clip-path group: everything below is masked by the
+            band shape (1:6), which is why the crest waves stop at its top edge
+            instead of flooding the white above it. */}
+        <div className="figma-bg figma-bg-member-clip">
+          <FigmaAsset src={figmaAssets.top.memberBand} className="figma-bg-member-band" sizes="1440px" />
+          <FigmaAsset src={figmaAssets.top.memberWaveA} className="figma-bg-member-wave-a" sizes="1440px" />
+          <FigmaAsset src={figmaAssets.top.memberWaveB} className="figma-bg-member-wave-b" sizes="1440px" />
+          <FigmaAsset src={figmaAssets.top.recruitmentWave} className="figma-bg-recruitment-wave" sizes="1440px" />
+        </div>
+      </div>
+
       <section className="figma-hero" aria-labelledby="home-hero-title">
-        <FigmaAsset src={figmaAssets.top.heroGradientWave} className="figma-hero-gradient-wave" priority />
-        <FigmaAsset src={figmaAssets.top.lowerWaveGroup} className="figma-hero-side-wave" priority />
-        <TopNav />
         <div className="figma-hero-brand">
           <LogoMark muted priority />
           <h1 id="home-hero-title">ありのまま原理主義。</h1>
         </div>
+        {/* Figma 1:72 + 1:75 — two teardrops offset 12.5px apart, multiplied.
+            The lower violet copy is what darkens the overlap to #DE82E4. */}
+        <FigmaAsset src={figmaAssets.top.scrollBlob} className="figma-scroll-blob" sizes="59px" />
+        <FigmaAsset src={figmaAssets.top.scrollBlobLower} className="figma-scroll-blob figma-scroll-blob-lower" sizes="59px" />
         <div className="figma-scroll">Scroll</div>
+        {/* Figma 1:252 (the 1440x615 gradient wave that paints over the
+            wordmark at 90%) belongs to the *open* menu — the TOP frame is
+            captured with the nav modal 1:308 showing. It is rendered by
+            SiteHeader's curtain so it flows in with the navigation. */}
       </section>
 
       <section className="figma-statement" aria-label="phonoステートメント">
         <div>
-          {statementCopy.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
+          <StatementParagraphs />
         </div>
       </section>
 
@@ -161,7 +154,10 @@ export default function Home() {
           <ArrowLink href="/about" label="About" sublabel="phonoとは？" className="figma-arrow-link" />
           <ArrowLink href="/services" label="Services" sublabel="事業内容" className="figma-arrow-link" />
         </div>
+        {/* Figma 1:237 — the two overlapping multiply-blended circles are one
+            exported vector group; the links sit transparently on top of it. */}
         <div className="figma-service-circles">
+          <FigmaAsset src={figmaAssets.top.serviceCircles} className="figma-service-circles-asset" sizes="1117px" />
           {serviceCircles.map((service, index) => (
             <Link key={service.title} href={service.href} className={`figma-service-circle figma-service-circle-${index + 1}`}>
               <span>{service.label}</span>

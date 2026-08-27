@@ -18,7 +18,10 @@
     "figma:cc:preview:json": "figma connect preview --output json",
     "figma:cc:parse": "figma connect parse --outFile code-connect-output.json --exit-on-unreadable-files",
     "figma:cc:dry-run": "figma connect publish --dry-run --exit-on-unreadable-files",
-    "figma:cc:publish": "figma connect publish --exit-on-unreadable-files"
+    "figma:cc:publish": "figma connect publish --exit-on-unreadable-files",
+    "figma:shoot": "node scripts/shoot.mjs",
+    "figma:measure": "node scripts/measure.mjs",
+    "figma:verify": "node scripts/verify.mjs"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",

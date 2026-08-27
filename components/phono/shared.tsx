@@ -1,7 +1,7 @@
+import { Fragment } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowDown, ArrowRight, Facebook, Instagram } from "lucide-react";
-import { figmaAssets, navItems } from "@/data/site";
+import { figmaAssets, navItems, statementCopy } from "@/data/site";
 import { cn } from "@/lib/cn";
 
 type WaveFieldProps = {
@@ -38,6 +38,27 @@ export function FigmaAsset({
         className={cn("figma-asset-image", imageClassName)}
       />
     </span>
+  );
+}
+
+/**
+ * The phono statement (Figma 1:107 / 1:549). Line breaks are authored in the
+ * design, so they are rendered explicitly rather than left to text wrapping.
+ */
+export function StatementParagraphs() {
+  return (
+    <>
+      {statementCopy.map((lines) => (
+        <p key={lines[0]}>
+          {lines.map((line, index) => (
+            <Fragment key={line}>
+              {index > 0 ? <br /> : null}
+              {line}
+            </Fragment>
+          ))}
+        </p>
+      ))}
+    </>
   );
 }
 
@@ -83,7 +104,10 @@ export function LogoMark({ muted = false, priority = false }: { muted?: boolean;
 export function ContactCircle({ className }: { className?: string }) {
   return (
     <Link href="/contact" className={cn("contact-circle", className)}>
-      <ArrowDown aria-hidden size={28} strokeWidth={1.2} />
+      {/* 1:421 the 41.82px stem and 1:418 its chevron. The disc itself is a
+          plain circle, so it stays CSS — geometrically identical to 1:417. */}
+      <FigmaAsset src={figmaAssets.contactCircleStem} className="contact-circle-stem" sizes="1px" />
+      <FigmaAsset src={figmaAssets.contactCircleArrow} className="contact-circle-arrow" sizes="18px" />
       <strong>Contact</strong>
       <span>お問合せ</span>
     </Link>
@@ -126,12 +150,12 @@ export function ArrowLink({
 }) {
   return (
     <Link href={href} className={cn("arrow-link", className)}>
-      <span className="arrow-line" />
+      <FigmaAsset src={figmaAssets.arrowLinkRule} className="arrow-line" sizes="132px" />
       <span>
         <strong>{label}</strong>
         <small>{sublabel}</small>
       </span>
-      <ArrowRight aria-hidden size={24} strokeWidth={1.2} />
+      <FigmaAsset src={figmaAssets.arrowLinkHead} className="arrow-head" sizes="17px" />
     </Link>
   );
 }
@@ -190,7 +214,9 @@ export function SiteFooter() {
             {item.children ? (
               <ul>
                 {item.children.map((child) => (
-                  <li key={child}>- {child}</li>
+                  <li key={child.label}>
+                    <Link href={child.href}>{child.label}</Link>
+                  </li>
                 ))}
               </ul>
             ) : null}
@@ -199,19 +225,16 @@ export function SiteFooter() {
         <ContactCircle />
       </div>
       <div className="footer-brand">
-        <div className="footer-wave" aria-hidden>
-          <span />
-          <span />
-          <span />
-        </div>
-        <LogoMark />
+        {/* Figma 1:380 (brand wave), 1:386 (wordmark) and 1:396 (social marks). */}
+        <FigmaAsset src={figmaAssets.footerBrandWave} className="footer-wave" sizes="324px" />
+        <Link href="/" className="footer-logo" aria-label="phono top">
+          <Image src={figmaAssets.footerLogo} alt="" width={145} height={45} unoptimized />
+        </Link>
+        {/* 1:396 — the two marks are one 103.62x40 export; each link shows its
+            half of that sprite (see .social-row in globals.css). */}
         <div className="social-row" aria-label="social links">
-          <Link href="https://www.instagram.com/" aria-label="Instagram">
-            <Instagram size={34} strokeWidth={2.1} />
-          </Link>
-          <Link href="https://www.facebook.com/" aria-label="Facebook">
-            <Facebook size={34} strokeWidth={2.1} />
-          </Link>
+          <Link href="https://www.instagram.com/" aria-label="Instagram" />
+          <Link href="https://www.facebook.com/" aria-label="Facebook" />
         </div>
       </div>
       <div className="footer-bottom site-shell">

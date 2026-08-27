@@ -6,6 +6,10 @@ const projectRoot = dirname(fileURLToPath(import.meta.url));
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // Browser automation and local previews use the loopback IP while Next.js
+  // advertises `localhost` by default. Without this explicit origin, Next 16
+  // rejects the dev HMR WebSocket and client components never hydrate.
+  allowedDevOrigins: ["127.0.0.1"],
   turbopack: {
     root: projectRoot
   },

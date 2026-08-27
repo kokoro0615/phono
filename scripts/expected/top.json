@@ -1,0 +1,28 @@
+{
+  "route": "/",
+  "items": [
+    { "node": "1:97",  "name": "hero logo",            "sel": ".figma-hero-brand .logo-mark-asset", "x": 150,    "y": 421.2,  "w": 419.46, "h": 130.14 },
+    { "node": "1:108", "name": "hero h1",              "sel": ".figma-hero-brand h1",               "x": 149.86, "y": 661,    "w": 280,    "h": 41 },
+    { "node": "1:84",  "name": "Scroll",               "sel": ".figma-scroll",                      "x": 77.05,  "y": 906.68, "w": 18,     "h": 35 },
+    { "node": "1:107", "name": "statement block",      "sel": ".figma-statement div",               "x": 142,    "y": 1140,   "w": 543,    "h": 576 },
+    { "node": "1:110", "name": "About label",          "sel": ".figma-service-links a:nth-of-type(1) strong", "x": 150, "y": 1888.62, "w": 132, "h": 62 },
+    { "node": "1:115", "name": "Services label",       "sel": ".figma-service-links a:nth-of-type(2) strong", "x": 150, "y": 2015.73, "w": 180, "h": 62 },
+    { "node": "1:237", "name": "service circles",      "sel": ".figma-service-circles",             "x": 161.53, "y": 1961.24, "w": 1116.95, "h": 561.93 },
+    { "node": "1:246", "name": "Creative label",       "sel": ".figma-service-circle-1 strong",     "x": 359,    "y": 2224.61, "w": 148, "h": 50 },
+    { "node": "1:247", "name": "Media label",          "sel": ".figma-service-circle-2 strong",     "x": 950,    "y": 2224.61, "w": 114, "h": 50 },
+    { "node": "1:124", "name": "Projects display",     "sel": ".figma-project-heading h2",          "x": 188.75, "y": 3118,   "w": 131, "h": 362 },
+    { "node": "1:197", "name": "filter group",         "sel": ".figma-project-filter",              "x": 217.08, "y": 3119,   "w": 134.13, "h": 157 },
+    { "node": "1:260", "name": "project thumb 1",      "sel": ".figma-project-thumb-1",             "x": 837,    "y": 3115,   "w": 230, "h": 230 },
+    { "node": "1:257", "name": "project thumb 2",      "sel": ".figma-project-thumb-2",             "x": 837,    "y": 3436,   "w": 230, "h": 230 },
+    { "node": "1:254", "name": "project thumb 3",      "sel": ".figma-project-thumb-3",             "x": 838,    "y": 3761,   "w": 230, "h": 230 },
+    { "node": "1:249", "name": "project thumb 4",      "sel": ".figma-project-thumb-4",             "x": 838,    "y": 4085,   "w": 230, "h": 230 },
+    { "node": "1:253", "name": "project thumb 5",      "sel": ".figma-project-thumb-5",             "x": 838,    "y": 4410,   "w": 229, "h": 229 },
+    { "node": "1:224", "name": "Member display",       "sel": ".figma-member-heading h2",           "x": 996.58, "y": 5016.93, "w": 389, "h": 131 },
+    { "node": "1:34",  "name": "member photo 1",       "sel": ".figma-member-portrait-1",           "x": -52.99, "y": 5451.02, "w": 352, "h": 352 },
+    { "node": "1:44",  "name": "member photo 2",       "sel": ".figma-member-portrait-2",           "x": 345.01, "y": 5451.02, "w": 352, "h": 352 },
+    { "node": "1:226", "name": "Recruitment display",  "sel": ".figma-recruitment-title h2",        "x": 144,    "y": 6180.15, "w": 548, "h": 131 },
+    { "node": "1:233", "name": "recruitment lead",     "sel": ".figma-recruitment-copy h3",         "x": 947,    "y": 6218.8, "w": 280, "h": 112 },
+    { "node": "1:235", "name": "recruitment body",     "sel": ".figma-recruitment-copy p",          "x": 947,    "y": 6379.83, "w": 336, "h": 192 },
+    { "node": "1:377", "name": "footer group",         "sel": ".site-footer .footer-grid",          "x": 146.2,  "y": 7080.71, "w": 1235.82, "h": 719.45 }
+  ]
+}

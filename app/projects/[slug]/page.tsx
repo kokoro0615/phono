@@ -1,7 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import { PhonoBadge } from "@/components/phono/interactive";
 import { FigmaAsset, PageHero, SiteFooter } from "@/components/phono/shared";
 import { figmaAssets, projects } from "@/data/site";
@@ -104,11 +103,11 @@ export default async function ProjectDetailPage({
 
         <nav className="detail-nav" aria-label="実績詳細ナビゲーション">
           <Link href={`/projects/${previous.slug}`}>
-            <ArrowLeft /> prev
+            <FigmaAsset src={figmaAssets.pagerChevron} className="pager-chevron pager-chevron-prev" sizes="18px" /> prev
           </Link>
           <Link href="/projects">back to list</Link>
           <Link href={`/projects/${next.slug}`}>
-            next <ArrowRight />
+            next <FigmaAsset src={figmaAssets.pagerChevron} className="pager-chevron" sizes="18px" />
           </Link>
         </nav>
       </article>

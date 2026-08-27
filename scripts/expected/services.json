@@ -1,0 +1,27 @@
+{
+  "route": "/services",
+  "items": [
+    { "node": "1:1112", "name": "Services title",      "sel": ".services-hero .section-heading h1", "x": 600, "y": 93,   "w": 240, "h": 82 },
+    { "node": "1:1113", "name": "事業内容",             "sel": ".services-hero .section-heading p",  "x": 656, "y": 183,  "w": 128, "h": 46 },
+    { "node": "1:1114", "name": "hero lead",           "sel": ".services-hero-lead",                "x": 464, "y": 254,  "w": 512, "h": 64 },
+    { "node": "1:1097", "name": "business circles",    "sel": ".services-business-circles",         "x": 170, "y": 383,  "w": 1100, "h": 566 },
+    { "node": "1:1105", "name": "クリエイティブ事業",   "sel": ".services-business-circle-1 span",   "x": 292, "y": 616,  "w": 288, "h": 47 },
+    { "node": "1:1106", "name": "Creative",            "sel": ".services-business-circle-1 strong", "x": 362, "y": 663,  "w": 148.2, "h": 50.36 },
+    { "node": "1:1061", "name": "creative label",      "sel": ".services-creative .services-eyebrow", "x": 106, "y": 1207, "w": 300, "h": 51 },
+    { "node": "1:1059", "name": "creative statement",  "sel": ".services-creative .services-statement", "x": 106, "y": 1268, "w": 725, "h": 160 },
+    { "node": "1:1058", "name": "creative body",       "sel": ".services-creative-body",            "x": 106, "y": 1524, "w": 553, "h": 512 },
+    { "node": "1:1062", "name": "restore diagram",     "sel": ".services-diagram",                  "x": 642, "y": 1298, "w": 798, "h": 799 },
+    { "node": "1:1047", "name": "Approach",            "sel": ".services-approach .section-heading h2", "x": 69, "y": 2268, "w": 383, "h": 103 },
+    { "node": "1:1049", "name": "approach label",      "sel": ".services-approach .section-heading p", "x": 69, "y": 2381, "w": 207, "h": 28 },
+    { "node": "1:1004", "name": "teardrop 1",          "sel": ".services-teardrop",                 "x": 558.39, "y": 2437, "w": 367.02, "h": 410.24 },
+    { "node": "1:1020", "name": "number 1",            "sel": ".services-teardrop-number",          "x": 351.39, "y": 2491, "w": 48, "h": 103 },
+    { "node": "1:987",  "name": "Contract",            "sel": ".services-contract .section-heading h2", "x": 71, "y": 4422, "w": 331, "h": 103 },
+    { "node": "1:966",  "name": "contract intro",      "sel": ".services-contract-intro",           "x": 234, "y": 4621, "w": 972, "h": 64 },
+    { "node": "1:1119", "name": "media label",         "sel": ".services-media .services-eyebrow",  "x": 109, "y": 5983, "w": 208, "h": 51 },
+    { "node": "1:1117", "name": "media statement",     "sel": ".services-media .services-statement", "x": 109, "y": 6044, "w": 714, "h": 160 },
+    { "node": "1:1116", "name": "media body",          "sel": ".services-media-body",               "x": 109, "y": 6300, "w": 549, "h": 128 },
+    { "node": "1:939",  "name": "Coming soon",         "sel": ".services-coming-soon",              "x": 71, "y": 6558, "w": 512, "h": 103 },
+    { "node": "1:1120", "name": "lower media block",   "sel": ".services-media-thumb",              "x": 109, "y": 6886, "w": 606, "h": 320 },
+    { "node": "1:1124", "name": "footer group",        "sel": ".site-footer .footer-grid",          "x": 155, "y": 7969, "w": 1235.82, "h": 719.45 }
+  ]
+}

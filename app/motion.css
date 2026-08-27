@@ -1,0 +1,556 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   phono — motion layer
+   ══════════════════════════════════════════════════════════════════════════
+
+   Design read: phono is a creative studio whose entire visual material is
+   *water*. Every background object in the eight Figma frames is a crest, a
+   blob or a teardrop, and the only motion the design itself specifies is the
+   menu curtain breaking down the page like a wave. So the whole motion system
+   is one idea — **tide**. Nothing slides in from the side; content is buoyed
+   up into place, artwork drifts and breathes, and the signature move is that
+   the circle groups and rings *bloom* open from their own centre.
+
+   Rules of the layer, all of them load-bearing:
+
+   1. Every route is a 1:1 reproduction of a 1440px Figma frame, so motion may
+      never touch layout. Only `opacity`, `translate`, `scale` and `transform`
+      are animated, and every animation settles at the exact Figma position.
+   2. Entrances use `opacity` / `translate` / `scale`; ambient drift uses
+      `transform`. Keeping them on different properties is what lets an object
+      arrive and then keep breathing without the two fighting.
+   3. Loaded after globals.css, so it wins the cascade without raising
+      specificity or reaching for `!important`.
+   4. `html[data-motion]` is set by the boot script in the root layout only
+      when scripting is available and reduced motion is not requested. Without
+      it — no JS, reduced motion, the script erroring — the page renders in its
+      settled state and this file does nothing.
+
+   Tokens come from globals.css (§ Motion); nothing here invents a bezier.
+   ══════════════════════════════════════════════════════════════════════════ */
+
+:root {
+  /* Section reveal, inside the 450–700ms house budget. */
+  --dur-reveal: 640ms;
+  /* The one signature moment per page; the 900ms hero ceiling. */
+  --dur-hero: 860ms;
+}
+
+/* ── Hero choreography ─────────────────────────────────────────────────────
+   The first viewport is the only place motion runs without being asked for,
+   so it is a CSS animation rather than an observer: it starts at parse time,
+   costs no JavaScript, and cannot be delayed by hydration. Every element is
+   `both`-filled from its own delay, and the last one lands at 700ms.
+   ------------------------------------------------------------------------ */
+
+/* Type fades as it rises. */
+@keyframes phono-hero-rise {
+  from {
+    opacity: 0;
+    translate: 0 var(--hero-y, 20px);
+    scale: var(--hero-scale, 1);
+  }
+}
+
+/* Artwork rises *without* fading, and that is a performance decision as much
+   as a design one: the wordmark and the hero crest are the LCP element on
+   every route, and Chrome will not count an element that starts at `opacity:
+   0` until the fade has carried it back. Fading them cost ~600ms of LCP on
+   `/` and `/about`; lifting them costs nothing, and a crest that slides up
+   without dissolving reads more like a tide anyway. */
+@keyframes phono-hero-lift {
+  from {
+    translate: 0 var(--hero-y, 20px);
+    scale: var(--hero-scale, 1);
+  }
+}
+
+/* Below 1025px the recruitment crest is centred with `translate: -50% 0`, and
+   a keyframe that also wrote `translate` would undo that for the length of the
+   animation — so there the same arrival is made out of scale alone. */
+@keyframes phono-hero-swell {
+  from {
+    scale: var(--hero-swell, 1.035);
+  }
+}
+
+html[data-motion] :is(
+  .figma-hero-brand h1,
+  .figma-scroll,
+  .figma-page-title > *,
+  .page-hero .section-heading > *,
+  .page-hero-copy,
+  .services-hero .section-heading > *,
+  .services-hero-lead
+) {
+  animation: phono-hero-rise var(--dur-hero) var(--ease-enter) var(--hero-delay, 0ms) both;
+}
+
+html[data-motion] :is(
+  .figma-hero-brand .logo-mark,
+  .services-business-circles,
+  .rc-hero-wave,
+  .figma-subpage-hero .wave-field,
+  .page-hero .wave-field,
+  .services-hero .wave-field,
+  /* The 64px page title is the measured LCP element on /about and /projects,
+     so it lifts rather than fades for the same reason the artwork does. Its
+     Japanese label and the lead copy underneath are never the largest paint
+     and keep the fade, which is what makes the pair read as one arrival. */
+  .figma-page-title > :first-child,
+  .page-hero .section-heading > :first-child,
+  .services-hero .section-heading > :first-child
+) {
+  animation: phono-hero-lift var(--dur-hero) var(--ease-enter) var(--hero-delay, 0ms) both;
+}
+
+/* The crest is the page's ground, so it arrives first and from underneath —
+   the tide coming in rather than a panel fading up. */
+html[data-motion] :is(
+  .figma-subpage-hero .wave-field,
+  .page-hero .wave-field,
+  .services-hero .wave-field,
+  .rc-hero-wave
+) {
+  --hero-y: -2.5%;
+  --hero-delay: 0ms;
+}
+
+/* Home (Figma 1:2): the wordmark leads, the statement follows, the scroll cue
+   is last — one anchor, then its dependants. */
+html[data-motion] .figma-hero-brand .logo-mark {
+  --hero-y: 24px;
+  --hero-delay: 60ms;
+}
+
+html[data-motion] .figma-hero-brand h1 {
+  --hero-y: 16px;
+  --hero-delay: 240ms;
+}
+
+html[data-motion] .figma-scroll {
+  --hero-y: 14px;
+  --hero-delay: 520ms;
+}
+
+/* Sub-page heroes: title, then its Japanese label, then the lead copy. */
+html[data-motion] :is(.figma-page-title, .page-hero .section-heading, .services-hero .section-heading) > :first-child {
+  --hero-y: 22px;
+  --hero-delay: 80ms;
+}
+
+html[data-motion] :is(.figma-page-title, .page-hero .section-heading, .services-hero .section-heading) > :nth-child(2) {
+  --hero-y: 14px;
+  --hero-delay: 210ms;
+}
+
+html[data-motion] :is(.page-hero-copy, .services-hero-lead) {
+  --hero-y: 14px;
+  --hero-delay: 330ms;
+}
+
+/* Figma 1:1097 — the two business circles are the Services hero's subject, so
+   they bloom rather than rise, and they land last. */
+html[data-motion] .services-business-circles {
+  --hero-y: 0px;
+  --hero-scale: 0.95;
+  --hero-delay: 420ms;
+}
+
+@media (max-width: 1024px) {
+  html[data-motion] .rc-hero-wave {
+    animation-name: phono-hero-swell;
+  }
+}
+
+/* ── Ambient — the tide ────────────────────────────────────────────────────
+   Slow, small, and always `transform` so it composes with the entrances. The
+   runtime tags these with `data-ambient` and parks them the moment they leave
+   the viewport or the tab goes to the background, so an idle page in a
+   background tab costs nothing.
+   ------------------------------------------------------------------------ */
+
+@keyframes phono-tide {
+  0%,
+  100% {
+    transform: translate3d(-0.55%, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0.55%, -0.5%, 0);
+  }
+}
+
+/* The hero crests fill their frame exactly, so translating one exposes an
+   8px white sliver down the page edge. They swell instead: the scale never
+   drops below 1, so the crest can only ever over-fill, and the resting state
+   is still the exact Figma composition. */
+@keyframes phono-swell {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.014);
+  }
+}
+
+@keyframes phono-buoy {
+  0%,
+  100% {
+    transform: translate3d(0, -3px, 0);
+  }
+
+  50% {
+    transform: translate3d(0, 3px, 0);
+  }
+}
+
+@keyframes phono-breathe {
+  0%,
+  100% {
+    transform: scale(0.994);
+  }
+
+  50% {
+    transform: scale(1.008);
+  }
+}
+
+html[data-motion] [data-ambient] {
+  animation: var(--ambient-name) var(--ambient-dur) ease-in-out var(--ambient-delay, 0s) infinite;
+}
+
+html[data-motion] [data-ambient="tide"] {
+  --ambient-name: phono-tide;
+  --ambient-dur: 19s;
+}
+
+html[data-motion] [data-ambient="tide-slow"] {
+  --ambient-name: phono-tide;
+  --ambient-dur: 26s;
+  --ambient-delay: -8s;
+}
+
+html[data-motion] [data-ambient="swell"] {
+  --ambient-name: phono-swell;
+  --ambient-dur: 21s;
+}
+
+html[data-motion] [data-ambient="buoy"] {
+  --ambient-name: phono-buoy;
+  --ambient-dur: 6.4s;
+}
+
+html[data-motion] [data-ambient="buoy-late"] {
+  --ambient-name: phono-buoy;
+  --ambient-dur: 6.4s;
+  --ambient-delay: -0.9s;
+}
+
+html[data-motion] [data-ambient="breathe"] {
+  --ambient-name: phono-breathe;
+  --ambient-dur: 11s;
+}
+
+html[data-motion] [data-ambient="breathe-slow"] {
+  --ambient-name: phono-breathe;
+  --ambient-dur: 15s;
+  --ambient-delay: -4s;
+}
+
+html[data-motion] [data-ambient][data-ambient-paused],
+html[data-motion][data-page-hidden] [data-ambient] {
+  animation-play-state: paused;
+}
+
+/* ── Scroll-linked parallax ────────────────────────────────────────────────
+   The page-spanning vectors move against the scroll so the layered artwork
+   gains depth. Driven by a scroll-progress timeline, never by a scroll
+   listener — the compositor owns it and the main thread never sees it.
+   `animation-timeline` is not Baseline (no Firefox as of 2026-06), so the
+   whole thing is `@supports`-gated and the settled state is the Figma
+   position; where it is unsupported the artwork simply sits still.
+   ------------------------------------------------------------------------ */
+
+@supports (animation-timeline: view()) {
+  @keyframes phono-parallax {
+    from {
+      transform: translate3d(0, var(--parallax-from, -26px), 0);
+    }
+
+    to {
+      transform: translate3d(0, var(--parallax-to, 26px), 0);
+    }
+  }
+
+  html[data-motion] :is(
+    .figma-bg-hero-side,
+    .figma-bg-projects-blob,
+    .subsidy-page-ribbon,
+    .rc-occupation-wave
+  ) {
+    animation: phono-parallax linear both;
+    animation-timeline: view();
+    animation-range: cover 0% cover 100%;
+  }
+
+  /* 1:79 is 3150px tall and crosses three sections, so it needs the smallest
+     travel of the four or its top edge lifts off the frame. */
+  html[data-motion] .figma-bg-hero-side {
+    --parallax-from: -14px;
+    --parallax-to: 14px;
+  }
+
+  html[data-motion] .figma-bg-projects-blob {
+    --parallax-from: -34px;
+    --parallax-to: 34px;
+  }
+}
+
+/* ── Reveal ────────────────────────────────────────────────────────────────
+   The hidden state is inlined by the root layout (see
+   components/phono/motion-config.ts) so it exists before first paint; the
+   transition out of it lives here, where it can be retuned per variant and
+   per breakpoint. `data-reveal` is added by the runtime, so a page whose
+   script never arrives simply keeps the hidden state the boot script's
+   watchdog then removes.
+   ------------------------------------------------------------------------ */
+
+html[data-motion] [data-reveal] {
+  transition:
+    opacity var(--dur-reveal) var(--ease-reveal, var(--ease-enter)) var(--reveal-delay, 0ms),
+    translate var(--dur-reveal) var(--ease-reveal, var(--ease-enter)) var(--reveal-delay, 0ms),
+    scale var(--dur-reveal) var(--ease-reveal, var(--ease-enter)) var(--reveal-delay, 0ms);
+}
+
+/* Bloom is the signature: circle groups open from their own centre, so they
+   get the emphasis curve and a longer settle than an editorial block. */
+html[data-motion] :is(
+  .figma-service-circles,
+  .about-question,
+  .about-statement-disc,
+  .services-contract-asset,
+  .subsidy-detail-scene,
+  .rc-stance-ring,
+  .rc-entry
+)[data-reveal] {
+  --dur-reveal: 860ms;
+  --ease-reveal: var(--ease-emphasis);
+}
+
+/* ── Micro-interaction ─────────────────────────────────────────────────────
+   Hover work is gated to real pointers so nothing sticks after a tap, and
+   every control keeps a press response that works for touch too.
+   ------------------------------------------------------------------------ */
+
+/* Figma 1:120 + 1:123 — the rule and its chevron are one mark, so the whole
+   arrow extends on hover instead of the chevron drifting off the line. */
+.arrow-link .arrow-line,
+.figma-arrow-link .arrow-line {
+  transform-origin: 0 50%;
+  transition: scale var(--dur-ui) var(--ease-ui);
+}
+
+.arrow-link .arrow-head,
+.figma-arrow-link .arrow-head,
+.arrow-link strong,
+.arrow-link small,
+.figma-arrow-link strong,
+.figma-arrow-link small {
+  transition: translate var(--dur-ui) var(--ease-ui);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  :is(.arrow-link, .figma-arrow-link):hover .arrow-line {
+    scale: 1.11 1;
+  }
+
+  :is(.arrow-link, .figma-arrow-link):hover .arrow-head {
+    translate: 14px 0;
+  }
+
+  :is(.arrow-link, .figma-arrow-link):hover :is(strong, small) {
+    translate: 6px 0;
+  }
+
+  /* Figma 1:238 / 1:241 — the discs are one baked vector, so the hover reads
+     on the labels riding on them. */
+  .figma-service-circle:hover :is(span, strong) {
+    translate: 0 -4px;
+  }
+
+  /* Figma 1:249…1:260 — the thumbnail is the card's subject; it pushes into
+     its own 230px frame, which already clips. */
+  .figma-project-card:hover .figma-project-thumb-image,
+  /* The listing card's link does not clip, so the push happens on the image
+     inside the asset span — which does — rather than on the span itself,
+     which would grow into its neighbours. */
+  .project-list-card:hover .project-card-asset .figma-asset-image {
+    scale: 1.045;
+  }
+
+  .figma-member-card:hover .figma-member-portrait {
+    translate: 0 -7px;
+  }
+
+  .contact-circle:hover .contact-circle-arrow {
+    translate: 0 3px;
+  }
+
+  :is(.figma-nav-item-head, .figma-nav-child, .footer-column a, .figma-nav-privacy):hover {
+    translate: 4px 0;
+  }
+
+  .detail-nav a:hover .pager-chevron {
+    translate: -5px 0;
+  }
+
+  .detail-nav a:hover .pager-chevron:not(.pager-chevron-prev) {
+    translate: 5px 0;
+  }
+
+  :is(.social-row a, .figma-social a):hover {
+    scale: 1.09;
+  }
+
+  :is(.filter-row button, .pagination button:not(:disabled), .contact-tabs button):hover {
+    translate: 0 -2px;
+  }
+
+  .submit-button:not(:disabled):hover,
+  .rc-entry-button:hover {
+    scale: 1.02;
+  }
+}
+
+.contact-circle,
+.figma-service-circle :is(span, strong),
+.figma-project-thumb-image,
+.project-card-asset .figma-asset-image,
+.figma-member-portrait,
+.contact-circle-arrow,
+.figma-nav-item-head,
+.figma-nav-child,
+.figma-nav-privacy,
+.footer-column a,
+.pager-chevron,
+.social-row a,
+.figma-social a,
+.filter-row button,
+.pagination button,
+.contact-tabs button,
+.submit-button,
+.rc-entry-button {
+  transition:
+    translate var(--dur-ui) var(--ease-ui),
+    scale var(--dur-ui) var(--ease-ui);
+}
+
+/* Press feedback — 60–100ms down, so it lands under the finger. Touch gets
+   this even though it never gets hover. */
+:is(.filter-row button, .pagination button:not(:disabled), .contact-tabs button, .submit-button:not(:disabled), .rc-entry-button, .contact-circle):active {
+  scale: 0.97;
+  transition-duration: var(--dur-fast);
+}
+
+/* The menu mark is pressed more often than anything else on the site, so it
+   gets the smallest response of any control here. */
+.menu-button:active .menu-glyph {
+  scale: 0.9;
+}
+
+.menu-button .menu-glyph {
+  transition:
+    opacity var(--dur-ui) var(--ease-ui),
+    transform 420ms var(--ease-enter),
+    scale var(--dur-fast) var(--ease-ui);
+}
+
+/* ── Degradation ───────────────────────────────────────────────────────────
+   Touch and small screens carry the same choreography at a shorter travel:
+   the reveal distances are tuned for a 1440px frame and read as lurching at
+   390px. Ambient drift on the page-spanning crests is dropped there — those
+   are the only large composited layers on the page and they are the first
+   thing to cost frames on a mid-tier phone.
+   ------------------------------------------------------------------------ */
+
+@media (max-width: 720px) {
+  html[data-motion] [data-reveal] {
+    --reveal-y: 14px;
+    --dur-reveal: 520ms;
+  }
+
+  html[data-motion] :is([data-ambient="tide"], [data-ambient="tide-slow"], [data-ambient="swell"]) {
+    animation: none;
+  }
+
+  /* The parallax subjects are the two largest layers on the page (1:79 is
+     1068x3150 and multiplied). Moving them is free on a desktop compositor
+     and is the first thing to cost frames on a phone. */
+  html[data-motion] :is(
+    .figma-bg-hero-side,
+    .figma-bg-projects-blob,
+    .subsidy-page-ribbon,
+    .rc-occupation-wave
+  ) {
+    animation: none;
+  }
+}
+
+/* Thin the ambient population on touch: the teardrop stays, because it is the
+   scroll affordance and reads as material; the large drifting crests and the
+   breathing rings are polish and stop. */
+@media (hover: none) {
+  html[data-motion] :is(
+    [data-ambient="tide"],
+    [data-ambient="tide-slow"],
+    [data-ambient="swell"],
+    [data-ambient="breathe"],
+    [data-ambient="breathe-slow"]
+  ) {
+    animation: none;
+  }
+}
+
+/* ── Reduced motion ────────────────────────────────────────────────────────
+   The boot script never sets `html[data-motion]` for a reader who has asked
+   for reduced motion, so everything above is inert. This block is the second
+   belt: it covers the reader who turns the preference on *after* load, when
+   the attribute is already in the document and elements may be mid-reveal.
+   The fallback is the designed end state — the settled Figma composition —
+   never `animation: none` on something that was hidden to begin with.
+   ------------------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-motion] [data-reveal],
+  html[data-motion] [data-reveal="in"] {
+    opacity: 1;
+    translate: none;
+    scale: none;
+    transition: none;
+  }
+
+  html[data-motion] [data-ambient],
+  html[data-motion] :is(
+    .figma-hero-brand .logo-mark,
+    .figma-hero-brand h1,
+    .figma-scroll,
+    .figma-page-title > *,
+    .page-hero .section-heading > *,
+    .page-hero-copy,
+    .services-hero .section-heading > *,
+    .services-hero-lead,
+    .services-business-circles,
+    .rc-hero-wave,
+    .figma-subpage-hero .wave-field,
+    .page-hero .wave-field,
+    .services-hero .wave-field
+  ) {
+    animation: none;
+    opacity: 1;
+    translate: none;
+    scale: none;
+    transform: none;
+  }
+}

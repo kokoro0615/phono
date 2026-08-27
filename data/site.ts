@@ -1,8 +1,13 @@
+export type NavChild = {
+  label: string;
+  href: string;
+};
+
 export type NavItem = {
   href: string;
   label: string;
   sublabel: string;
-  children?: string[];
+  children?: NavChild[];
 };
 
 export type Project = {
@@ -20,10 +25,30 @@ export type Project = {
 
 export const figmaAssets = {
   headerLogo: "/figma-assets/svg/header-phono-logo-vector-group--1-97.svg",
+  footerBrandWave: "/figma-assets/svg/footer-brand-wave--1-380.svg",
+  footerLogo: "/figma-assets/svg/footer-logo--1-386.svg",
+  footerSocial: "/figma-assets/svg/footer-social--1-396.svg",
+  navSocial: "/figma-assets/svg/nav-social-marks--1-315.svg",
+  menuDots: "/figma-assets/svg/header-menu-dots--1-87.svg",
+  arrowLinkRule: "/figma-assets/svg/arrow-link-rule--1-120.svg",
+  arrowLinkHead: "/figma-assets/svg/arrow-link-head--1-123.svg",
+  pagerChevron: "/figma-assets/svg/pager-chevron--1-2383.svg",
+  submitChevron: "/figma-assets/svg/contact-submit-chevron--1-2742.svg",
+  contactCircleStem: "/figma-assets/svg/contact-circle-stem--1-421.svg",
+  contactCircleArrow: "/figma-assets/svg/contact-circle-arrowhead--1-418.svg",
   top: {
     decorativeCluster: "/figma-assets/svg/top-decorative-vector-cluster--1-68.svg",
     heroGradientWave: "/figma-assets/svg/hero-gradient-wave-vector--1-252.svg",
     lowerWaveGroup: "/figma-assets/svg/top-lower-wave-group--1-79.svg",
+    memberArrows: "/figma-assets/svg/top-member-arrows--1-14.svg",
+    memberBand: "/figma-assets/svg/top-member-band--1-6.svg",
+    memberWaveA: "/figma-assets/svg/top-member-wave-a--1-21.svg",
+    memberWaveB: "/figma-assets/svg/top-member-wave-b--1-22.svg",
+    memberRing: "/figma-assets/svg/top-member-ring--1-24.svg",
+    recruitmentWave: "/figma-assets/svg/top-recruitment-wave-group--1-10.svg",
+    scrollBlob: "/figma-assets/svg/top-scroll-blob--1-72.svg",
+    scrollBlobLower: "/figma-assets/svg/top-scroll-blob--1-75.svg",
+    serviceCircles: "/figma-assets/svg/top-service-circles-group--1-237.svg",
     memberVisuals: [
       "/figma-assets/png/member-visual-04--1-34.png",
       "/figma-assets/png/member-visual-01--1-44.png",
@@ -40,7 +65,8 @@ export const figmaAssets = {
     companyLogoArt: "/figma-assets/svg/about-company-logo-art-frame--1-641.svg",
     decorativeWave: "/figma-assets/svg/about-decorative-wave-group--1-555.svg",
     heroWave: "/figma-assets/svg/about-hero-wave-group--1-517.svg",
-    introVector: "/figma-assets/svg/about-intro-vector-group--1-626.svg",
+    statementDisc: "/figma-assets/svg/about-statement-disc--1-542.svg",
+    introRing: "/figma-assets/svg/about-intro-ring-group--1-632.svg",
     phonoImage: "/figma-assets/png/about-phono-image-4--1-571.png"
   },
   services: {
@@ -51,12 +77,17 @@ export const figmaAssets = {
     mainDiagram: "/figma-assets/svg/services-main-diagram--1-1062.svg",
     mediaVector: "/figma-assets/svg/services-media-vector--1-936.svg",
     overlappingCircle: "/figma-assets/svg/services-overlapping-circle-visual--1-1097.svg",
+    /* Page order, not export order: the Approach teardrops run
+       1:1004 -> 1:1008 -> 1:1037 -> 1:1027 -> 1:1012 down the Figma frame
+       (y 2437/2774/3112/3451/3787). The export ordinals in the filenames are
+       not the reading order, so 1:1037 (#A99CFF) is the third teardrop and
+       1:1012 (#DEB2FF) the fifth — measured off the reference render. */
     processDiagrams: [
       "/figma-assets/svg/services-process-diagram-01--1-1004.svg",
       "/figma-assets/svg/services-process-diagram-02--1-1008.svg",
-      "/figma-assets/svg/services-process-diagram-03--1-1012.svg",
+      "/figma-assets/svg/services-process-diagram-05--1-1037.svg",
       "/figma-assets/svg/services-process-diagram-04--1-1027.svg",
-      "/figma-assets/svg/services-process-diagram-05--1-1037.svg"
+      "/figma-assets/svg/services-process-diagram-03--1-1012.svg"
     ]
   },
   subsidy: {
@@ -125,59 +156,149 @@ export const figmaAssets = {
     heroWave: "/figma-assets/svg/contact-hero-wave-group--1-2641.svg"
   },
   recruitment: {
-    benefitVisuals: [
-      "/figma-assets/svg/recruitment-benefit-visual-3480--1-3480.svg",
-      "/figma-assets/svg/recruitment-benefit-visual-3483--1-3483.svg"
+    /* 1:3563 — the hero crest; 1:2873 — the band behind Occupation. */
+    heroWave: "/figma-assets/svg/recruitment-lower-wave-3563--1-3563.svg",
+    occupationWave: "/figma-assets/svg/recruitment-hero-wave-group--1-2873.svg",
+    footerWave: "/figma-assets/svg/recruitment-lower-wave-3558--1-3558.svg",
+    stanceRing: "/figma-assets/svg/recruitment-stance-ring--1-2889.svg",
+    flowCircles: "/figma-assets/svg/recruitment-flow-circles--1-2998.svg",
+    scheduleBars: {
+      entry: "/figma-assets/svg/recruitment-schedule-bar-entry--1-3074.svg",
+      screening: "/figma-assets/svg/recruitment-schedule-bar-screening--1-3081.svg",
+      interview: "/figma-assets/svg/recruitment-schedule-bar-interview--1-3077.svg",
+      offer: "/figma-assets/svg/recruitment-schedule-bar-offer--1-3064.svg"
+    },
+    scheduleGridline: "/figma-assets/svg/recruitment-schedule-gridline--1-3065.svg",
+    occupationPill: "/figma-assets/svg/recruitment-occupation-pill--1-3508.svg",
+    occupationChevron: "/figma-assets/svg/recruitment-occupation-chevron--1-3510.svg",
+    rowBullet: "/figma-assets/svg/recruitment-row-bullet--1-3088.svg",
+    styleCircles: [
+      "/figma-assets/svg/recruitment-style-circle-a--1-3296.svg",
+      "/figma-assets/svg/recruitment-style-circle-b--1-3299.svg"
     ],
-    footerWave: "/figma-assets/svg/recruitment-footer-wave-3568--1-3568.svg",
-    heroWave: "/figma-assets/svg/recruitment-hero-wave-group--1-2873.svg",
-    lowerWaves: [
-      "/figma-assets/svg/recruitment-lower-wave-3558--1-3558.svg",
-      "/figma-assets/svg/recruitment-lower-wave-3563--1-3563.svg"
+    supportCircles: [
+      "/figma-assets/svg/recruitment-support-circle-1--1-3332.svg",
+      "/figma-assets/svg/recruitment-support-circle-2--1-3333.svg",
+      "/figma-assets/svg/recruitment-support-circle-3--1-3331.svg",
+      "/figma-assets/svg/recruitment-support-circle-4--1-3330.svg"
     ],
-    stanceIllustration: "/figma-assets/svg/recruitment-stance-illustration--1-2882.svg",
-    timelineDiagram: "/figma-assets/svg/recruitment-schedule-timeline-diagram--1-3032.svg"
-  }
+    faqMark: "/figma-assets/svg/recruitment-faq-mark--1-3411.svg",
+    careerCircles: [
+      "/figma-assets/svg/recruitment-career-circle-1--1-3474.svg",
+      "/figma-assets/svg/recruitment-career-circle-2--1-3480.svg",
+      "/figma-assets/svg/recruitment-career-circle-3--1-3477.svg",
+      "/figma-assets/svg/recruitment-career-circle-4--1-3483.svg"
+    ],
+    careerChevron: "/figma-assets/svg/recruitment-career-chevron--1-3494.svg",
+    entryButton: "/figma-assets/svg/recruitment-entry-button--1-3503.svg"
+  },
+  /**
+   * Two-layer numbered blobs. The same three vectors serve /services/subsidy
+   * Feature (1:1349/1:1357/1:1365) and both numbered lists on /recruitment
+   * (Partner Policy 1:2906… and Eligibility 1:3359…), so they live here once.
+   */
+  numberMarks: [
+    [
+      "/figma-assets/svg/subsidy-feature-mark-01-layer-a--1-1369.svg",
+      "/figma-assets/svg/subsidy-feature-mark-01-layer-b--1-1370.svg"
+    ],
+    [
+      "/figma-assets/svg/subsidy-feature-mark-02-layer-a--1-1361.svg",
+      "/figma-assets/svg/subsidy-feature-mark-02-layer-b--1-1362.svg"
+    ],
+    [
+      "/figma-assets/svg/subsidy-feature-mark-03-layer-a--1-1353.svg",
+      "/figma-assets/svg/subsidy-feature-mark-03-layer-b--1-1354.svg"
+    ]
+  ]
 } as const;
 
+/**
+ * The Figma nav/footer draw the sub-items as plain text, but on a live site they
+ * are the only route to some pages — `/services/subsidy` (Figma 1:1263) had no
+ * reachable link at all before. Labels and order stay exactly as designed.
+ */
 export const navItems: NavItem[] = [
   { href: "/", label: "Top", sublabel: "トップ" },
   {
     href: "/about",
     label: "About",
     sublabel: "phonoとは？",
-    children: ["Mission ミッション", "Vision ビジョン", "Value バリュー", "Company 会社概要"]
+    children: [
+      { label: "Mission ミッション", href: "/about#mission" },
+      { label: "Vision ビジョン", href: "/about#vision" },
+      { label: "Value バリュー", href: "/about#value" },
+      { label: "Company 会社概要", href: "/about#company" }
+    ]
   },
   {
     href: "/services",
     label: "Services",
     sublabel: "事業内容",
-    children: ["クリエイティブ事業", "補助金・助成金活用サポート", "メディア事業"]
+    children: [
+      { label: "クリエイティブ事業", href: "/services#creative" },
+      { label: "補助金・助成金活用サポート", href: "/services/subsidy" },
+      { label: "メディア事業", href: "/services#media" }
+    ]
   },
   {
     href: "/projects",
     label: "Projects",
     sublabel: "実績紹介",
-    children: ["事業開発", "サービス開発", "ブランディング", "プロモーション・PR", "資金調達サポート"]
+    children: [
+      { label: "事業開発", href: "/projects" },
+      { label: "サービス開発", href: "/projects" },
+      { label: "ブランディング", href: "/projects" },
+      { label: "プロモーション・PR", href: "/projects" },
+      { label: "資金調達サポート", href: "/projects" }
+    ]
   },
   {
     href: "/#member",
     label: "Member",
     sublabel: "phonoの人",
-    children: ["遠藤信広", "山下隆志", "佐藤隼", "野々口丈人", "遠藤拓真", "川上亮"]
+    children: [
+      { label: "遠藤信広", href: "/#member" },
+      { label: "山下隆志", href: "/#member" },
+      { label: "佐藤隼", href: "/#member" },
+      { label: "野々口丈人", href: "/#member" },
+      { label: "遠藤拓真", href: "/#member" },
+      { label: "川上亮", href: "/#member" }
+    ]
   },
   { href: "/recruitment", label: "Recruitment", sublabel: "採用情報" },
   { href: "/contact", label: "Contact", sublabel: "お問合せ" }
 ];
 
+/**
+ * Figma 1:107 is a single 543x576 text node: 15 typeset lines in four groups
+ * separated by one blank line each (18 line boxes x 32px). The line breaks are
+ * authored, not the result of wrapping, so they are stored explicitly.
+ */
 export const statementCopy = [
-  "「ありのまま」とは、なんにもしないことじゃない。",
-  "自分らしさと普通であることを同時に押しつけてくる世の中で、ありのままを貫くのはなかなか難しいことだし、そもそも自分のありのままがどういうものなのか人も企業も見失いがち。",
-  "でも。だからこそ。ありのままに、私たちは徹底的にこだわりたい。曖昧で、複雑で、矛盾すら含むようなありのままの自分と向き合い、肯定するところが出発点。",
-  "そして、しなやかに問いを立てながら他者や社会との関わり合いをデザインしていく。",
-  "ありのままの違いは価値になり、ありのままの弱さはつながりを生む。",
-  "ありのままの変化もあるだろう。それは生きている証拠だ。みんなが生き生きしてて、ちょっとカオス。そんな世の中のほうが面白そうだと思うから。",
-  "私たちの名前はphono［フォノ］。「ありのまま」を響かせる会社です。"
+  [
+    "「ありのまま」とは、なんにもしないことじゃない。",
+    "自分らしさと普通であることを同時に押しつけてくる世の中で",
+    "ありのままを貫くのはなかなか難しいことだし、",
+    "そもそも自分のありのままがどういうものなのか人も企業も見失いがち。"
+  ],
+  [
+    "でも。だからこそ。ありのままに、私たちは徹底的にこだわりたい。",
+    "曖昧で、複雑で、矛盾すら含むような",
+    "ありのままの自分と向き合い、肯定するところが出発点。",
+    "そして、しなやかに問いを立てながら",
+    "他者や社会との関わり合いをデザインしていく。"
+  ],
+  [
+    "ありのままの違いは価値になり、ありのままの弱さはつながりを生む。",
+    "ありのままの変化もあるだろう。それは生きている証拠だ。",
+    "みんなが生き生きしてて、ちょっとカオス。",
+    "そんな世の中のほうが面白そうだと思うから。"
+  ],
+  [
+    "私たちの名前はphono［フォノ］。",
+    "「ありのまま」を響かせる会社です。"
+  ]
 ];
 
 export const serviceCircles = [
@@ -278,7 +399,8 @@ export type ApproachStep = {
   number: string;
   title: string[];
   palette: "pink" | "lavender" | "violet";
-  body: string;
+  /** Authored line boxes — Figma sets each body as `whitespace-nowrap` lines. */
+  body: string[];
   columns: string[][];
 };
 
@@ -289,14 +411,20 @@ export const approachSteps: ApproachStep[] = [
     number: "1",
     title: ["資金調達", "サポート"],
     palette: "pink",
-    body: "「資金不足でクリエイティブ投資に踏み切れない」という課題に対し、事業計画の設計、金融機関との交渉などの資金調達プロセスに伴走。補助金・助成金に関しても計画から申請まで包括的に支援します。",
+    body: [
+      "「資金不足でクリエイティブ投資に踏み切れない」という課題に対し、事業計画の設計、金融機関との交渉",
+      "　などの資金調達プロセスに伴走。補助金・助成金に関しても計画から申請まで包括的に支援します。"
+    ],
     columns: [["補助金の計画・申請サポート", "助成金の計画・申請サポート", "融資の計画・申請サポート"]]
   },
   {
     number: "2",
     title: ["事業開発"],
     palette: "lavender",
-    body: "企業としての事業の根幹に関わる、新規ビジネスモデルの構築を支援します。企業の既にある資産や思いを出発点として、市場調査や競合分析も踏まえながら戦略を立案します。",
+    body: [
+      "企業としての事業の根幹に関わる、新規ビジネスモデルの構築を支援します。企業の既にある資産や思い",
+      "を出発点として、市場調査や競合分析も踏まえながら戦略を立案します。"
+    ],
     columns: [
       ["市場調査・分析", "ビジネスモデルの設計・構築", "マーケティング戦略設計"],
       ["ブランド戦略設計", "CI 設計・開発", "プレゼン資料・事業計画書の制作"]
@@ -304,9 +432,13 @@ export const approachSteps: ApproachStep[] = [
   },
   {
     number: "3",
-    title: ["商品開発 サービス開発"],
+    // 1:1044 is one 192px-wide centred string; Figma wraps it at the space.
+    title: ["商品開発", "サービス開発"],
     palette: "violet",
-    body: "企業のアイデンティティに立脚し、らしさを生かした商品・サービスを開発。クリエイティブとマーケティング両方の視点を大切に、ユーザーのインサイトに響く価値創出に貢献します。",
+    body: [
+      "企業のアイデンティティに立脚し、らしさを生かした商品・サービスを開発。クリエイティブとマーケ",
+      "ティング両方の視点を大切に、ユーザーのインサイトに響く価値創出に貢献します。"
+    ],
     columns: [
       ["市場調査・分析", "マーケティング戦略設計", "ブランド戦略設計"],
       ["CI 設計・開発", "ネーミング開発", "ロゴ制作"],
@@ -317,7 +449,10 @@ export const approachSteps: ApproachStep[] = [
     number: "4",
     title: ["ブランディング"],
     palette: "pink",
-    body: "新規ブランドの開発も、既存ブランドのリブランディングも。企業や製品の独自価値を際立たせるブランド戦略と実行プランによって、認知度の向上、市場での差別化を実現します。",
+    body: [
+      "新規ブランドの開発も、既存ブランドのリブランディングも。企業や製品の独自価値を際立たせるブランド",
+      "戦略と実行プランによって、認知度の向上、市場での差別化を実現します。"
+    ],
     columns: [
       ["市場調査・分析", "マーケティング戦略設計", "ブランド戦略設計", "CI 設計・開発"],
       ["ブランドガイドライン策定", "ロゴ制作", "ラベル・パッケージ制作", "UI / UX 設計・開発"],
@@ -328,7 +463,10 @@ export const approachSteps: ApproachStep[] = [
     number: "5",
     title: ["プロモーション", "PR"],
     palette: "lavender",
-    body: "新規ブランドの開発も、既存ブランドのリブランディングも。企業や製品の独自価値を際立たせるブランド戦略と実行プランによって、認知度の向上、市場での差別化を実現します。",
+    body: [
+      "新規ブランドの開発も、既存ブランドのリブランディングも。企業や製品の独自価値を際立たせるブランド",
+      "戦略と実行プランによって、認知度の向上、市場での差別化を実現します。"
+    ],
     columns: [
       ["市場調査・分析", "プロモーション戦略設計", "PR 戦略設計", "広告制作"],
       ["プレスリリース制作", "コンテンツ制作", "イベント・ビジュアル制作", "オウンドメディア設計"]

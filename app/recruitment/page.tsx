@@ -1,319 +1,353 @@
+import { Fragment } from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
-import { ArrowLink, FigmaAsset, PageHero, SectionHeading, SiteFooter } from "@/components/phono/shared";
+import { FigmaAsset, SiteFooter } from "@/components/phono/shared";
 import { figmaAssets } from "@/data/site";
+import {
+  benefitRows,
+  careerBody,
+  careerCards,
+  careerLead,
+  eligibilityItems,
+  entryCta,
+  faqQuestions,
+  hospitalityRows,
+  occupations,
+  partnerPolicies,
+  recruitmentFlow,
+  recruitmentSections,
+  scheduleBars,
+  scheduleGridCount,
+  scheduleMonths,
+  scheduleYears,
+  stanceBody,
+  stanceLead,
+  styleCards,
+  styleNote,
+  supportItems
+} from "@/data/recruitment";
 
-const partnerPolicies = [
-  {
-    title: "事業や市場について深く理解している。",
-    body: "言葉にするのは私たちの仕事ですが、そのためには事業の本質や市場の構造や環境を深く理解していることが欠かせません。マーケティング戦略は私たちが担いますが、事業の背景や目指す未来を共に議論し、共有できるパートナーを求めています。"
-  },
-  {
-    title: "価値を見極め、適切な投資ができること。",
-    body: "事業やブランドの成長には、適切な投資が欠かせません。融資や助成金・補助金の活用を含め、資金調達のサポートも行いますが、計画の策定や必要書類の準備など、クライアントにもご協力いただく場面があります。お互いに力を合わせながら、価値を最大化できるパートナーを求めています。"
-  },
-  {
-    title: "違いは価値になる。",
-    body: "ブランドの核は「想い」と「情熱」。phonoは、ただデザインを作るのではなく、本質的な価値を形にし、長く愛されるブランドへと育てていきます。だからこそ、「どう見せるか」だけでなく、「何を伝えるか」を共に考え、ブランドの成長に本気で向き合えるパートナーを求めています。"
-  },
-  {
-    title: "挑戦を恐れず、新しい視点を受け入れる。",
-    body: "ブランドの核は「想い」と「情熱」。phonoは、ただデザインを作るのではなく、本質的な価値を形にし、長く愛されるブランドへと育てていきます。だからこそ、「どう見せるか」だけでなく、「何を伝えるか」を共に考え、ブランドの成長に本気で向き合えるパートナーを求めています。"
-  }
-];
+const recruit = figmaAssets.recruitment;
+const sectionOf = (id: (typeof recruitmentSections)[number]["id"]) =>
+  recruitmentSections.find((section) => section.id === id)!;
 
-const eligibilityItems = [
-  ["学歴要件", "専門学校、短期大学、または四年制大学の卒業見込みまたは卒業済みの方。"],
-  ["業界経験の有無", "未経験者でもチャレンジ心がある方は歓迎します。クリエイティブ業界、広告業界、マーケティング業界での実務経験がある方は特に歓迎します。"],
-  ["ポートフォリオ提出", "クリエイティブ職種は、実績や制作物が分かるポートフォリオをご提出ください。"],
-  ["資格・技術的能力", "特定の資格は必須ではありませんが、Adobe Creative Suite、Figma、Google Analytics、SEO、SNS広告運用などのスキルは歓迎します。"]
-];
+/** A two-layer multiplied blob with its Futura number, shared by 1:2906 / 1:3359. */
+function NumberMark({ mark, value }: { mark: number; value: number }) {
+  const layers = figmaAssets.numberMarks[mark - 1];
+  return (
+    <span className={`rc-mark rc-mark-${mark}`}>
+      <FigmaAsset src={layers[0]} className="rc-mark-layer rc-mark-layer-a" sizes="142px" />
+      <FigmaAsset src={layers[1]} className="rc-mark-layer rc-mark-layer-b" sizes="142px" />
+      <span className="rc-mark-number tabular-nums" aria-hidden>
+        {value}
+      </span>
+    </span>
+  );
+}
 
-const occupations = [
-  "クリエイティブディレクター / ビジネスプロデューサー",
-  "UI / UXデザイナー / マルチデザイナー",
-  "ビデオグラファー",
-  "フォトグラファー",
-  "データアナリスト",
-  "コピーライター",
-  "PR / コミュニケーションプロデューサー",
-  "プロジェクトマネージャー",
-  "ストラテジックプランナー",
-  "マネジメントプロデュース職"
-];
-
-const recruitmentFlow = ["エントリー", "書類選考", "適性検査受験", "1次面接", "最終面接", "内定", "入社"];
-
-const benefits = [
-  "レベルアップ評価制度",
-  "クリエイティブチャレンジボーナス",
-  "チームプレイヤー評価制度",
-  "自己ブランディング支援"
-];
-
-const hospitalityRows = [
-  ["基本給", "年俸360万円〜1000万円（経験・能力に基づき決定）"],
-  ["諸手当", "交通費支給、時間外手当（条件付き）"],
-  ["勤務地", "大阪オフィス（リモート勤務可）"],
-  ["勤務時間", "フレックスタイム制（コアタイムなし）、1日実働8時間（リモートワーク対応可）"],
-  ["業務内容", "各職種における業務の遂行"],
-  ["雇用形態", "契約社員（正社員登用制度あり） ※ 契約社員として入社後、一定の期間と評価基準を満たした場合、正社員への登用が可能です。"],
-  ["給与", "年俸制（スキル・経験に基づき決定）"],
-  ["賞与", "年俸制のため、賞与は含まれています"],
-  ["休日・休暇", "年間休日120日以上、有給休暇、夏季休暇、年末年始休暇、特別休暇"],
-  ["特別休暇", "忌引休暇、結婚休暇、出産休暇、誕生日休暇、ウェルビーイング休暇（生理など体調不良に伴う特別休暇）"],
-  ["住居支援", "「賃貸サポートプログラム」：住居契約時の初期費用軽減や、条件の良い物件の紹介サポートを実施"],
-  ["試用 / 契約期間", "3ヶ月（試用期間中の待遇変更なし） ※ 試用期間終了後、業務パフォーマンスや勤怠状況を総合的に評価し、正社員登用を検討いたします。"]
-];
-
-const benefitRows = [
-  ["完全週休2日制", "土曜、日曜、祝日、年末年始を休日としています。"],
-  ["有給休暇", "入社時に10日付与され、以降は毎年1月に決められた日数が付与されます。"],
-  ["積立休暇", "翌年度に繰り越せない有給休暇は、年間20日・上限120日まで特定積立休暇として累積できます。"],
-  ["社会保険完備", "健康保険、厚生年金保険、雇用保険、労災保険に加入します。"],
-  ["交通費支給", "通勤手当（上限3万円 / 月）"],
-  ["住宅手当", "条件を満たす場合、住宅補助として月額2万円支給します。"],
-  ["転居費用 / 転居時交通費補助", "遠方から引越しされた場合、その費用を会社で補助します。（条件 / 上限金額あり）"],
-  ["健康管理サポート", "年1回の定期健康診断が受診可能です。"],
-  ["ランチ代サポート", "社内食堂を利用の際に、半額補助しています。"],
-  ["企業型確定拠出年金", "毎月拠出した金額を運用し、60歳到達後に年金または一時金として受け取る制度です。"],
-  ["病児保育＆ベビーシッター補助制度", "保育サービスを利用した際の利用料の半額を補助します。（上限金額あり）"],
-  ["Appleギフトカード / Google Playカード購入補助", "有料アプリ等の利用体験促進を目的に、購入金額の50%を補助します。（上限あり）"]
-];
-
-const styleCards = [
-  {
-    title: "制度 A",
-    body: "フレックスタイム & リモートワーク制度",
-    lead: "時間も場所も、もっと自由に。自分のリズムで働く。"
-  },
-  {
-    title: "制度 B",
-    body: "個人プロジェクト & 新規事業開発支援",
-    lead: "好きなこと、気になることを、とことん追求できる環境。"
-  }
-];
-
-const supportItems = [
-  "スキルアップ支援",
-  "メンタルヘルスケア",
-  "キャリア開発",
-  "退職金制度"
-];
-
-const faqs = [
-  ["応募に必要な書類は何ですか？", "履歴書・職務経歴書と、クリエイティブ職はポートフォリオをご用意ください。"],
-  ["リモートワークは可能ですか？", "職種やプロジェクト状況に応じて、リモート勤務を組み合わせられます。"],
-  ["試用期間中の待遇は変わりますか？", "試用期間中も待遇変更はありません。"],
-  ["社内でのキャリアアップの機会はありますか？", "評価制度とキャリア面談を通じて、成長機会を設計します。"],
-  ["社内の雰囲気はどのようなものですか？", "対話と発見を大切にする、個性豊かなチームです。"],
-  ["服装や髪色、髪型、ネイル、ピアス、タトゥーに関する決まりはありますか？", "業務に支障のない範囲で、それぞれの個性を尊重します。"],
-  ["飲み会は多いですか？お酒が苦手です。", "参加は任意です。お酒を飲まないメンバーも安心して参加できます。"],
-  ["人見知りです", "静かな関わり方も含め、それぞれが心地よく働ける関係を大切にします。"],
-  ["個性がないです", "対話を重ねながら、その人らしい強みを一緒に見つけます。"]
-];
+function Lines({ lines }: { lines: readonly string[] }) {
+  return (
+    <>
+      {lines.map((line, index) => (
+        <Fragment key={line + index}>
+          {index > 0 ? <br /> : null}
+          {line}
+        </Fragment>
+      ))}
+    </>
+  );
+}
 
 export default function RecruitmentPage() {
   return (
     <main id="main-content" className="recruitment-page">
-      <PageHero title="Recruitment" label="採用情報" assetSrc={figmaAssets.recruitment.lowerWaves[1]} assetClassName="recruitment-hero-asset">
-        <p>創造力と挑戦を正当に評価し、成長を最大限サポート。</p>
-      </PageHero>
+      {/* 1:2872 has no visible page title — the crest is the whole hero — so the
+          document heading is exposed to assistive tech only. */}
+      <h1 className="visually-hidden">Recruitment 採用情報</h1>
 
-      <section className="recruit-stance">
-        <div className="site-shell two-column">
-          <SectionHeading title="Stance" label="phonoの向き合い方" />
-          <div className="large-copy">
-            <FigmaAsset src={figmaAssets.recruitment.stanceIllustration} alt="" className="recruit-stance-asset" sizes="(max-width: 720px) 100vw, 50vw" />
-            <h2>揺らぎ、問い、関わり合う。<br />それがphonoのスタンス。</h2>
-            <p>
-              phonoは、ひとつひとつのプロジェクトにじっくりと時間をかけ、クライアントの本質を最大限に引き出すことを大切にしています。
-              それは、単なるデザインやマーケティングではなく、その企業やブランドが本来持つ「ありのまま」に深く寄り添い、
-              まだ言葉にならない想いや価値をすくい上げ、共鳴する形へと昇華させること。そのプロセスは決して一直線ではなく、
-              試行錯誤しながら形を探る「揺らぎ」の時間を必要とします。クライアント自身が気づいていない魅力を見つけるために、
-              私たちは表層的なアプローチではなく、深くしなやかに「問い」を立て、対話を繰り返しながら本質に迫ります。
-              phonoのスタンスは、「速さ」や「大量生産」ではなく、「対話」と「発見」。短期間で答えを出すのではなく、
-              価値が最も響く形へと練り上げていく。そのために、プロジェクトごとに時間とリソースを惜しみなく投じ、
-              細部にまでこだわり抜きます。そして、それを実現するには、クライアントとの関係も単なる受発注の枠を超え、
-              互いに「関わり合う」ことが不可欠です。本気で向き合い、共に考え、共に創る。
-              それが、phonoが目指すクリエイティブのあり方です。
-            </p>
+      <div className="rc-canvas">
+        <FigmaAsset src={recruit.heroWave} className="rc-hero-wave" sizes="3509px" priority />
+        <FigmaAsset src={recruit.occupationWave} className="rc-occupation-wave" sizes="1938px" />
+
+        {/* ── Stance — 1:2882 ─────────────────────────────────────────────── */}
+        <section className="rc-stance" aria-labelledby="rc-stance-title">
+          <div className="rc-head rc-head-stance">
+            <h2 id="rc-stance-title">{sectionOf("stance").title}</h2>
+            <p>{sectionOf("stance").label}</p>
           </div>
-        </div>
-      </section>
+          <FigmaAsset src={recruit.stanceRing} className="rc-stance-ring" sizes="657px" />
+          <p className="rc-stance-lead">
+            <Lines lines={stanceLead} />
+          </p>
+          <div className="rc-stance-body">
+            {stanceBody.map((group) => (
+              <p key={group[0]}>
+                <Lines lines={group} />
+              </p>
+            ))}
+          </div>
+        </section>
 
-      <section className="site-shell value-grid-section">
-        <SectionHeading title="Partner Policy" label="phonoが求めるパートナー像" />
-        <div className="value-grid">
-          {partnerPolicies.map((value, index) => (
-            <article key={value.title} className="value-card">
-              {index < figmaAssets.recruitment.benefitVisuals.length ? (
-                <FigmaAsset src={figmaAssets.recruitment.benefitVisuals[index]} alt="" className="value-card-asset" sizes="296px" />
-              ) : null}
-              <span>{index + 1}</span>
-              <h2>{value.title}</h2>
-              <p>{value.body}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+        {/* ── Partner Policy — 1:2897 ─────────────────────────────────────── */}
+        <section className="rc-partner" aria-labelledby="rc-partner-title">
+          <div className="rc-head rc-head-partner">
+            <h2 id="rc-partner-title">{sectionOf("partner").title}</h2>
+            <p>{sectionOf("partner").label}</p>
+          </div>
+          <ol className="rc-partner-list">
+            {partnerPolicies.map((policy, index) => (
+              <li key={policy.title.join("")} className={`rc-partner-card rc-partner-card-${index + 1}`}>
+                <NumberMark mark={policy.mark} value={index + 1} />
+                <h3>
+                  <Lines lines={policy.title} />
+                </h3>
+                <p>
+                  <Lines lines={policy.body} />
+                </p>
+              </li>
+            ))}
+          </ol>
+        </section>
 
-      <section className="schedule-section site-shell">
-        <SectionHeading title="Schedule" label="採用スケジュール" />
-        <div className="schedule-timeline-scroll" aria-label="採用スケジュール">
-          <FigmaAsset
-            src={figmaAssets.recruitment.timelineDiagram}
-            alt="採用スケジュール: エントリー期間、書類選考結果通知、面接期間、内定通知"
-            className="flow-diagram-asset"
-            priority
-            sizes="(max-width: 720px) 760px, 100vw"
-          />
-        </div>
-      </section>
+        {/* ── Schedule — 1:3032 ───────────────────────────────────────────── */}
+        <section className="rc-schedule" aria-labelledby="rc-schedule-title">
+          <div className="rc-head rc-head-schedule">
+            <h2 id="rc-schedule-title">{sectionOf("schedule").title}</h2>
+            <p>{sectionOf("schedule").label}</p>
+          </div>
+          <div className="rc-gantt">
+            {scheduleYears.map((year, index) => (
+              <span key={year.label} className={`rc-gantt-year rc-gantt-year-${index + 1} tabular-nums`}>
+                {year.label}
+              </span>
+            ))}
+            {scheduleMonths.map((month, index) => (
+              <span key={month} className={`rc-gantt-month rc-gantt-month-${index + 1} tabular-nums`}>
+                {month}
+              </span>
+            ))}
+            {Array.from({ length: scheduleGridCount }, (_, index) => (
+              <FigmaAsset
+                key={index}
+                src={recruit.scheduleGridline}
+                className={`rc-gantt-rule rc-gantt-rule-${index + 1}`}
+                sizes="2px"
+              />
+            ))}
+            {scheduleBars.map((bar) => (
+              <Fragment key={bar.key}>
+                <FigmaAsset
+                  src={recruit.scheduleBars[bar.key as keyof typeof recruit.scheduleBars]}
+                  className={`rc-gantt-bar rc-gantt-bar-${bar.key}`}
+                  sizes="720px"
+                />
+                <span className={`rc-gantt-label rc-gantt-label-${bar.key}`}>{bar.label}</span>
+              </Fragment>
+            ))}
+          </div>
+        </section>
 
-      <section className="flow-section site-shell">
-        <SectionHeading title="Flow" label="採用フロー" />
-        <div className="flow-row">
-          {recruitmentFlow.map((step, index) => (
-            <article key={step}>
-              <span>{index + 1}</span>
-              <p>{step}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+        {/* ── Flow — 1:2998 ──────────────────────────────────────────────── */}
+        <section className="rc-flow" aria-labelledby="rc-flow-title">
+          <div className="rc-head rc-head-flow">
+            <h2 id="rc-flow-title">{sectionOf("flow").title}</h2>
+            <p>{sectionOf("flow").label}</p>
+          </div>
+          <FigmaAsset src={recruit.flowCircles} className="rc-flow-circles" sizes="1340px" />
+          <ol className="rc-flow-list">
+            {recruitmentFlow.map((step, index) => (
+              <li key={step} className={`rc-flow-step rc-flow-step-${index + 1}`}>
+                <span className="rc-flow-number tabular-nums" aria-hidden>
+                  {index + 1}
+                </span>
+                <span className="rc-flow-label">{step}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
 
-      <section className="eligibility-section site-shell">
-        <SectionHeading title="Eligibility" label="応募資格" />
-        <div className="eligibility-list">
-          {eligibilityItems.map(([title, body], index) => (
-            <article key={title}>
-              <span>{index + 1}</span>
-              <div>
-                <h3>{title}</h3>
-                <p>{body}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+        {/* ── Eligibility — 1:3346 ───────────────────────────────────────── */}
+        <section className="rc-eligibility" aria-labelledby="rc-eligibility-title">
+          <div className="rc-head rc-head-eligibility">
+            <h2 id="rc-eligibility-title">{sectionOf("eligibility").title}</h2>
+            <p>{sectionOf("eligibility").label}</p>
+          </div>
+          <ol className="rc-eligibility-list">
+            {eligibilityItems.map((item, index) => (
+              <li key={item.title} className={`rc-eligibility-row rc-eligibility-row-${index + 1}`}>
+                <NumberMark mark={item.mark} value={index + 1} />
+                <h3>{item.title}</h3>
+                <p>
+                  <Lines lines={item.body} />
+                </p>
+              </li>
+            ))}
+          </ol>
+        </section>
 
-      <section className="site-shell recruit-details">
-        <FigmaAsset src={figmaAssets.recruitment.heroWave} alt="" className="recruit-lower-wave-asset" sizes="100vw" />
-        <div>
-          <SectionHeading title="Occupation" label="現在募集中の職種" />
-          <ul className="occupation-list">
-            {occupations.map((occupation) => (
-              <li key={occupation}>
-                <span>{occupation}</span>
-                <ArrowRight size={20} />
+        {/* ── Occupation — 1:3505 ────────────────────────────────────────── */}
+        <section className="rc-occupation" aria-labelledby="rc-occupation-title">
+          <div className="rc-head rc-head-occupation">
+            <h2 id="rc-occupation-title">{sectionOf("occupation").title}</h2>
+            <p>{sectionOf("occupation").label}</p>
+          </div>
+          <ul className="rc-occupation-list">
+            {occupations.map((occupation, index) => (
+              <li key={occupation} className={`rc-occupation-item rc-occupation-item-${index + 1}`}>
+                <Link href="/contact">
+                  <FigmaAsset src={recruit.occupationPill} className="rc-occupation-pill" sizes="561px" />
+                  <FigmaAsset src={recruit.occupationChevron} className="rc-occupation-chevron" sizes="15px" />
+                  <span className="rc-occupation-label">{occupation}</span>
+                </Link>
               </li>
             ))}
           </ul>
-        </div>
-      </section>
+        </section>
 
-      <section className="hospitality-section site-shell">
-        <SectionHeading title="Hospitality" label="待遇" />
-        <dl className="hospitality-list">
-          {hospitalityRows.map(([term, description]) => (
-            <div key={term}>
-              <dt>{term}</dt>
-              <dd>{description}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
+        {/* ── Hospitality — 1:3084 ───────────────────────────────────────── */}
+        <section className="rc-hospitality" aria-labelledby="rc-hospitality-title">
+          <div className="rc-head rc-head-hospitality">
+            <h2 id="rc-hospitality-title">{sectionOf("hospitality").title}</h2>
+            <p>{sectionOf("hospitality").label}</p>
+          </div>
+          <dl className="rc-rows">
+            {hospitalityRows.map((row) => (
+              <div key={row.term} className="rc-row">
+                <dt>{row.term}</dt>
+                <FigmaAsset src={recruit.rowBullet} className="rc-row-bullet" sizes="29px" />
+                <dd>
+                  <Lines lines={row.lines} />
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
 
-      <section className="style-section site-shell">
-        <SectionHeading title="Style" label="働き方" />
-        <div className="style-grid">
-          {styleCards.map((style) => (
-            <article key={style.title}>
-              <div className="gradient-orbit">{style.title}<strong>{style.body}</strong></div>
-              <h3>{style.lead}</h3>
-              <p>
-                phonoでは、制度を固定化せず、個人の挑戦やチームの成果につながる働き方を一緒に整えています。
+        {/* ── Style — 1:3296 / 1:3299 ────────────────────────────────────── */}
+        <section className="rc-style" aria-labelledby="rc-style-title">
+          <div className="rc-head rc-head-style">
+            <h2 id="rc-style-title">{sectionOf("style").title}</h2>
+            <p>{sectionOf("style").label}</p>
+          </div>
+          {styleCards.map((card, index) => (
+            <article key={card.letter} className={`rc-style-card rc-style-card-${index + 1}`}>
+              <FigmaAsset src={recruit.styleCircles[index]} className="rc-style-disc" sizes="537px" />
+              <p className="rc-style-badge">
+                <span>{card.badge}</span>
+                <strong>{card.letter}</strong>
+              </p>
+              <h3 className="rc-style-title">
+                <Lines lines={card.title} />
+              </h3>
+              <p className="rc-style-lead">
+                <Lines lines={card.lead} />
+              </p>
+              <p className="rc-style-body">
+                <Lines lines={card.body} />
               </p>
             </article>
           ))}
-        </div>
-      </section>
+          <p className="rc-style-note">{styleNote}</p>
+        </section>
 
-      <section className="benefits-section site-shell">
-        <SectionHeading title="Benefits" label="福利厚生" />
-        <dl className="benefits-list">
-          {benefitRows.map(([term, description]) => (
-            <div key={term}><dt>{term}</dt><dd>{description}</dd></div>
-          ))}
-        </dl>
-      </section>
+        {/* ── Benefits — 1:3188 ──────────────────────────────────────────── */}
+        <section className="rc-benefits" aria-labelledby="rc-benefits-title">
+          <div className="rc-head rc-head-benefits">
+            <h2 id="rc-benefits-title">{sectionOf("benefits").title}</h2>
+            <p>{sectionOf("benefits").label}</p>
+          </div>
+          <dl className="rc-rows">
+            {benefitRows.map((row) => (
+              <div key={row.term} className="rc-row">
+                <dt>{row.term}</dt>
+                <FigmaAsset src={recruit.rowBullet} className="rc-row-bullet" sizes="29px" />
+                <dd>
+                  <Lines lines={row.lines} />
+                </dd>
+              </div>
+            ))}
+          </dl>
+        </section>
 
-      <section className="support-section site-shell">
-        <SectionHeading title="Support" label="成長支援" />
-        <div className="support-grid">
-          {supportItems.map((item, index) => (
-            <article key={item}>
-              <div className={`gradient-orbit gradient-orbit-${index % 2 === 0 ? "purple" : "pink"}`}>{item}</div>
-              <p>専門性とコンディションの両面から、長く挑戦できる状態を支えます。</p>
-            </article>
-          ))}
-        </div>
-      </section>
+        {/* ── Support — 1:3315 ───────────────────────────────────────────── */}
+        <section className="rc-support" aria-labelledby="rc-support-title">
+          <div className="rc-head rc-head-support">
+            <h2 id="rc-support-title">{sectionOf("support").title}</h2>
+            <p>{sectionOf("support").label}</p>
+          </div>
+          <ul className="rc-support-list">
+            {supportItems.map((item, index) => (
+              <li key={item.title.join("")} className={`rc-support-item rc-support-item-${index + 1}`}>
+                <FigmaAsset src={recruit.supportCircles[index]} className="rc-support-disc" sizes="253px" />
+                <h3>
+                  <Lines lines={item.title} />
+                </h3>
+                <p>
+                  <Lines lines={item.body} />
+                </p>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-      <section className="faq-section site-shell">
-        <SectionHeading title="FAQ" label="よくある質問" />
-        <div className="faq-list">
-          {faqs.map(([question, answer]) => (
-            <details key={question}>
-              <summary>{question}</summary>
-              <p>{answer}</p>
-            </details>
-          ))}
-        </div>
-      </section>
+        {/* ── FAQ — 1:3410 ───────────────────────────────────────────────── */}
+        <section className="rc-faq" aria-labelledby="rc-faq-title">
+          <div className="rc-head rc-head-faq">
+            <h2 id="rc-faq-title">{sectionOf("faq").title}</h2>
+            <p>{sectionOf("faq").label}</p>
+          </div>
+          <ul className="rc-faq-list">
+            {faqQuestions.map((question, index) => (
+              <li key={question} className={`rc-faq-item rc-faq-item-${index + 1}`}>
+                <FigmaAsset src={recruit.faqMark} className="rc-faq-mark" sizes="88px" />
+                <span className="rc-faq-q" aria-hidden>
+                  Q
+                </span>
+                <span className="rc-faq-text">{question}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
 
-      <section className="career-section site-shell">
-        <SectionHeading title="Career up" label="評価制度" />
-        <div className="career-copy">
-          <h2>創造力と挑戦を正当に評価し、成長を最大限サポート</h2>
-          <p>
-            phonoでは、「やった分だけ評価される」ことを重視し、クリエイターが本当にやる気を出せる評価制度を導入します。
-            ただの成果主義ではなく、挑戦・成長・チーム貢献など多角的に評価し、報酬やキャリアアップにつなげる仕組みを整えています。
+        {/* ── Career up — 1:3474… + Entry 1:3502 ─────────────────────────── */}
+        <section className="rc-career" aria-labelledby="rc-career-title">
+          <div className="rc-head rc-head-career">
+            <h2 id="rc-career-title">{sectionOf("career").title}</h2>
+            <p>{sectionOf("career").label}</p>
+          </div>
+          <p className="rc-career-lead">
+            <Lines lines={careerLead} />
           </p>
-        </div>
-        <div className="benefit-grid career-grid">
-          {benefits.map((benefit, index) => (
-            <article key={benefit}>
-              {index === 1 || index === 3 ? (
-                <FigmaAsset
-                  src={figmaAssets.recruitment.benefitVisuals[index === 1 ? 0 : 1]}
-                  alt=""
-                  className="benefit-asset"
-                  sizes="296px"
-                />
-              ) : null}
-              <h3>{benefit}</h3>
-            </article>
-          ))}
-        </div>
-      </section>
+          <p className="rc-career-body">
+            <Lines lines={careerBody} />
+          </p>
+          <ul className="rc-career-list">
+            {careerCards.map((card, index) => (
+              <li key={card.join("")} className={`rc-career-item rc-career-item-${index + 1}`}>
+                <FigmaAsset src={recruit.careerCircles[index]} className="rc-career-disc" sizes="301px" />
+                <h3>
+                  <Lines lines={card} />
+                </h3>
+                <FigmaAsset src={recruit.careerChevron} className="rc-career-chevron" sizes="29px" />
+              </li>
+            ))}
+          </ul>
+          <Link href="/contact" className="rc-entry-button">
+            <FigmaAsset src={recruit.entryButton} className="rc-entry-shape" sizes="346px" />
+            <span className="rc-entry-label">{entryCta.label}</span>
+          </Link>
+          <p className="rc-entry-links">
+            {entryCta.links.map((link) => (
+              <Link key={link.label} href={link.href}>
+                {link.label}
+              </Link>
+            ))}
+          </p>
+        </section>
+      </div>
 
-      <section className="entry-section">
-        <div className="site-shell entry-inner">
-          <SectionHeading title="Entry" label="応募する" />
-          <p>まずはあなたのこと、これからやってみたいことを聞かせてください。</p>
-          <ArrowLink href="/contact" label="Contact" sublabel="エントリーする" />
-          <Link href="/projects">phonoの実績を見る</Link>
-        </div>
-      </section>
-      <div className="recruit-footer-wrap">
-        <FigmaAsset
-          src={figmaAssets.recruitment.lowerWaves[0]}
-          alt=""
-          className="recruit-footer-background-asset"
-          sizes="3026px"
-        />
+      {/* 1:3558 — the crest that runs behind the footer, off the left edge. */}
+      <div className="rc-footer-wrap">
+        <FigmaAsset src={recruit.footerWave} className="rc-footer-wave" sizes="3026px" />
         <SiteFooter />
       </div>
     </main>
