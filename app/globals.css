@@ -2159,7 +2159,7 @@ time,
 .subsidy-feature-heading {
   margin: 18px 0 0;
   font-size: clamp(26px, 2.6vw, 32px);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.5;
   color: var(--phono-black);
 }
@@ -4592,9 +4592,15 @@ body:has(.home-top) .site-header-bar .logo-mark {
   align-items: center;
 }
 
+/* 1:2660-2690 — Figma labels are Zen Kaku Gothic New Regular (400), not Medium */
+.contact-figma .contact-form label:not(.check-row) > span,
+.contact-figma .contact-form legend {
+  font-weight: 400;
+}
+
 .contact-figma .contact-form input,
 .contact-figma .contact-form textarea {
-  border: 1px solid rgb(255 255 255 / 0.92);
+  border: 1px solid #939393;
   background: white;
   color: var(--phono-black);
 }
@@ -4648,10 +4654,20 @@ body:has(.home-top) .site-header-bar .logo-mark {
 }
 
 .contact-figma .check-row input {
+  appearance: none;
   flex: 0 0 22px;
   width: 22px;
   min-height: 22px;
+  border: 1px solid #939393;
+  border-radius: 50%;
+  background: white;
   padding: 0;
+}
+
+.contact-figma .check-row input:checked {
+  background:
+    radial-gradient(circle, var(--phono-purple) 0 4px, transparent 4.5px),
+    white;
 }
 
 .contact-figma .checkbox-grid {
@@ -5688,7 +5704,7 @@ body:has(.home-top) .site-header-bar .logo-mark {
     left: 0;
     font-size: 20px;
     line-height: 29px;
-    font-weight: 500;
+    font-weight: 400;
     white-space: nowrap;
   }
 
@@ -5751,7 +5767,7 @@ body:has(.home-top) .site-header-bar .logo-mark {
     height: 143px;
     font-size: 20px;
     line-height: 29px;
-    font-weight: 500;
+    font-weight: 400;
     white-space: nowrap;
   }
 
@@ -5831,7 +5847,7 @@ body:has(.home-top) .site-header-bar .logo-mark {
     min-height: 0;
     height: 22px;
     margin: 0;
-    border: 0;
+    border: 1px solid #939393;
     border-radius: 50%;
     background: white;
     padding: 0;
@@ -5866,7 +5882,7 @@ body:has(.home-top) .site-header-bar .logo-mark {
     left: 0;
     font-size: 20px;
     line-height: 29px;
-    font-weight: 500;
+    font-weight: 400;
     white-space: nowrap;
   }
 
@@ -10130,11 +10146,15 @@ body:has(.home-top) .site-header-bar .logo-mark {
     position: absolute;
     top: 6044px;
     left: 109px;
-    width: 714px;
+    width: max-content;
     margin: 0;
     font-size: 42px;
     font-weight: 500;
     line-height: 80px;
+    letter-spacing: 0;
+    /* 1:1117 — both lines are whitespace-nowrap in Figma; a fixed 714px box
+       wrapped the final "す。" onto a third line. */
+    white-space: nowrap;
   }
 
   /* 1:1116 — 549x128 at (109, 6300). */
